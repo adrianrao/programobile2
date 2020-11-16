@@ -19,14 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="833d0584-4092-44d5-9fcb-9146a9ae287e" name="Default Changelist" comment="">
+    <list default="true" id="b6522bf7-210c-4cf7-b5a3-c2d9a6d3dcdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModuleInitializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/ModuleInitializer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/AdministradorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AdministradorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/RegistroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/RegistroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-scripts/docker-php.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/model/AdministradorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/AdministradorModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/loginCorrectoView.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/loginIncorrectoView.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/RegistroModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/RegistroModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/administradorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/loginView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/loginView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/footer.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/partial/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/header.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/registroView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/registroView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,16 +45,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="PhpServers">
     <servers>
-      <server host="localhost" id="999284bf-08ed-4f47-a5a1-c487e620ce5e" name="Logistica" />
+      <server host="localhost" id="08e54e88-2b1e-41a3-8b52-80817e5ebb94" name="logistica" />
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectId" id="1kIb8wBAktEk9L98y5MVaD7vm91" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="1kISGPeJOZtWgZMWd5YTppUciEC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -56,16 +66,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../php/ext/php_xdebug.dll" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\third-party\css" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Logistica" start_url="/htdocs/index.php">
+    <configuration name="Unnamed" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" nameIsGenerated="true" server_name="logistica" start_url="/htdocs/indix.php">
       <method v="2">
         <option name="FtpUpload" enabled="true">
-          <server_id>50db7fc0-8fd8-4cff-9672-43b235e23572</server_id>
-          <server_name>Logistica</server_name>
+          <server_id>60a7d3e1-750b-4c23-848a-4ec3d4947be9</server_id>
+          <server_name>logistica</server_name>
           <group_name />
           <path>C:\xampp\htdocs</path>
         </option>
@@ -75,13 +90,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="833d0584-4092-44d5-9fcb-9146a9ae287e" name="Default Changelist" comment="" />
-      <created>1605390897295</created>
+      <changelist id="b6522bf7-210c-4cf7-b5a3-c2d9a6d3dcdb" name="Default Changelist" comment="" />
+      <created>1605386515366</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1605390897295</updated>
-      <workItem from="1605390898378" duration="3796000" />
-      <workItem from="1605405146059" duration="6472000" />
+      <updated>1605386515366</updated>
+      <workItem from="1605386516405" duration="8104000" />
+      <workItem from="1605469929824" duration="236000" />
+      <workItem from="1605470167022" duration="8935000" />
     </task>
     <servers />
   </component>
@@ -100,61 +116,41 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="263" y="19" key="#CLI_Interpreters" timestamp="1605392097618">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="540" y="174" key="#CLI_Interpreters" timestamp="1605391963781">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="263" y="19" key="#CLI_Interpreters/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605392097618" />
-    <state x="275" y="29" key="#Deployment" timestamp="1605392473045">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="540" y="174" key="#CLI_Interpreters/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605391963781" />
+    <state x="552" y="189" key="#Deployment" timestamp="1605392270782">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="275" y="29" key="#Deployment/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605392473045" />
-    <state x="390" y="7" key="#PHP" timestamp="1605390924314">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="552" y="189" key="#Deployment/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392270782" />
+    <state x="667" y="162" key="#PHP" timestamp="1605389374294">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="390" y="7" key="#PHP/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605390924314" />
-    <state x="391" y="100" key="#Servers" timestamp="1605391737904">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="667" y="162" key="#PHP/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605389374294" />
+    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605392285282">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="391" y="100" key="#Servers/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605391737904" />
-    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605392500155">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392285282" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1605470156956">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605392500155" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605405738361">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605470156956" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1605392150288">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605405738361" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1605392292547">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392150288" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605470067757">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605392292547" />
-    <state x="510" y="87" key="NewPhpClassDialog" timestamp="1605406448683">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605470067757" />
+    <state x="789" y="401" key="com.jetbrains.plugins.webDeployment.ui.UploadBeforeRunTaskDialog" timestamp="1605392274997">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="510" y="87" key="NewPhpClassDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605406448683" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1605407499423">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="789" y="401" key="com.jetbrains.plugins.webDeployment.ui.UploadBeforeRunTaskDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392274997" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605472514905">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605407499423" />
-    <state x="184" y="9" key="SettingsEditor" timestamp="1605392300250">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="184" y="9" key="SettingsEditor/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605392300250" />
-    <state x="512" y="241" key="com.jetbrains.plugins.webDeployment.ui.UploadBeforeRunTaskDialog" timestamp="1605392485253">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="512" y="241" key="com.jetbrains.plugins.webDeployment.ui.UploadBeforeRunTaskDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605392485253" />
-    <state x="-8" y="-720" width="597" height="696" maximized="true" key="dock-window-1" timestamp="1605410296464">
-      <screen x="0" y="-720" width="1280" height="680" />
-    </state>
-    <state x="-8" y="-720" width="597" height="696" maximized="true" key="dock-window-1/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605410296464" />
-    <state x="576" y="-720" width="711" height="687" key="dock-window-2" timestamp="1605410296465">
-      <screen x="0" y="-720" width="1280" height="680" />
-    </state>
-    <state x="576" y="-720" width="711" height="687" key="dock-window-2/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605410296465" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1605392375878">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1605392375878" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605472514905" />
   </component>
 </project>

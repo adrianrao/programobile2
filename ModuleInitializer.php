@@ -40,13 +40,4 @@ class ModuleInitializer
         $model = new RegistroModel($this->database);
         return new RegistroController($model, $this->renderer);
     }
-
-    public function createAdministradorController()
-    {
-        include_once("model/AdministradorModel.php");
-        include_once("controller/AdministradorController.php");
-
-        $model = new AdministradorModel($this->database);
-        return new AdministradorController($model, $this->renderer);
-    }
 }

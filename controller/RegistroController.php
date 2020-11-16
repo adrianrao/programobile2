@@ -4,12 +4,12 @@
 class RegistroController
 {
 
-    private $loginModel;
+    private $registroModel;
     private $renderer;
 
 
-    public function __construct($loginModel,$renderer){
-        $this->loginModel = $loginModel;
+    public function __construct($registroModel,$renderer){
+        $this->registroModel = $registroModel;
         $this->renderer = $renderer;
 
     }
@@ -26,15 +26,21 @@ class RegistroController
         $dni = $_POST["dni"];
         $f_nac = $_POST["f_nac"];
 
+        $usuarioExisteEnDB= $this->registroModel->usuarioYaRegistrado($usuario);
 
-        $fueRegistrado = $this->loginModel->registrarEmpleado($usuario, $password, $dni, $f_nac);
+        if(!$usuarioExisteEnDB){
+            $fueRegistrado = $this->registroModel->registrarEmpleado($usuario, $password, $dni, $f_nac);
+        }
 
         if($fueRegistrado){
-            echo $this->renderer->render("./view/loginCorrectoView.php");
+            $data["mensajeOk"] = "Registro completado con éxito";
+        }else if($usuarioExisteEnDB){
+            $data["mensaje"] = "El usuario ya existe";
         }else{
             $data["mensaje"] = "Error al registrar usuario";
-            echo $this->renderer->render("./view/registroView.php", $data);
         }
+
+        echo $this->renderer->render("./view/registroView.php", $data);
     }
 
 }
