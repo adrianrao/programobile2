@@ -16,7 +16,7 @@ class AdministradorController
 
     public function index(){
 
-        echo $this->renderer->render( "view/administradorView.php",);
+        echo $this->renderer->render( "view/administradorView.php");
     }
 
 
@@ -24,11 +24,9 @@ class AdministradorController
 
         $usuariosSinRoles = $this->administradorModel->traerTodosLosUsuariosSinRol();
         $roles = $this->administradorModel->traerTodosLosRoles();
-
-
             $data["UsuariosSinRol"] = $usuariosSinRoles;
             $data["roles"] = $roles;
-                echo $this->renderer->render("./view/administradorView.php", $data);
+            echo $this->renderer->render("./view/administradorView.php", $data);
 
     }
 

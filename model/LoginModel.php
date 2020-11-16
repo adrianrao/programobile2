@@ -14,6 +14,8 @@ class LoginModel
         return $this->database->query("SELECT * FROM empleado WHERE usuario = '$nombre' and password = '$password'");
     }
 
-
+    public function buscarEmpleado($usuario){
+        return $this->database->query("SELECT * FROM empleado LEFT JOIN rol ON empleado.id_rol = rol.id_rol WHERE usuario = '$usuario'");
+    }
 
 }

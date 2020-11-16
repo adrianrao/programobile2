@@ -22,11 +22,15 @@ class LoginController
     public function procesarFormulario(){
         $usuarioObtenido = $_POST["usuario"];
         $passwordObtenido = $_POST["password"];
-        $usuarioEncontrado = $this->loginModel->buscarEmpleadoPorUsuarioYPassword($usuarioObtenido,$passwordObtenido);
-
+        $usuarioEncontrado = $this->loginModel->buscarEmpleado($usuarioObtenido,$passwordObtenido);
         if($usuarioEncontrado != null){
             $data["mensaje"] = $usuarioEncontrado;
-            echo $this->renderer->render("./view/administradorView.php", $data);
+            $rol = $usuarioEncontrado[0]["descripcion"];
+            $_SESSION["rol"] = $rol;
+            if(strtolower($rol) == strtolower("administrador"))
+                echo $this->renderer->render("./view/administradorView.php", $data);
+            else
+                echo "Bienvenido usuario : $rol";
 
         }else{
             $data["mensaje"] = "Usuario y/o contraseña incorrecto";

@@ -16,14 +16,6 @@
         border-bottom: 1px solid #ff6d00;
     }
 </style>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems);
-    });
-    var instance = M.FormSelect.getInstance(elem);
-
-</script>
 <nav >
     <div style="padding: 0 10px !important" class="nav-wrapper black">
         <a href="#" class="brand-logo">Administrador</a>
