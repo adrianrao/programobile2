@@ -26,8 +26,8 @@ class LoginController
         $usuarioEncontrado = $this->loginModel->buscarEmpleadoPorUsuarioYPassword($usuarioObtenido,$passwordObtenido);
 
         if($usuarioEncontrado != null){
-            $data["mensaje"] = "Usuario registrado.";
-            echo $this->renderer->render("./view/loginView.php", $data);
+            $data["mensaje"] = $usuarioEncontrado;
+            echo $this->renderer->render("./view/pendienteDeRolView.php", $data);
 
         }else{
             $data["mensaje"] = "Usuario y/o contraseña incorrecto";
