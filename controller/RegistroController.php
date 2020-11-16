@@ -41,6 +41,8 @@ class RegistroController
         }
 
         echo $this->renderer->render("./view/registroView.php", $data);
+
+
     }
 
 }

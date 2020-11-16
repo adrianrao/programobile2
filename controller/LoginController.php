@@ -26,7 +26,7 @@ class LoginController
 
         if($usuarioEncontrado != null){
             $data["mensaje"] = $usuarioEncontrado;
-            echo $this->renderer->render("./view/pendienteDeRolView.php", $data);
+            echo $this->renderer->render("./view/administradorView.php", $data);
 
         }else{
             $data["mensaje"] = "Usuario y/o contraseña incorrecto";

@@ -11,7 +11,7 @@ class AdministradorModel
     }
 
     public function buscarUsuarioPorId($idUsuario){
-        return $this->db->query("select * FROM empleado where id_usuario = '$idUsuario' ");
+        return $this->db->query("SELECT * FROM empleado emp left join rol rol ON rol.id_rol =  emp.id_rol where id_usuario = '$idUsuario'");
     }
 
     public function asignarRol($id_rol, $idUsuario){
@@ -27,11 +27,11 @@ class AdministradorModel
     }
 
     public function traerTodosLosUsuariosABorrar(){
-        return $this->db->query("select * FROM empleado where id_rol <> 1 OR id_rol IS null ");
+        return $this->db->query("SELECT * FROM empleado emp left join rol rol ON rol.id_rol =  emp.id_rol where emp.id_rol <> 1 OR emp.id_rol IS null ");
     }
 
     public function traerTodosLosUsuariosAModificar(){
-        return $this->db->query("select * FROM empleado ");
+        return $this->db->query("SELECT * FROM empleado emp left join rol rol ON rol.id_rol =  emp.id_rol ");
     }
 
     public function modificarUnUsuario($idUsuario,$usuario,$dni,$f_nac,$id_rol){

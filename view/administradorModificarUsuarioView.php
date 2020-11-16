@@ -65,7 +65,7 @@
                 <div class="card-action">
                         <div class="input-field col s12">
                             <select name="rol" required>
-                                <option value="{{id_rol}}"  selected>{{id_rol}}</option>
+                                <option value="{{id_rol}}"  selected>{{descripcion}}</option>
                                 {{#roles}}
                                 <option value="{{id_rol}}">{{descripcion}}</option>
                                 {{/roles}}

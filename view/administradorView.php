@@ -84,7 +84,7 @@
                     <p><strong>ID:</strong> {{id_usuario}}</p>
                     <p><strong>Dni:</strong> {{dni}}</p>
                     <p><strong>Fecha de nacimiento:</strong> {{f_nac}}</p>
-                    <p><strong>Rol:</strong> {{id_rol}}</p>
+                    <p><strong>Rol:</strong> {{descripcion}}</p>
                 </div>
                 <div class="card-action">
                     <form action="/administrador/darDeBajaUnUsuario" method="post">
@@ -111,7 +111,7 @@
                     <p><strong>ID:</strong> {{id_usuario}}</p>
                     <p><strong>Dni:</strong> {{dni}}</p>
                     <p><strong>Fecha de nacimiento:</strong> {{f_nac}}</p>
-                    <p><strong>Rol:</strong> {{id_rol}}</p>
+                    <p><strong>Rol:</strong> {{descripcion}}</p>
                 </div>
                 <div class="card-action">
                     <form action="/administrador/modificarAUnUsuario" method="post">

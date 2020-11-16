@@ -19,14 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6522bf7-210c-4cf7-b5a3-c2d9a6d3dcdb" name="Default Changelist" comment="Se borra la carpeta docker">
-      <change afterPath="$PROJECT_DIR$/controller/AdministradorController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/AdministradorModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/administradorModificarUsuarioView.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
+    <list default="true" id="b6522bf7-210c-4cf7-b5a3-c2d9a6d3dcdb" name="Default Changelist" comment="Se agrega AdministradorController.php AdministradorModel.php , administradorView.php , administradorModificarUsuarioView.php&#10;Se modifica ModuleInitializer.php para agregar el AdministradorController.php&#10;&#10;Queda pendiente arreglar los datos del tipo DATE que la base no los toma bien&#10;&#10;Y hacer un join para mostrar la descripcion del rol en los usuarios y no el valor numerico del rol&#10;&#10;se agrega en el header font-icon&#10;&#10;falta validar el tipo de login, dependiendo el rol redirreccionar, agregar la variable $_SESSION.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModuleInitializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/ModuleInitializer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/RegistroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/RegistroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/AdministradorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/AdministradorModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/RegistroModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/RegistroModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/administradorModificarUsuarioView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administradorModificarUsuarioView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/administradorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partial/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/header.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,8 +103,23 @@
       <workItem from="1605469929824" duration="236000" />
       <workItem from="1605470167022" duration="12701000" />
       <workItem from="1605487551184" duration="1033000" />
-      <workItem from="1605496340246" duration="366000" />
+      <workItem from="1605496340246" duration="3443000" />
     </task>
+    <task id="LOCAL-00001" summary="Se agrega AdministradorController.php AdministradorModel.php , administradorView.php , administradorModificarUsuarioView.php&#10;Se modifica ModuleInitializer.php para agregar el AdministradorController.php&#10;&#10;Queda pendiente arreglar los datos del tipo DATE que la base no los toma bien&#10;&#10;Y hacer un join para mostrar la descripcion del rol en los usuarios y no el valor numerico del rol&#10;&#10;se agrega en el header font-icon&#10;&#10;falta validar el tipo de login, dependiendo el rol redirreccionar, agregar la variable $_SESSION.">
+      <created>1605496857309</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605496857309</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Se agrega AdministradorController.php AdministradorModel.php , administradorView.php , administradorModificarUsuarioView.php&#10;Se modifica ModuleInitializer.php para agregar el AdministradorController.php&#10;&#10;Queda pendiente arreglar los datos del tipo DATE que la base no los toma bien&#10;&#10;Y hacer un join para mostrar la descripcion del rol en los usuarios y no el valor numerico del rol&#10;&#10;se agrega en el header font-icon&#10;&#10;falta validar el tipo de login, dependiendo el rol redirreccionar, agregar la variable $_SESSION.">
+      <created>1605496875573</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605496875573</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +136,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Se agrega AdministradorController.php AdministradorModel.php , administradorView.php , administradorModificarUsuarioView.php&#10;Se modifica ModuleInitializer.php para agregar el AdministradorController.php&#10;&#10;Queda pendiente arreglar los datos del tipo DATE que la base no los toma bien&#10;&#10;Y hacer un join para mostrar la descripcion del rol en los usuarios y no el valor numerico del rol&#10;&#10;se agrega en el header font-icon&#10;&#10;falta validar el tipo de login, dependiendo el rol redirreccionar, agregar la variable $_SESSION." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se agrega AdministradorController.php AdministradorModel.php , administradorView.php , administradorModificarUsuarioView.php&#10;Se modifica ModuleInitializer.php para agregar el AdministradorController.php&#10;&#10;Queda pendiente arreglar los datos del tipo DATE que la base no los toma bien&#10;&#10;Y hacer un join para mostrar la descripcion del rol en los usuarios y no el valor numerico del rol&#10;&#10;se agrega en el header font-icon&#10;&#10;falta validar el tipo de login, dependiendo el rol redirreccionar, agregar la variable $_SESSION." />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="174" key="#CLI_Interpreters" timestamp="1605391963781">
@@ -138,10 +158,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392285282" />
-    <state x="2288" y="47" key="DiffContextDialog" timestamp="1605496030288">
+    <state x="2288" y="47" key="DiffContextDialog" timestamp="1605496903756">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2288" y="47" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496030288" />
+    <state x="2288" y="47" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496903756" />
     <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1605496334192">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -159,6 +179,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392150288" />
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2" timestamp="1605496977198">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496977198" />
     <state x="2697" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605495839152">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
