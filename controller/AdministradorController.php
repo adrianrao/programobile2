@@ -23,10 +23,20 @@ class AdministradorController
     public function obtenerUsuariosSinRol(){
 
         $usuariosSinRoles = $this->administradorModel->traerTodosLosUsuariosSinRol();
-        $roles = $this->administradorModel->traerTodosLosRoles();
+
+        if($usuariosSinRoles != null){
+            $roles = $this->administradorModel->traerTodosLosRoles();
             $data["UsuariosSinRol"] = $usuariosSinRoles;
             $data["roles"] = $roles;
             echo $this->renderer->render("./view/administradorView.php", $data);
+        }else{
+
+
+
+            $data["sinPendientesDeRol"] = "No hay usuarios pendentes de asignar rol";
+
+            echo $this->renderer->render("./view/administradorView.php", $data);
+        }
 
     }
 

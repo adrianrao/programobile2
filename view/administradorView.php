@@ -126,7 +126,12 @@
         </div>
     </div>
 </div>
+
 {{/usuariosAModificar}}
+
+{{#sinPendientesDeRol}}
+<p class="error center-align green-text ">{{sinPendientesDeRol}}</p>
+{{/sinPendientesDeRol}}
 
 {{#modificacionOk}}
 <p class="error center-align red-text ">{{modificacionOk}}</p>
@@ -135,6 +140,7 @@
 {{#modificacionFallo}}
 <p class="error center-align red-text ">{{modificacionFallo}}</p>
 {{/modificacionFallo}}
+
 
 
 {{> footer}}
