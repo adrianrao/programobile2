@@ -32,7 +32,7 @@ class RegistroController
             $fueRegistrado = $this->registroModel->registrarEmpleado($usuario, $password, $dni, $f_nac);
         }
 
-        if($fueRegistrado){
+        if(isset($fueRegistrado)){
             $data["mensajeOk"] = "Registro completado con éxito";
         }else if($usuarioExisteEnDB){
             $data["mensaje"] = "El usuario ya existe";
