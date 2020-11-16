@@ -19,20 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6522bf7-210c-4cf7-b5a3-c2d9a6d3dcdb" name="Default Changelist" comment="">
+    <list default="true" id="b6522bf7-210c-4cf7-b5a3-c2d9a6d3dcdb" name="Default Changelist" comment="Se borra la carpeta docker">
+      <change afterPath="$PROJECT_DIR$/controller/AdministradorController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/AdministradorModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/administradorModificarUsuarioView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ModuleInitializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/ModuleInitializer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/AdministradorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AdministradorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/RegistroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/RegistroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-scripts/docker-php.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/AdministradorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/AdministradorModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/RegistroModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/RegistroModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/administradorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/loginView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/loginView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/footer.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/header.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/registroView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/registroView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +35,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,13 +61,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/view" />
     <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\view" />
+      <recent name="C:\xampp\htdocs\model" />
+      <recent name="C:\xampp\htdocs\controller" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\third-party\css" />
     </key>
@@ -97,7 +100,9 @@
       <updated>1605386515366</updated>
       <workItem from="1605386516405" duration="8104000" />
       <workItem from="1605469929824" duration="236000" />
-      <workItem from="1605470167022" duration="8935000" />
+      <workItem from="1605470167022" duration="12701000" />
+      <workItem from="1605487551184" duration="1033000" />
+      <workItem from="1605496340246" duration="366000" />
     </task>
     <servers />
   </component>
@@ -114,6 +119,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="174" key="#CLI_Interpreters" timestamp="1605391963781">
@@ -132,22 +138,40 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392285282" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1605470156956">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2288" y="47" key="DiffContextDialog" timestamp="1605496030288">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605470156956" />
+    <state x="2288" y="47" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496030288" />
+    <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1605496334192">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605487541472" />
+    <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496334192" />
+    <state x="2432" y="386" key="NewPhpFileDialog" timestamp="1605492840456">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2432" y="386" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605492840456" />
+    <state x="3264" y="184" key="RollbackChangesDialog" timestamp="1605496044749">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3264" y="184" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496044749" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1605392150288">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392150288" />
-    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605470067757">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2697" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605495839152">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605470067757" />
+    <state x="2697" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605495839152" />
     <state x="789" y="401" key="com.jetbrains.plugins.webDeployment.ui.UploadBeforeRunTaskDialog" timestamp="1605392274997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="789" y="401" key="com.jetbrains.plugins.webDeployment.ui.UploadBeforeRunTaskDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392274997" />
+    <state x="2080" y="0" width="1391" height="1028" maximized="true" key="dock-window-1" timestamp="1605487549762">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2080" y="0" width="1391" height="1028" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605487549762" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605472514905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
