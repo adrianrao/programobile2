@@ -15,8 +15,7 @@ class LoginController
     }
 
     public function index(){
-
-        echo $this->renderer->render( "view/loginView.php",);
+        echo $this->renderer->render( "view/loginView.php");
     }
 
 
