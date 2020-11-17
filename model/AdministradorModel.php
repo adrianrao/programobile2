@@ -35,7 +35,7 @@ class AdministradorModel
     }
 
     public function modificarUnUsuario($idUsuario,$usuario,$dni,$f_nac,$id_rol){
-        return $this->db->ejecutarQuery("UPDATE empleado SET usuario = '$usuario' , dni = $dni, f_nac = $f_nac, id_rol = '$id_rol' 
+        return $this->db->ejecutarQuery("UPDATE empleado SET usuario = '$usuario' , dni = $dni, f_nac = STR_TO_DATE('$f_nac', '%Y-%m-%d'), id_rol = '$id_rol' 
                                         WHERE id_usuario = '$idUsuario'");
     }
 

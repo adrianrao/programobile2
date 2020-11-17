@@ -33,7 +33,7 @@ class AdministradorController
 
 
 
-            $data["sinPendientesDeRol"] = "No hay usuarios pendentes de asignar rol";
+            $data["sinPendientesDeRol"] = "No hay usuarios pendientes de asignar rol";
 
             echo $this->renderer->render("./view/administradorView.php", $data);
         }
@@ -46,7 +46,9 @@ class AdministradorController
 
         $this->administradorModel->asignarRol($rol,$idUsuario);
 
-        echo $this->renderer->render("./view/administradorView.php");
+        $data["rolAsignado"] = "El rol ha sido asignado correctamente";
+
+        echo $this->renderer->render("./view/administradorView.php" , $data);
 
     }
 
@@ -62,7 +64,8 @@ class AdministradorController
         $idUsuario = $_POST["idUsuario"];
 
         $this->administradorModel->deleteUsuario($idUsuario);
-        echo $this->renderer->render("./view/administradorView.php");
+        $data["usuarioEliminado"] = "El usuario se elimino correctamente";
+        echo $this->renderer->render("./view/administradorView.php",$data);
     }
 
     public function traerTodosLosUsuariosAModificar(){
@@ -98,6 +101,12 @@ class AdministradorController
 
         echo $this->renderer->render("./view/administradorView.php" , $data);
 
+
+    }
+
+    public function cerrarSesion(){
+        session_destroy();
+        echo $this->renderer->render("./view/loginView.php");
 
     }
 

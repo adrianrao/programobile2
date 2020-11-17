@@ -31,7 +31,7 @@
             <li class="orange darken-2"><a href="/administrador/obtenerUsuariosSinRol">Asignar rol a usuarios sin rol</a></li>
             <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosABorrar">Dar de baja a usuarios</a></li>
             <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosAModificar">Modificar usuario</a></li>
-            <li class="red darken-2"><a>Cerrar sesión</a></li>
+            <li class="red darken-2"><a href="/administrador/cerrarSesion">Cerrar sesión</a></li>
         </ul>
 
     </div>
@@ -130,17 +130,74 @@
 {{/usuariosAModificar}}
 
 {{#sinPendientesDeRol}}
-<p class="error center-align green-text ">{{sinPendientesDeRol}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <p class="error center-align green-text ">{{sinPendientesDeRol}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {{/sinPendientesDeRol}}
 
 {{#modificacionOk}}
-<p class="error center-align red-text ">{{modificacionOk}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <p class="error center-align green-text ">{{modificacionOk}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {{/modificacionOk}}
 
 {{#modificacionFallo}}
-<p class="error center-align red-text ">{{modificacionFallo}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <p class="error center-align red-text ">{{modificacionFallo}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {{/modificacionFallo}}
 
+{{#usuarioEliminado}}
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <p class="error center-align red-text ">{{usuarioEliminado}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/usuarioEliminado}}
+
+{{#rolAsignado}}
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <p class="error center-align green-text ">{{rolAsignado}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/rolAsignado}}
 
 
 {{> footer}}

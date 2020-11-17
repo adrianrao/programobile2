@@ -27,10 +27,25 @@ class LoginController
             $data["mensaje"] = $usuarioEncontrado;
             $rol = $usuarioEncontrado[0]["descripcion"];
             $_SESSION["rol"] = $rol;
-            if(strtolower($rol) == strtolower("administrador"))
-                echo $this->renderer->render("./view/administradorView.php", $data);
-            else
-                echo "Bienvenido usuario : $rol";
+
+            switch ($rol) {
+                case "administrador":
+                    echo $this->renderer->render("./view/administradorView.php",$data);
+                    break;
+                case "camionero":
+                    echo $this->renderer->render("./view/camioneroView.php", $data);
+                    break;
+                case "mecanico":
+                    echo $this->renderer->render("./view/mecanicoView.php", $data);
+                    break;
+                case "supervisor":
+                    echo $this->renderer->render("./view/supervisorView.php", $data);
+                    break;
+                default:
+                    echo $this->renderer->render("./view/pendienteDeRolView.php", $data);
+                    break;
+            }
+
 
         }else{
             $data["mensaje"] = "Usuario y/o contraseña incorrecto";
