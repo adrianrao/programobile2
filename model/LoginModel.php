@@ -18,4 +18,9 @@ class LoginModel
         return $this->database->query("SELECT * FROM empleado LEFT JOIN rol ON empleado.id_rol = rol.id_rol WHERE usuario = '$usuario'");
     }
 
+    public function traerTodosLosRoles(){
+        return $this->database->query("select * FROM rol");
+    }
+
+
 }
