@@ -100,7 +100,7 @@ class AdministradorController
 
     public function modificarUsuario(){
         $usuario = $_POST["usuario"];
-        $nombre_completo= $_POST["usuario"];
+        $nombre_completo= $_POST["nombreCompleto"];
         $dni= $_POST["dni"];
         $f_nac= $_POST["f_nac"];
         $id_rol= $_POST["rol"];

@@ -45,7 +45,7 @@
             <div class="card black darken-1">
                 <div class="card-content white-text">
                     <span class="card-title">Usuario: {{usuario}}</span>
-                    <p><strong>ID:</strong> {{id_usuario}}</p>
+                    <p><strong>Nombre completo:</strong> {{nombre_completo}}</p>
                     <p><strong>Dni:</strong> {{dni}}</p>
                     <p><strong>Fecha de nacimiento:</strong> {{f_nac}}</p>
                     <p><strong>Rol:</strong> {{descripcion}}</p>
@@ -87,6 +87,12 @@
                                 <label for="username">Ingrese Usuario:</label>
                                 <input type="text" id="usuario" name="usuario" class="white-text" value="{{usuario}}" required>
                             </div><br>
+
+                            <div class="form-field">
+                                <label for="username">Ingrese Nombre completo:</label>
+                                <input type="text" id="usuario" name="nombreCompleto" class="white-text" value="{{nombre_completo}}" required>
+                            </div><br>
+
 
                             <div class="form-field">
                                 <label for="dni">D.N.I.:</label>
