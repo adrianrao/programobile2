@@ -34,9 +34,15 @@
             </div>
             <form method="POST" action="/registro/procesarFormulario">
                 <div class="card-content">
+
                     <div class="form-field">
-                        <label for="username">Ingrese Usuario:</label>
+                        <label for="username">Ingrese usuario:</label>
                         <input type="text" id="usuario" name="usuario" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <label for="username">Ingrese nombre completo:</label>
+                        <input type="text" id="nombreCompleto" name="nombreCompleto" class="white-text" required>
                     </div><br>
 
                     <div class="form-field">

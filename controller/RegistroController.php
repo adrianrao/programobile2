@@ -21,7 +21,9 @@ class RegistroController
 
 
     public function procesarFormulario(){
+
         $usuario = $_POST["usuario"];
+        $nombreCompleto = $_POST["nombreCompleto"];
         $password = $_POST["password"];
         $dni = $_POST["dni"];
         $f_nac = $_POST["f_nac"];
@@ -29,7 +31,7 @@ class RegistroController
         $usuarioExisteEnDB= $this->registroModel->usuarioYaRegistrado($usuario);
 
         if(!$usuarioExisteEnDB){
-            $fueRegistrado = $this->registroModel->registrarEmpleado($usuario, $password, $dni, $f_nac);
+            $fueRegistrado = $this->registroModel->registrarEmpleado($usuario, $nombreCompleto, $password, $dni, $f_nac);
         }
 
         if(isset($fueRegistrado)){
