@@ -38,7 +38,7 @@
 </nav>
 </header>
 
-{{#UsuariosSinRol}}
+{{#accionDelAdministrador}}
 <div class="container">
     <div class="row">
         <div class="col s12 m12">
@@ -48,10 +48,11 @@
                     <p><strong>ID:</strong> {{id_usuario}}</p>
                     <p><strong>Dni:</strong> {{dni}}</p>
                     <p><strong>Fecha de nacimiento:</strong> {{f_nac}}</p>
-                    <p><strong>Rol:</strong> {{id_rol}}</p>
+                    <p><strong>Rol:</strong> {{descripcion}}</p>
                 </div>
                 <div class="card-action">
-                    <form action="/administrador/asignarRolAUsuario" method="post">
+                    <form action="/administrador/{{accion}}" method="post">
+                        {{#select}}
                         <div class="input-field col s12">
                                 <select name="rol" required>
                                     <option value="" disabled selected>Sin rol</option>
@@ -61,143 +62,78 @@
                                 </select>
                             <label>Seleccione un rol</label>
                         </div>
+                        {{/select}}
                         <input type="hidden" value="{{id_usuario}}" name="idUsuario">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Asignar rol
+                        <button class="btn waves-effect waves-light" type="submit" name="action">{{textoDeLaAccionDelBoton}}
                             <i class="material-icons right">send</i>
                     </form>
-
                     </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{/UsuariosSinRol}}
+{{/accionDelAdministrador}}
 
-{{#usuariosABorrar}}
+{{#usuarioAModificar}}
 <div class="container">
     <div class="row">
         <div class="col s12 m12">
             <div class="card black darken-1">
                 <div class="card-content white-text">
-                    <span class="card-title">Usuario: {{usuario}}</span>
-                    <p><strong>ID:</strong> {{id_usuario}}</p>
-                    <p><strong>Dni:</strong> {{dni}}</p>
-                    <p><strong>Fecha de nacimiento:</strong> {{f_nac}}</p>
-                    <p><strong>Rol:</strong> {{descripcion}}</p>
-                </div>
-                <div class="card-action">
-                    <form action="/administrador/darDeBajaUnUsuario" method="post">
-                        <input type="hidden" value="{{id_usuario}}" name="idUsuario">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Dar de baja
-                            <i class="material-icons right">send</i>
-                    </form>
+                    <form method="POST" action="/administrador/modificarUsuario">
+                        <div class="card-content">
+                            <div class="form-field">
+                                <label for="username">Ingrese Usuario:</label>
+                                <input type="text" id="usuario" name="usuario" class="white-text" value="{{usuario}}" required>
+                            </div><br>
 
+                            <div class="form-field">
+                                <label for="dni">D.N.I.:</label>
+                                <input type="number" id="dni" name="dni" class="white-text" value="{{dni}}"  required>
+                            </div><br>
+
+                            <div class="form-field">
+                                <label for="f_nac">Ingrese fecha nacimiento:</label>
+                                <input type="date" id="f_nac" name="f_nac" class="white-text" value="{{f_nac}}" required>
+                            </div><br>
+
+                        </div>
+                        <div class="card-action">
+                            <div class="input-field col s12">
+                                <select name="rol" required>
+                                    <option value="{{id_rol}}"  selected>{{descripcion}}</option>
+                                    {{#roles}}
+                                    <option value="{{id_rol}}">{{descripcion}}</option>
+                                    {{/roles}}
+                                </select>
+                                <label>Seleccione un rol</label>
+                            </div>
+                            <input type="hidden" value="{{id_usuario}}" name="idUsuario">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Modificar Usuario
+                                <i class="material-icons right">send</i>
+                    </form>
                     </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{/usuariosABorrar}}
+{{/usuarioAModificar}}
 
-{{#usuariosAModificar}}
+{{#notificacion}}
 <div class="container">
     <div class="row">
         <div class="col s12 m12">
             <div class="card black darken-1">
                 <div class="card-content white-text">
-                    <span class="card-title">Usuario: {{usuario}}</span>
-                    <p><strong>ID:</strong> {{id_usuario}}</p>
-                    <p><strong>Dni:</strong> {{dni}}</p>
-                    <p><strong>Fecha de nacimiento:</strong> {{f_nac}}</p>
-                    <p><strong>Rol:</strong> {{descripcion}}</p>
-                </div>
-                <div class="card-action">
-                    <form action="/administrador/modificarAUnUsuario" method="post">
-                        <input type="hidden" value="{{id_usuario}}" name="idUsuario">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Modificar
-                            <i class="material-icons right">send</i>
-                    </form>
-
-                    </button>
+                    <p class="error center-align {{colorNotificacion}}-text ">{{notificacion}}</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-{{/usuariosAModificar}}
-
-{{#sinPendientesDeRol}}
-<div class="container">
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card black darken-1">
-                <div class="card-content white-text">
-                    <p class="error center-align green-text ">{{sinPendientesDeRol}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{/sinPendientesDeRol}}
-
-{{#modificacionOk}}
-<div class="container">
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card black darken-1">
-                <div class="card-content white-text">
-                    <p class="error center-align green-text ">{{modificacionOk}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{/modificacionOk}}
-
-{{#modificacionFallo}}
-<div class="container">
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card black darken-1">
-                <div class="card-content white-text">
-                    <p class="error center-align red-text ">{{modificacionFallo}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{/modificacionFallo}}
-
-{{#usuarioEliminado}}
-<div class="container">
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card black darken-1">
-                <div class="card-content white-text">
-                    <p class="error center-align red-text ">{{usuarioEliminado}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{/usuarioEliminado}}
-
-{{#rolAsignado}}
-<div class="container">
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card black darken-1">
-                <div class="card-content white-text">
-                    <p class="error center-align green-text ">{{rolAsignado}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{/rolAsignado}}
+{{/notificacion}}
 
 
 {{> footer}}

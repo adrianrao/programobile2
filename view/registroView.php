@@ -62,12 +62,9 @@
         <div class="center-align">
             <a href="/login" class="btn-large orange accent-4 center-align">Volver al lobby</a>
         </div>
-        {{#mensaje}}
-        <p class="error center-align red-text ">{{mensaje}}</p>
-        {{/mensaje}}
-        {{#mensajeOk}}
-        <p class="error center-align green-text ">{{mensajeOk}}</p>
-        {{/mensajeOk}}
+        {{#notificacion}}
+        <p class="error center-align {{colorNotificacion}}-text ">{{notificacion}}</p>
+        {{/notificacion}}
     </div>
 </div>
 </div>

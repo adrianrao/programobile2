@@ -22,18 +22,19 @@ class AdministradorController
 
     public function obtenerUsuariosSinRol(){
 
-        $usuariosSinRoles = $this->administradorModel->traerTodosLosUsuariosSinRol();
+        $traerTodosLosUsuariosSinRol = $this->administradorModel->traerTodosLosUsuariosSinRol();
 
-        if($usuariosSinRoles != null){
+        if($traerTodosLosUsuariosSinRol != null){
             $roles = $this->administradorModel->traerTodosLosRoles();
-            $data["UsuariosSinRol"] = $usuariosSinRoles;
+            $data["accionDelAdministrador"] = $traerTodosLosUsuariosSinRol;
             $data["roles"] = $roles;
+            $data["select"] = "habilitar";
+            $data["accion"]="asignarRolAUsuario";
+            $data["textoDeLaAccionDelBoton"]="Asignar Rol";
             echo $this->renderer->render("./view/administradorView.php", $data);
         }else{
-
-
-
-            $data["sinPendientesDeRol"] = "No hay usuarios pendientes de asignar rol";
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "No hay usuarios pendientes de asignar rol";
 
             echo $this->renderer->render("./view/administradorView.php", $data);
         }
@@ -46,16 +47,19 @@ class AdministradorController
 
         $this->administradorModel->asignarRol($rol,$idUsuario);
 
-        $data["rolAsignado"] = "El rol ha sido asignado correctamente";
+        $data["colorNotificacion"] = "green";
+        $data["notificacion"] = "El rol ha sido asignado correctamente";
 
         echo $this->renderer->render("./view/administradorView.php" , $data);
 
     }
 
     public function traerTodosLosUsuariosABorrar(){
-        $todosLosUsuarios = $this->administradorModel->traerTodosLosUsuariosABorrar();
+        $traerTodosLosUsuariosABorrar = $this->administradorModel->traerTodosLosUsuariosABorrar();
 
-        $data["usuariosABorrar"] = $todosLosUsuarios;
+        $data["accionDelAdministrador"] = $traerTodosLosUsuariosABorrar;
+        $data["accion"]="darDeBajaUnUsuario";
+        $data["textoDeLaAccionDelBoton"]="Dar de baja";
         echo $this->renderer->render("./view/administradorView.php", $data);
     }
 
@@ -64,14 +68,17 @@ class AdministradorController
         $idUsuario = $_POST["idUsuario"];
 
         $this->administradorModel->deleteUsuario($idUsuario);
-        $data["usuarioEliminado"] = "El usuario se elimino correctamente";
+        $data["colorNotificacion"] = "green";
+        $data["notificacion"] = "El usuario se elimino correctamente";
         echo $this->renderer->render("./view/administradorView.php",$data);
     }
 
     public function traerTodosLosUsuariosAModificar(){
-        $todosLosUsuarios = $this->administradorModel->traerTodosLosUsuariosAModificar();
+        $traerTodosLosUsuariosAModificar = $this->administradorModel->traerTodosLosUsuariosAModificar();
 
-        $data["usuariosAModificar"] = $todosLosUsuarios;
+        $data["accionDelAdministrador"] = $traerTodosLosUsuariosAModificar;
+        $data["accion"]="modificarAUnUsuario";
+        $data["textoDeLaAccionDelBoton"]="Modificar Usuario";
         echo $this->renderer->render("./view/administradorView.php", $data);
     }
 
@@ -80,7 +87,7 @@ class AdministradorController
         $usuario = $this->administradorModel->buscarUsuarioPorId($_POST["idUsuario"]) ;
         $data["usuarioAModificar"]= $usuario;
         $data["roles"] = $roles;
-        echo $this->renderer->render("./view/administradorModificarUsuarioView.php" , $data);
+        echo $this->renderer->render("./view/administradorView.php" , $data);
 
     }
 
@@ -94,9 +101,11 @@ class AdministradorController
         $fueModificado = $this->administradorModel->modificarUnUsuario($idUsuario,$usuario,$dni,$f_nac,$id_rol);
 
         if($fueModificado) {
-            $data["modificacionOk"] = "Modificacion Exitosa";
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "Modificacion Exitosa";
         }else {
-            $data["modificacionFallo"] = "Fallo la modificacion";
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "Fallo la modificacion";
         }
 
         echo $this->renderer->render("./view/administradorView.php" , $data);

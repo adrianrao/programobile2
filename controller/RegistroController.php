@@ -33,11 +33,14 @@ class RegistroController
         }
 
         if(isset($fueRegistrado)){
-            $data["mensajeOk"] = "Registro completado con éxito";
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "Registro completado con éxito";
         }else if($usuarioExisteEnDB){
-            $data["mensaje"] = "El usuario ya existe";
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "El usuario ya existe";
         }else{
-            $data["mensaje"] = "Error al registrar usuario";
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "Error al registrar usuario";
         }
 
         echo $this->renderer->render("./view/registroView.php", $data);
