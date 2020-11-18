@@ -34,6 +34,7 @@ class RegistroController
             $fueRegistrado = $this->registroModel->registrarEmpleado($usuario, $nombreCompleto, $password, $dni, $f_nac);
         }
 
+
         if(isset($fueRegistrado)){
             $data["colorNotificacion"] = "green";
             $data["notificacion"] = "Registro completado con éxito";

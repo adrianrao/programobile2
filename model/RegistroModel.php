@@ -17,6 +17,7 @@ class RegistroModel
            }
 
 
+
     public function usuarioYaRegistrado($usuario)
     {
         $result = $this->database->ejecutarQuery("SELECT * FROM empleado WHERE usuario = '$usuario'");
