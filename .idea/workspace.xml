@@ -23,11 +23,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/AdministradorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AdministradorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/RegistroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/RegistroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/administradorModificarUsuarioView.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/AdministradorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/AdministradorModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/administradorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/registroView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/registroView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +104,7 @@
       <workItem from="1605561936316" duration="1459000" />
       <workItem from="1605577051334" duration="1546000" />
       <workItem from="1605652197089" duration="7282000" />
+      <workItem from="1605726311210" duration="1358000" />
     </task>
     <task id="LOCAL-00001" summary="Se agrega AdministradorController.php AdministradorModel.php , administradorView.php , administradorModificarUsuarioView.php&#10;Se modifica ModuleInitializer.php para agregar el AdministradorController.php&#10;&#10;Queda pendiente arreglar los datos del tipo DATE que la base no los toma bien&#10;&#10;Y hacer un join para mostrar la descripcion del rol en los usuarios y no el valor numerico del rol&#10;&#10;se agrega en el header font-icon&#10;&#10;falta validar el tipo de login, dependiendo el rol redirreccionar, agregar la variable $_SESSION.">
       <created>1605496857309</created>

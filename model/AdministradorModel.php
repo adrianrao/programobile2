@@ -14,8 +14,8 @@ class AdministradorModel
         return $this->db->query("SELECT * FROM empleado emp left join rol rol ON rol.id_rol =  emp.id_rol where id_usuario = '$idUsuario'");
     }
 
-    public function asignarRol($id_rol, $idUsuario){
-        return $this->db->ejecutarQuery("UPDATE empleado SET id_rol = '$id_rol' WHERE id_usuario = '$idUsuario'");
+    public function asignarRol($id_rol, $usuario){
+        return $this->db->ejecutarQuery("UPDATE empleado SET id_rol = '$id_rol' WHERE usuario = '$usuario'");
     }
 
     public function deleteUsuario($idUsuario){

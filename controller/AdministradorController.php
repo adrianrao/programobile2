@@ -42,8 +42,15 @@ class AdministradorController
     }
 
     public function asignarRolAUsuario(){
-        $idUsuario = $_POST["idUsuario"];
-        $rol = $_POST["rol"];
+
+
+        if(isset($_POST["usuario"])){
+            $idUsuario = $_POST["usuario"];
+        }
+
+        if(isset($_POST["rol"])){
+            $rol = $_POST["rol"];
+        }
 
         $this->administradorModel->asignarRol($rol,$idUsuario);
 
@@ -65,9 +72,9 @@ class AdministradorController
 
     public function  darDeBajaUnUsuario(){
 
-        $idUsuario = $_POST["idUsuario"];
+        $usuario = $_POST["usuario"];
 
-        $this->administradorModel->deleteUsuario($idUsuario);
+        $this->administradorModel->deleteUsuario($usuario);
         $data["colorNotificacion"] = "green";
         $data["notificacion"] = "El usuario se elimino correctamente";
         echo $this->renderer->render("./view/administradorView.php",$data);
@@ -84,7 +91,7 @@ class AdministradorController
 
     public function  modificarAUnUsuario(){
         $roles = $this->administradorModel->traerTodosLosRoles();
-        $usuario = $this->administradorModel->buscarUsuarioPorId($_POST["idUsuario"]) ;
+        $usuario = $this->administradorModel->buscarUsuarioPorId($_POST["usuario"]) ;
         $data["usuarioAModificar"]= $usuario;
         $data["roles"] = $roles;
         echo $this->renderer->render("./view/administradorView.php" , $data);
@@ -92,13 +99,13 @@ class AdministradorController
     }
 
     public function modificarUsuario(){
-        $idUsuario = $_POST["idUsuario"];
-        $usuario= $_POST["usuario"];
+        $usuario = $_POST["usuario"];
+        $nombre_completo= $_POST["usuario"];
         $dni= $_POST["dni"];
         $f_nac= $_POST["f_nac"];
         $id_rol= $_POST["rol"];
 
-        $fueModificado = $this->administradorModel->modificarUnUsuario($idUsuario,$usuario,$dni,$f_nac,$id_rol);
+        $fueModificado = $this->administradorModel->modificarUnUsuario($usuario,$nombre_completo,$dni,$f_nac,$id_rol);
 
         if($fueModificado) {
             $data["colorNotificacion"] = "green";

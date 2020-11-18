@@ -63,7 +63,7 @@
                             <label>Seleccione un rol</label>
                         </div>
                         {{/select}}
-                        <input type="hidden" value="{{id_usuario}}" name="idUsuario">
+                        <input type="hidden" value="{{usuario}}" name="usuario">
                         <button class="btn waves-effect waves-light" type="submit" name="action">{{textoDeLaAccionDelBoton}}
                             <i class="material-icons right">send</i>
                     </form>
@@ -109,7 +109,7 @@
                                 </select>
                                 <label>Seleccione un rol</label>
                             </div>
-                            <input type="hidden" value="{{id_usuario}}" name="idUsuario">
+                            <input type="hidden" value="{{usuario}}" name="usuario">
                             <button class="btn waves-effect waves-light" type="submit" name="action">Modificar Usuario
                                 <i class="material-icons right">send</i>
                     </form>
