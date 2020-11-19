@@ -29,7 +29,7 @@
         <a href="#" class="brand-logo">Administrador</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="orange darken-2"><a href="/administrador/obtenerUsuariosSinRol">Asignar rol a usuarios sin rol</a></li>
-            <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosABorrar">Dar de baja a usuarios</a></li>
+            <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear a usuarios</a></li>
             <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosAModificar">Modificar usuario</a></li>
             <li class="red darken-2"><a href="/administrador/cerrarSesion">Cerrar sesión</a></li>
         </ul>
@@ -66,8 +66,17 @@
                         <input type="hidden" value="{{usuario}}" name="usuario">
                         <button class="btn waves-effect waves-light" type="submit" name="action">{{textoDeLaAccionDelBoton}}
                             <i class="material-icons right">send</i>
+                        </button>
                     </form>
-                    </button>
+                    <br>
+                    {{#accion2}}
+                    <form action="/administrador/{{accion2}}" method="post">
+                        <input type="hidden" value="{{usuario}}" name="usuario">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">{{textoDeLaAccionDelBoton2}}
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                    {{/accion2}}
                 </div>
             </div>
         </div>

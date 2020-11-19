@@ -43,6 +43,11 @@ class AdministradorModel
         return $this->db->query("select * FROM rol");
     }
 
+    public function bloquearAUnUsuario($usuario){
+        return $this->db->ejecutarQuery("UPDATE empleado SET id_rol = 3 
+                                        WHERE usuario = '$usuario'");
+    }
+
 
 
 

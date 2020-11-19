@@ -52,31 +52,73 @@ class AdministradorController
             $rol = $_POST["rol"];
         }
 
-        $this->administradorModel->asignarRol($rol,$idUsuario);
+        $fueAssignado = $this->administradorModel->asignarRol($rol,$idUsuario);
 
-        $data["colorNotificacion"] = "green";
-        $data["notificacion"] = "El rol ha sido asignado correctamente";
+        if($fueAssignado) {
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "El rol ha sido asignado correctamente";
+        }else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "El rol no se pudo asignar correctamente";
+        }
+
 
         echo $this->renderer->render("./view/administradorView.php" , $data);
 
     }
 
-    public function traerTodosLosUsuariosABorrar(){
+    public function traerTodosLosUsuariosABorrarOBloquear(){
         $traerTodosLosUsuariosABorrar = $this->administradorModel->traerTodosLosUsuariosABorrar();
 
-        $data["accionDelAdministrador"] = $traerTodosLosUsuariosABorrar;
-        $data["accion"]="darDeBajaUnUsuario";
-        $data["textoDeLaAccionDelBoton"]="Dar de baja";
-        echo $this->renderer->render("./view/administradorView.php", $data);
+        if($traerTodosLosUsuariosABorrar != null) {
+            $data["accionDelAdministrador"] = $traerTodosLosUsuariosABorrar;
+            $data["accion"] = "darDeBajaUnUsuario";
+            $data["accion2"] = "bloquearUnUsuario";
+            $data["textoDeLaAccionDelBoton"] = "Dar de baja";
+            $data["textoDeLaAccionDelBoton2"] = "Bloquear";
+            echo $this->renderer->render("./view/administradorView.php", $data);
+        }else{
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "No hay usuarios para borrar o bloquear";
+
+            echo $this->renderer->render("./view/administradorView.php", $data);
+        }
     }
 
     public function  darDeBajaUnUsuario(){
 
         $usuario = $_POST["usuario"];
 
-        $this->administradorModel->deleteUsuario($usuario);
-        $data["colorNotificacion"] = "green";
-        $data["notificacion"] = "El usuario se elimino correctamente";
+        $fueBorrado = $this->administradorModel->deleteUsuario($usuario);
+
+        if($fueBorrado) {
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "Se ha borrado el usuario de la base de datos";
+        }else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "Fallo al borrar usuario";
+        }
+
+
+        echo $this->renderer->render("./view/administradorView.php",$data);
+    }
+
+    public function  bloquearUnUsuario(){
+
+        $usuario = $_POST["usuario"];
+
+        $fueBloqueado = $this->administradorModel->bloquearAUnUsuario($usuario);
+
+
+        if($fueBloqueado) {
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "Se ha bloqueado el usuario del sistema";
+        }else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "Fallo al bloquear el usuario";
+        }
+
+
         echo $this->renderer->render("./view/administradorView.php",$data);
     }
 
