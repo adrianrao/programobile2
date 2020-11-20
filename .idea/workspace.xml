@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6522bf7-210c-4cf7-b5a3-c2d9a6d3dcdb" name="Default Changelist" comment="&#10;LoginController.php se agrega foreach con validacion, esto vincula la tabla roles con los roles permitidos, reemplaza el switch de roles.&#10;dejo el switch comentado por las dudas.&#10;en el LoginModel.php se agrega la funcion traer todos los roles.">
+      <change afterPath="$PROJECT_DIR$/view/usuarioBloqueadoView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/AdministradorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AdministradorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/AdministradorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/AdministradorModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/administradorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LoginController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,21 +182,32 @@
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605487541472" />
     <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496334192" />
-    <state x="2432" y="386" key="NewPhpFileDialog" timestamp="1605571006173">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1605914051739">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605914051739" />
+    <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1605914051749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605914051749" />
+    <state x="512" y="386" key="NewPhpFileDialog" timestamp="1605914461027">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="512" y="386" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605914461027" />
     <state x="2432" y="386" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605571006173" />
-    <state x="3264" y="184" key="RollbackChangesDialog" timestamp="1605496044749">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="1344" y="184" key="RollbackChangesDialog" timestamp="1605914013151">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="1344" y="184" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605914013151" />
     <state x="3264" y="184" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496044749" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1605392150288">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392150288" />
-    <state x="2472" y="252" key="Vcs.Push.Dialog.v2" timestamp="1605578524908">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1605914131785">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605914131785" />
     <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605578524908" />
     <state x="2697" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605495839152">
       <screen x="1920" y="0" width="1920" height="1040" />

@@ -23,7 +23,7 @@
             <div class="card black darken-1">
                 <div class="card-content white-text">
                     <span class="card-title">Usuario: {{usuario}}</span>
-                    <p>Su cuenta tiene pendiente la asignacion de un rol, por favor, comuniquese con un administrador</p>
+                    <p>Su cuenta ha sido bloqueada, por favor, comuniquese con un administrador</p>
                     <p><strong>Rol:</strong> {{descripcion}}</p>
                 </div>
             </div>
