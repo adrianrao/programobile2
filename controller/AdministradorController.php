@@ -89,6 +89,9 @@ class AdministradorController
         echo $this->renderer->render("./view/administradorView.php", $data);
     }
 
+
+
+    //pintar todos los datos en el card del usuario que se quiere modificar
     public function  modificarAUnUsuario(){
         $roles = $this->administradorModel->traerTodosLosRoles();
         $usuario = $this->administradorModel->buscarUsuarioPorId($_POST["usuario"]) ;
@@ -98,14 +101,19 @@ class AdministradorController
 
     }
 
+    //modificar al usuario concretamente
     public function modificarUsuario(){
-        $usuario = $_POST["usuario"];
+        $nuevoNombreUsuario = $_POST["usuarioInput"];
+
+        $usuarioOriginal = $this->administradorModel->buscarUsuarioPorId($_POST["usuario"]) ;
+        $usuarioAModificar  = $usuarioOriginal[0]["usuario"];
+
         $nombre_completo= $_POST["nombreCompleto"];
         $dni= $_POST["dni"];
         $f_nac= $_POST["f_nac"];
         $id_rol= $_POST["rol"];
 
-        $fueModificado = $this->administradorModel->modificarUnUsuario($usuario,$nombre_completo,$dni,$f_nac,$id_rol);
+        $fueModificado = $this->administradorModel->modificarUnUsuario($nuevoNombreUsuario,$usuarioAModificar,$nombre_completo,$dni,$f_nac,$id_rol);
 
         if($fueModificado) {
             $data["colorNotificacion"] = "green";

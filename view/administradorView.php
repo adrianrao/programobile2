@@ -85,12 +85,12 @@
                         <div class="card-content">
                             <div class="form-field">
                                 <label for="username">Ingrese Usuario:</label>
-                                <input type="text" id="usuario" name="usuario" class="white-text" value="{{usuario}}" required>
+                                <input type="text" id="usuarioInput" name="usuarioInput" class="white-text" value="{{usuario}}" required>
                             </div><br>
 
                             <div class="form-field">
                                 <label for="username">Ingrese Nombre completo:</label>
-                                <input type="text" id="usuario" name="nombreCompleto" class="white-text" value="{{nombre_completo}}" required>
+                                <input type="text" id="nombreCompleto" name="nombreCompleto" class="white-text" value="{{nombre_completo}}" required>
                             </div><br>
 
 

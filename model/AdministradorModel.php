@@ -34,10 +34,17 @@ class AdministradorModel
         return $this->db->query("SELECT * FROM empleado emp left join rol rol ON rol.id_rol =  emp.id_rol ");
     }
 
-    public function modificarUnUsuario($usuario, $nombreCompleto, $dni,$f_nac,$id_rol){
-        return $this->db->ejecutarQuery("UPDATE empleado SET usuario = '$usuario', nombre_completo = '$nombreCompleto' , dni = $dni, f_nac = STR_TO_DATE('$f_nac', '%Y-%m-%d'), id_rol = '$id_rol' 
-                                        WHERE usuario = '$usuario'");
+    public function modificarUnUsuario($nuevoNombreUsuario, $usuarioAModificar, $nombreCompleto, $dni,$f_nac,$id_rol){
+        return $this->db->ejecutarQuery("UPDATE empleado SET usuario = '$nuevoNombreUsuario',
+ nombre_completo = '$nombreCompleto' ,
+  dni = $dni,
+   f_nac = STR_TO_DATE('$f_nac', 
+  '%Y-%m-%d'), 
+  id_rol = '$id_rol'
+   WHERE usuario = '$usuarioAModificar'");
     }
+
+    
 
     public function traerTodosLosRoles(){
         return $this->db->query("select * FROM rol");
