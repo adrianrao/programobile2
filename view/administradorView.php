@@ -26,7 +26,7 @@
 </script>
 <nav >
     <div style="padding: 0 10px !important" class="nav-wrapper black">
-        <a href="#" class="brand-logo">Administrador</a>
+        <a href="/administrador" class="brand-logo">Administrador</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="orange darken-2"><a href="/administrador/obtenerUsuariosSinRol">Asignar rol a usuarios sin rol</a></li>
             <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear a usuarios</a></li>
@@ -90,7 +90,7 @@
         <div class="col s12 m12">
             <div class="card black darken-1">
                 <div class="card-content white-text">
-                    <form method="POST" action="/administrador/modificarUsuario">
+                    <form method="POST" action="/administrador/modificarUsuarioSeleccionado">
                         <div class="card-content">
                             <div class="form-field">
                                 <label for="username">Ingrese Usuario:</label>

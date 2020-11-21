@@ -5,9 +5,7 @@
         background-color: #b0a9a9;
         color: #fff;
     }
-    .login{
-        margin-top: 100px;
-    }
+
     .login .card{
         background: rgba(0,0,0,.6);
     }
@@ -33,7 +31,7 @@
 </script>
 <nav >
     <div style="padding: 0 10px !important" class="nav-wrapper black">
-        <a href="#" class="brand-logo">Supervisor</a>
+        <a href="/supervisor" class="brand-logo">Supervisor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Dar de alta un cliente</a></li>
             <li class="orange darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja un cliente</a></li>
@@ -89,7 +87,7 @@
             </form>
         </div><br>
         <div class="center-align">
-            <a href="/supervisor" class="btn-large red accent-4 center-align">Salir</a>
+            <a href="/supervisor" class="btn-large red accent-5 center-align">Salir</a>
         </div>
         {{#notificacion}}
         <p class="error center-align {{colorNotificacion}}-text ">{{notificacion}}</p>

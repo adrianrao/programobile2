@@ -5,9 +5,6 @@
             background-color: #b0a9a9;
             color: #fff;
         }
-        .login{
-            margin-top: 100px;
-        }
         .login .card{
             background: rgba(0,0,0,.6);
         }
@@ -66,7 +63,7 @@
 
         </div><br>
         <div class="center-align">
-            <a href="/login" class="btn-large orange accent-4 center-align">Volver al lobby</a>
+            <a href="/login" class="btn-large red accent-5 center-align">Volver al lobby</a>
         </div>
         {{#notificacion}}
         <p class="error center-align {{colorNotificacion}}-text ">{{notificacion}}</p>

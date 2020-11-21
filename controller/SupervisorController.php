@@ -7,28 +7,18 @@ class SupervisorController
     private $renderer;
 
 
-    public function __construct($supervisorModel, $renderer)
+        public function __construct($supervisorModel, $renderer)
     {
-
-        if (isset($_SESSION["rol"])) {
-            if ($_SESSION["rol"] == "supervisor") {
-                $this->supervisorModel = $supervisorModel;
-                $this->renderer = $renderer;
-            } else {
-                session_destroy();
-                $this->renderer = $renderer;
-                echo $this->renderer->render("view/loginView.php");
-                exit();
-            }
-        } else {
-            session_destroy();
+        if(RoleValidation::validarRol("supervisor")){
+            $this->supervisorModel = $supervisorModel;
             $this->renderer = $renderer;
-            echo $this->renderer->render("view/loginView.php");
-            exit();
+        }else{
+            RoleValidation::logoutPorRolNoValido($renderer);
         }
-
-
     }
+
+
+
 
     public function index()
     {

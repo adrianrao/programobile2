@@ -1,6 +1,5 @@
 <?php
 
-
 class AdministradorController
 {
 
@@ -10,26 +9,11 @@ class AdministradorController
 
     public function __construct($administradorModel, $renderer)
     {
-
-        if (isset($_SESSION["rol"])) {
-
-            if ($_SESSION["rol"] == "administrador") {
-                $this->administradorModel = $administradorModel;
-                $this->renderer = $renderer;
-
-            } else {
-
-                session_destroy();
-                $this->renderer = $renderer;
-                echo $this->renderer->render("view/loginView.php");
-                exit();
-            }
-        } else {
-
-            session_destroy();
+        if(RoleValidation::validarRol("administrador")){
+            $this->administradorModelModel = $administradorModel;
             $this->renderer = $renderer;
-            echo $this->renderer->render("view/loginView.php");
-            exit();
+        }else{
+            RoleValidation::logoutPorRolNoValido($renderer);
         }
     }
 
@@ -163,14 +147,14 @@ class AdministradorController
         $traerTodosLosUsuariosAModificar = $this->administradorModel->traerTodosLosUsuariosAModificar();
 
         $data["accionDelAdministrador"] = $traerTodosLosUsuariosAModificar;
-        $data["accion"] = "modificarAUnUsuario";
+        $data["accion"] = "traerDatosDelUsuarioSeleccionadoParaAModificar";
         $data["textoDeLaAccionDelBoton"] = "Modificar Usuario";
         echo $this->renderer->render("./view/administradorView.php", $data);
     }
 
 
-    //pintar todos los datos en el card del usuario que se quiere modificar
-    public function modificarAUnUsuario()
+
+    public function traerDatosDelUsuarioSeleccionadoParaAModificar()
     {
         $roles = $this->administradorModel->traerTodosLosRoles();
         $usuario = $this->administradorModel->buscarUsuarioPorId($_POST["usuario"]);
@@ -180,8 +164,8 @@ class AdministradorController
 
     }
 
-    //modificar al usuario concretamente
-    public function modificarUsuario()
+
+    public function modificarUsuarioSeleccionado()
     {
         $nuevoNombreUsuario = $_POST["usuarioInput"];
 
