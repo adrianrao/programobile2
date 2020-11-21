@@ -48,4 +48,13 @@ class ModuleInitializer
         $model = new AdministradorModel($this->database);
         return new AdministradorController($model, $this->renderer);
     }
+
+    public function createSupervisorController()
+    {
+        include_once("model/SupervisorModel.php");
+        include_once("controller/SupervisorController.php");
+
+        $model = new SupervisorModel($this->database);
+        return new SupervisorController($model, $this->renderer);
+    }
 }

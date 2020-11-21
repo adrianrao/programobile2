@@ -1,20 +1,27 @@
 {{> header}}
-<style>
-    body {
+
+    <style>
+    body{
         background-color: #b0a9a9;
+        color: #fff;
     }
-    .btn{
-        background-color: #ff6d00  !important;
+    .login{
+        margin-top: 100px;
     }
-    .select-wrapper input.select-dropdown{
-        color: white;
+    .login .card{
+        background: rgba(0,0,0,.6);
     }
-    .dropdown-content li>a, .dropdown-content li>span{
-        color: #000  !important;
+    .login label{
+        font-size: 16px;
+        color:#ccc;
     }
-    .select-wrapper input.select-dropdown:focus{
-        border-bottom: 1px solid #ff6d00;
+    .login input{
+        font-size: 22px !important;
     }
+    .login button:hover{
+        padding: 0px 40px;
+    }
+
 </style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -28,15 +35,79 @@
     <div style="padding: 0 10px !important" class="nav-wrapper black">
         <a href="#" class="brand-logo">Supervisor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="orange darken-2"><a href="/administrador/obtenerUsuariosSinRol">Asignar rol a usuarios sin rol</a></li>
-            <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear a usuarios</a></li>
-            <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosAModificar">Modificar usuario</a></li>
-            <li class="red darken-2"><a href="/administrador/cerrarSesion">Cerrar sesión</a></li>
+            <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Dar de alta un cliente</a></li>
+            <li class="orange darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja un cliente</a></li>
+            <li class="orange darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar un cliente</a></li>
+            <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de alta un equipo</a></li>
+            <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja un equipo</a></li>
+            <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar un equipo</a></li>
+            <li class="red darken-2"><a href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
         </ul>
 
     </div>
 </nav>
 </header>
+
+
+{{#formAltaDeCliente}}
+<div class="row login">
+    <div class="col s12 m4 offset-m4">
+        <div class="card">
+            <div class="card-action gray accent-4 orange-text">
+                <h3>Dar de alta cliente</h3>
+            </div>
+            <form method="POST" action="/supervisor/procesarFormulario">
+                <div class="card-content">
+
+                    <div class="form-field">
+                        <label for="denominacion">Nombre de Cliente:</label>
+                        <input type="text" id="denominacion" name="denominacion" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <label for="cuit">Ingrese cuit de cliente:</label>
+                        <input type="text" id="cuit" name="cuit" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <label for="email">Ingrese email de cliente:</label>
+                        <input type="email" id="email" name="email" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <label for="dni">D.N.I.:</label>
+                        <input type="number" id="dni" name="dni" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <label for="f_nac">Ingrese fecha nacimiento:</label>
+                        <input type="date" id="f_nac" name="f_nac" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field center-align">
+                        <button type="submit" class="btn-large black accent-4">Enviar</button>
+            </form>
+        </div><br>
+        <div class="center-align">
+            <a href="/supervisor" class="btn-large red accent-4 center-align">Salir</a>
+        </div>
+        {{#notificacion}}
+        <p class="error center-align {{colorNotificacion}}-text ">{{notificacion}}</p>
+        {{/notificacion}}
+    </div>
+</div>
+</div>
+</div>
+{{/formAltaDeCliente}}
+
+
+
+
+
+
+
+
+
 
 {{#accionDelAdministrador}}
 <div class="container">
