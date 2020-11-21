@@ -10,7 +10,7 @@
     <div style="padding: 0 10px !important" class="nav-wrapper black">
         <a href="#" class="brand-logo">Bienvenido {{usuario}}</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-
+            <li class="red darken-2"><a href="/administrador/cerrarSesion">Cerrar sesión</a></li>
         </ul>
 
     </div>
