@@ -103,11 +103,23 @@ class AdministradorController
         echo $this->renderer->render("./view/administradorView.php",$data);
     }
 
-    public function  bloquearUnUsuario(){
+    public function  bloquearUnUsuario()
+    {
 
         $usuario = $_POST["usuario"];
+        $rolesEnLaBaseDeDatos = $this->administradorModel->traerTodosLosRoles();
+        $idRolBloqueado = null;
 
-        $fueBloqueado = $this->administradorModel->bloquearAUnUsuario($usuario);
+        if ($rolesEnLaBaseDeDatos) {
+            foreach ($rolesEnLaBaseDeDatos as $rol) {
+                if ($rol["descripcion"] == "bloqueado") {
+                    $idRolBloqueado = $rol["id_rol"];
+                }
+            }
+        }
+
+
+        $fueBloqueado = $this->administradorModel->bloquearAUnUsuario($usuario , $idRolBloqueado);
 
 
         if($fueBloqueado) {
