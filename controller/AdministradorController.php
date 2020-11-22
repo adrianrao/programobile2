@@ -10,7 +10,7 @@ class AdministradorController
     public function __construct($administradorModel, $renderer)
     {
         if(RoleValidation::validarRol("administrador")){
-            $this->administradorModelModel = $administradorModel;
+            $this->administradorModel = $administradorModel;
             $this->renderer = $renderer;
         }else{
             RoleValidation::logoutPorRolNoValido($renderer);
