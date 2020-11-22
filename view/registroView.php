@@ -29,7 +29,7 @@
             <div class="card-action gray accent-4 orange-text">
                 <h3>Registrar Usuario</h3>
             </div>
-            <form method="POST" action="/registro/procesarFormulario">
+            <form method="POST" action="/supervisor/procesarFormulario">
                 <div class="card-content">
 
                     <div class="form-field">

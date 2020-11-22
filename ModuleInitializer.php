@@ -60,4 +60,13 @@ class ModuleInitializer
         $model = new SupervisorModel($this->database);
         return new SupervisorController($model, $this->renderer);
     }
+
+    public function createAltaClienteController()
+    {
+        include_once("model/AltaClienteModel.php");
+        include_once("controller/AltaClienteController.php");
+
+        $model = new AltaClienteModel($this->database);
+        return new AltaClienteController($model, $this->renderer);
+    }
 }

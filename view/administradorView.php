@@ -32,6 +32,7 @@
             <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear a usuarios</a></li>
             <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosAModificar">Modificar usuario</a></li>
             <li class="red darken-2"><a href="/administrador/cerrarSesion">Cerrar sesión</a></li>
+
         </ul>
 
     </div>
