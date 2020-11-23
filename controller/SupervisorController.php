@@ -39,6 +39,18 @@ class SupervisorController
             echo $this->renderer->render("./view/supervisorView.php", $data);
     }
 
+    public function listarTodosLosClientes(){
+        $data["listadoDeClientes"] = $this->supervisorModel->listarClientes();
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+    }
+
+    public function mostrarDetalleDeCliente(){
+
+        $id_cliente = $_POST["id_cliente"];
+        $data["detalleCliente"] = $this->supervisorModel->buscarClientePorId($id_cliente);
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+    }
+
     public function eliminarCliente(){
 
         $idCliente = $_POST["id_cliente"];
