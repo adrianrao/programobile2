@@ -19,7 +19,6 @@ class AdministradorController
 
     public function index()
     {
-
         echo $this->renderer->render("view/administradorView.php");
     }
 

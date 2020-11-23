@@ -19,13 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6522bf7-210c-4cf7-b5a3-c2d9a6d3dcdb" name="Default Changelist" comment="se agrega la clase RoleValidation.php que valida el rol a la hora de usar el constructor de los controller de los diferentes roles.&#10;en el ModuleInitializer.php se hace el include de la clase RoleValidation.php&#10;se modifica unos marginstop en los forms de registro y login&#10;Queda funcionando la validacion de que cada usuario solo puede acceder a la view de su rol. Si se envia una direccion invalida por url, el sistema desloguea al usuario y lo envia al index.">
+    <list default="true" id="4053e648-f49a-4039-8aee-057cdfe278a5" name="Default Changelist" comment="Se agrega soporte mobile en administradorView.php y supervisorView.php&#10;se modifica la inicializacion del select y dropdown y se lleva al footer">
+      <change afterPath="$PROJECT_DIR$/view/altaClienteView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/partial/navBarSupervisor.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ModuleInitializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/ModuleInitializer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/AdministradorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AdministradorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/SupervisorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SupervisorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/SupervisorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/SupervisorModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/administradorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partial/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/view/partial/footer.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/registroView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/registroView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/supervisorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/supervisorView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,10 +109,8 @@
       <workItem from="1605577051334" duration="1546000" />
       <workItem from="1605652197089" duration="7282000" />
       <workItem from="1605726311210" duration="3849000" />
-      <workItem from="1605971145281" duration="8976000" />
-      <workItem from="1605996481656" duration="2256000" />
-      <workItem from="1606088079679" duration="9759000" />
-      <workItem from="1606144138900" duration="14103000" />
+      <workItem from="1606006496047" duration="7641000" />
+      <workItem from="1606074995121" duration="18286000" />
     </task>
     <task id="LOCAL-00001" summary="Se agrega AdministradorController.php AdministradorModel.php , administradorView.php , administradorModificarUsuarioView.php&#10;Se modifica ModuleInitializer.php para agregar el AdministradorController.php&#10;&#10;Queda pendiente arreglar los datos del tipo DATE que la base no los toma bien&#10;&#10;Y hacer un join para mostrar la descripcion del rol en los usuarios y no el valor numerico del rol&#10;&#10;se agrega en el header font-icon&#10;&#10;falta validar el tipo de login, dependiendo el rol redirreccionar, agregar la variable $_SESSION.">
       <created>1605496857309</created>
@@ -154,28 +154,7 @@
       <option name="project" value="LOCAL" />
       <updated>1605918754700</updated>
     </task>
-    <task id="LOCAL-00007" summary="se agrega cerrar sesion a pendienteDeRolView.php y bloqueadoView.php">
-      <created>1605919155518</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1605919155519</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Se agrega al AdministradorController.php y SupervisorController.php validacion de $_SESSION en el costructor.&#10;&#10;Se agrega en LoginController.php validacion para que , una vez logueado ,al refrescar con f5 no procese nuevamente el formulario.&#10;&#10;Se agrega SupervisorController.php supervisorView.php SupervisorModel.php (En construccion).">
-      <created>1605974773801</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1605974773801</updated>
-    </task>
-    <task id="LOCAL-00009" summary="se agrega la clase RoleValidation.php que valida el rol a la hora de usar el constructor de los controller de los diferentes roles.&#10;en el ModuleInitializer.php se hace el include de la clase RoleValidation.php&#10;se modifica unos marginstop en los forms de registro y login&#10;Queda funcionando la validacion de que cada usuario solo puede acceder a la view de su rol. Si se envia una direccion invalida por url, el sistema desloguea al usuario y lo envia al index.">
-      <created>1605989096969</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1605989096969</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,10 +178,7 @@
     <MESSAGE value="&#10;LoginController.php se agrega foreach con validacion, esto vincula la tabla roles con los roles permitidos, reemplaza el switch de roles.&#10;dejo el switch comentado por las dudas.&#10;en el LoginModel.php se agrega la funcion traer todos los roles." />
     <MESSAGE value="usuario bloqueado funcionando con total funcionalidad.&#10;pendienteDeRolView.php en vez de mostrar el id de rol , se muestra la descripcion" />
     <MESSAGE value="se arregla bug y validacion en el bloquear usuario" />
-    <MESSAGE value="se agrega cerrar sesion a pendienteDeRolView.php y bloqueadoView.php" />
-    <MESSAGE value="Se agrega al AdministradorController.php y SupervisorController.php validacion de $_SESSION en el costructor.&#10;&#10;Se agrega en LoginController.php validacion para que , una vez logueado ,al refrescar con f5 no procese nuevamente el formulario.&#10;&#10;Se agrega SupervisorController.php supervisorView.php SupervisorModel.php (En construccion)." />
-    <MESSAGE value="se agrega la clase RoleValidation.php que valida el rol a la hora de usar el constructor de los controller de los diferentes roles.&#10;en el ModuleInitializer.php se hace el include de la clase RoleValidation.php&#10;se modifica unos marginstop en los forms de registro y login&#10;Queda funcionando la validacion de que cada usuario solo puede acceder a la view de su rol. Si se envia una direccion invalida por url, el sistema desloguea al usuario y lo envia al index." />
-    <option name="LAST_COMMIT_MESSAGE" value="se agrega la clase RoleValidation.php que valida el rol a la hora de usar el constructor de los controller de los diferentes roles.&#10;en el ModuleInitializer.php se hace el include de la clase RoleValidation.php&#10;se modifica unos marginstop en los forms de registro y login&#10;Queda funcionando la validacion de que cada usuario solo puede acceder a la view de su rol. Si se envia una direccion invalida por url, el sistema desloguea al usuario y lo envia al index." />
+    <option name="LAST_COMMIT_MESSAGE" value="se arregla bug y validacion en el bloquear usuario" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="174" key="#CLI_Interpreters" timestamp="1605391963781">
@@ -221,6 +197,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392285282" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606077639917">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606077639917" />
     <state x="2288" y="47" width="1536" height="860" key="DiffContextDialog" timestamp="1605570596959">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -238,14 +218,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605914051749" />
-    <state x="2707" y="242" key="NewPhpClassDialog" timestamp="1605976911219">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="510" y="87" key="NewPhpClassDialog" timestamp="1606010599743">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="787" y="242" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605919294303" />
-    <state x="2707" y="242" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605976911219" />
-    <state x="512" y="386" key="NewPhpFileDialog" timestamp="1605914461027">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="510" y="87" key="NewPhpClassDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606010599743" />
+    <state x="364" y="270" key="NewPhpFileDialog" timestamp="1606009456051">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="364" y="270" key="NewPhpFileDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606009456051" />
     <state x="512" y="386" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605914461027" />
     <state x="2432" y="386" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605571006173" />
     <state x="1344" y="184" key="RollbackChangesDialog" timestamp="1605914013151">
@@ -257,11 +237,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392150288" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1606090175580">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1605918810814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606090175580" />
-    <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605989104087" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605918810814" />
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605578524908" />
     <state x="2697" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605495839152">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -271,17 +251,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="789" y="401" key="com.jetbrains.plugins.webDeployment.ui.UploadBeforeRunTaskDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392274997" />
-    <state x="2080" y="0" width="1391" height="1028" maximized="true" key="dock-window-1" timestamp="1605487549762">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="-1275" y="45" width="1070" height="715" maximized="true" key="dock-window-1" timestamp="1606079140448">
+      <screen x="-1280" y="45" width="1280" height="680" />
     </state>
+    <state x="-1275" y="45" width="1070" height="715" maximized="true" key="dock-window-1/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606079140448" />
     <state x="2080" y="0" width="1391" height="1028" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605487549762" />
-    <state x="2587" y="76" width="585" height="888" key="find.popup" timestamp="1605976481039">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="0" y="-720" width="1070" height="715" maximized="true" key="dock-window-2" timestamp="1606075642028">
+      <screen x="0" y="-720" width="1280" height="680" />
     </state>
-    <state x="2587" y="76" width="585" height="888" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605976481039" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605919364575">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="0" y="-720" width="1070" height="715" maximized="true" key="dock-window-2/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606075642028" />
+    <state x="156" y="-737" width="1070" height="715" maximized="true" key="dock-window-3" timestamp="1606088483675">
+      <screen x="0" y="-720" width="1280" height="680" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605919364575" />
+    <state x="156" y="-737" width="1070" height="715" maximized="true" key="dock-window-3/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606088483675" />
+    <state x="-1244" y="45" width="1070" height="715" maximized="true" key="dock-window-4" timestamp="1606011079905">
+      <screen x="-1280" y="45" width="1280" height="680" />
+    </state>
+    <state x="-1244" y="45" width="1070" height="715" maximized="true" key="dock-window-4/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606011079905" />
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup" timestamp="1606088925514">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606088925514" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605472514905" />
   </component>
 </project>
