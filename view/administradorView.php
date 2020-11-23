@@ -16,26 +16,27 @@
         border-bottom: 1px solid #ff6d00;
     }
 </style>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems);
-    });
-    var instance = M.FormSelect.getInstance(elem);
-
-</script>
 <nav >
     <div style="padding: 0 10px !important" class="nav-wrapper black">
         <a href="/administrador" class="brand-logo">Administrador</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="orange darken-2"><a href="/administrador/obtenerUsuariosSinRol">Asignar rol a usuarios sin rol</a></li>
-            <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear a usuarios</a></li>
-            <li class="orange darken-2"><a href="/administrador/traerTodosLosUsuariosAModificar">Modificar usuario</a></li>
-            <li class="red darken-2"><a href="/administrador/cerrarSesion">Cerrar sesión</a></li>
+            <li><a  class="btn orange darken-2" href="/administrador/obtenerUsuariosSinRol">Asignar rol a usuarios sin rol</a></li>
+            <li><a  class="btn orange darken-2" href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear a usuarios</a></li>
+            <li><a  class="btn orange darken-2" href="/administrador/traerTodosLosUsuariosAModificar">Modificar usuario</a></li>
+            <li><a  class="btn red darken-2" href="/administrador/cerrarSesion">Cerrar sesión</a></li>
         </ul>
-
     </div>
 </nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><p class="white-text center-align orange darken-2">Control de usuarios</p ></li>
+    <li><a class="btn orange darken-2" href="/administrador/obtenerUsuariosSinRol">Asignar rol</a></li>
+    <li><a class="btn orange darken-2" href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear</a></li>
+    <li><a class="btn orange darken-2" href="/administrador/traerTodosLosUsuariosAModificar">Modificar</a></li>
+    <li><a class="btn red darken-2" href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
+</ul>
+
 </header>
 
 {{#accionDelAdministrador}}

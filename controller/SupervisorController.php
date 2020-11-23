@@ -22,7 +22,6 @@ class SupervisorController
 
     public function index()
     {
-
         echo $this->renderer->render("view/supervisorView.php");
     }
 

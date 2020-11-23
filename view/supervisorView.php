@@ -1,5 +1,4 @@
 {{> header}}
-
     <style>
     body{
         background-color: #b0a9a9;
@@ -19,31 +18,128 @@
     .login button:hover{
         padding: 0px 40px;
     }
+    .dropdown-content li>a, .dropdown-content li>span{
+        font-size: 1rem;
+        color: #fff;
+    }
+    .dropdown-nested {
+        overflow-y: visible;
+    }
+    .dropdown-content .dropdown-content {
+        /* left: 100%;*/ /*drop hacia la izquierda*/
+        left: -100%; /*drop hacia la derecha*/
+        /* left: auto;*/ /*drop hacia el centro*/
+    }
+
+    .dropdown-content .mobile {
+        /* left: 100%;*/ /*drop hacia la izquierda*/
+        left: 0%; /*drop hacia la derecha*/
+        /* left: auto;*/ /*drop hacia el centro*/
+    }
 
 </style>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems);
-    });
-    var instance = M.FormSelect.getInstance(elem);
 
-</script>
-<nav >
+<nav>
     <div style="padding: 0 10px !important" class="nav-wrapper black">
         <a href="/supervisor" class="brand-logo">Supervisor</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Dar de alta un cliente</a></li>
-            <li class="orange darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja un cliente</a></li>
-            <li class="orange darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar un cliente</a></li>
-            <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de alta un equipo</a></li>
-            <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja un equipo</a></li>
-            <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar un equipo</a></li>
-            <li class="red darken-2"><a href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <!--Dropdown Trigger -->
+            <li><a class="dropdown-trigger btn blue darken-2" href="#!" data-target="dropdownequipos">AMBL Equipos<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger btn orange darken-2" href="#!" data-target="dropdownclientes">AMBL Clientes<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger btn green darken-2" href="#!" data-target="dropdownproforma">AMBL Proforma<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="btn red darken-2" href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
         </ul>
-
     </div>
 </nav>
+
+<!-- Dropdown Structure desk-->
+<ul id="dropdownequipos" class="dropdown-content dropdown-nested">
+    <li><a class="sub blue darken-2"  data-target="dropdownlistartractoresyarrastrados">Listar<i class="material-icons right">arrow_right</i></a></li>
+    <li><a class="sub blue darken-2"  data-target="dropdownlistartractoresyarrastrados">Dar de alta<i class="material-icons right">arrow_right</i></a></li>
+    <li><a class="sub blue darken-2"  data-target="dropdownlistartractoresyarrastrados">Dar de baja<i class="material-icons right">arrow_right</i></a></li>
+    <li><a class="sub blue darken-2"  data-target="dropdownlistartractoresyarrastrados">Modificar<i class="material-icons right">arrow_right</i></a></li>
+</ul>
+
+
+<ul id="dropdownlistartractoresyarrastrados" class="dropdown-content">
+    <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Listar tractores</a></li>
+    <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Listar arrastrados</a></li>
+</ul>
+
+
+<ul id="dropdownclientes" class="dropdown-content">
+    <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Listar</a></li>
+    <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Dar de alta</a></li>
+    <li class="orange darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja</a></li>
+    <li class="orange darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
+</ul>
+<ul id="dropdownproforma" class="dropdown-content">
+    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Listar</a></li>
+    <li class="green darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de alta</a></li>
+    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja</a></li>
+    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
+</ul>
+
+
+
+
+<!-- Dropdown Structure mobile-->
+
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a class="dropdown-trigger btn blue darken-2" href="#!" data-target="dropdownequiposmobile">AMBL Equipos<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="dropdown-trigger btn orange darken-2" href="#!" data-target="dropdownclientesmobile">AMBL Clientes<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="dropdown-trigger btn green darken-2" href="#!" data-target="dropdownproformamobile">AMBL Proforma<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="btn red darken-2" href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
+</ul>
+
+<ul id="dropdownequiposmobile" class="dropdown-content dropdown-nested">
+    <li><a class="submobile blue darken-2"  data-target="dropdownlistartractoresyarrastradosmobile">Listar<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="submobile blue darken-2"  data-target="dropdownaltatractoresyarrastradosmobile">Dar de alta<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="submobile blue darken-2"  data-target="dropdownbajatractoresyarrastradosmobile">Dar de baja<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="submobile blue darken-2"  data-target="dropdownmodificartractoresyarrastradosmobile">Modificar<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+</ul>
+
+
+<ul id="dropdownlistartractoresyarrastradosmobile" class="dropdown-content mobile">
+    <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Listar tractores</a></li>
+    <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Listar arrastrados</a></li>
+</ul>
+
+<ul id="dropdownaltatractoresyarrastradosmobile" class="dropdown-content mobile">
+    <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Dar de alta tractores</a></li>
+    <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de alta arrastrados</a></li>
+</ul>
+
+<ul id="dropdownbajatractoresyarrastradosmobile" class="dropdown-content mobile">
+    <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Dar de baja tractores</a></li>
+    <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de baja arrastrados</a></li>
+</ul>
+
+<ul id="dropdownmodificartractoresyarrastradosmobile" class="dropdown-content mobile">
+    <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar tractores</a></li>
+    <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Modificar arrastrados</a></li>
+</ul>
+
+<ul id="dropdownclientesmobile" class="dropdown-content">
+    <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Listar</a></li>
+    <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Dar de alta</a></li>
+    <li class="orange darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja</a></li>
+    <li class="orange darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
+</ul>
+<ul id="dropdownproformamobile" class="dropdown-content">
+    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Listar</a></li>
+    <li class="green darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de alta</a></li>
+    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja</a></li>
+    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
+</ul>
+
+
+
+
+
+
 </header>
 
 
@@ -73,13 +169,38 @@
                     </div><br>
 
                     <div class="form-field">
-                        <label for="dni">D.N.I.:</label>
-                        <input type="number" id="dni" name="dni" class="white-text" required>
+                        <label for="tel">Telefono del cliente:</label>
+                        <input type="tel" id="tel" name="tel" class="white-text" required>
                     </div><br>
 
                     <div class="form-field">
-                        <label for="f_nac">Ingrese fecha nacimiento:</label>
-                        <input type="date" id="f_nac" name="f_nac" class="white-text" required>
+                        <label for="contactoUno">Ingrese nombre del primer contacto:</label>
+                        <input type="text" id="contactoUno" name="contactoUno" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <label for="contactoDos">Ingrese nombre de segundo contacto:</label>
+                        <input type="text" id="contactoDos" name="contactoDos" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <h5>Ingrese datos del domicilio del cliente:</h5>
+
+                    </div><br>
+
+                    <div class="form-field">
+                        <label for="direccionCalle">Ingrese calle:</label>
+                        <input type="text" id="direccionCalle" name="direccionCalle" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <label for="direccionNro">Ingrese numero:</label>
+                        <input type="text" id="direccionNro" name="direccionNro" class="white-text" required>
+                    </div><br>
+
+                    <div class="form-field">
+                        <label for="direccionCp">Ingrese codigo postal:</label>
+                        <input type="text" id="direccionCp" name="direccionCp" class="white-text" required>
                     </div><br>
 
                     <div class="form-field center-align">

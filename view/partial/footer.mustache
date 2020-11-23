@@ -1,11 +1,39 @@
-
-
 <!-- Footer -->
 <footer>
 
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- Habilita los select de los forms y los dropdown-->
+<script>
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+    $(document).ready(function () {
+
+        $('.dropdown-trigger').dropdown({
+            coverTrigger: false,
+            closeOnClick: false,
+        });
+        $('.dropdown-trigger2').dropdown({
+            coverTrigger: false,
+            closeOnClick: false,
+        });
+        $('.sub').dropdown({
+            closeOnClick: true,
+        });
+
+        $('.submobile').dropdown({
+            closeOnClick: true,
+            coverTrigger: false
+        });
+
+        $('.sidenav').sidenav()
+    });
+
+
+</script>
 
 </body>
 </html>
