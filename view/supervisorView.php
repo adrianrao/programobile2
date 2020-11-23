@@ -309,7 +309,7 @@
             <div class="card-action gray accent-4 orange-text">
                 <h3>Registrar Cliente</h3>
             </div>
-            <form method="POST" action="/supervisor/procesarFormulario">
+            <form method="POST" action="/supervisor/procesarFormularioCliente">
                 <div class="card-content">
 
                     <div class="form-field">

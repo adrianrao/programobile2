@@ -100,7 +100,7 @@ class SupervisorController
 
 
 
-    public function procesarFormulario(){
+    public function procesarFormularioCliente(){
 
         $denominacion = $_POST["denominacion"];
         $email = $_POST["email"];
