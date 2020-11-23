@@ -19,17 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4053e648-f49a-4039-8aee-057cdfe278a5" name="Default Changelist" comment="Se agrega soporte mobile en administradorView.php y supervisorView.php&#10;se modifica la inicializacion del select y dropdown y se lleva al footer">
-      <change afterPath="$PROJECT_DIR$/view/altaClienteView.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/partial/navBarSupervisor.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModuleInitializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/ModuleInitializer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/AdministradorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AdministradorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/SupervisorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SupervisorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/SupervisorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/SupervisorModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/registroView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/registroView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/supervisorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/supervisorView.php" afterDir="false" />
-    </list>
+    <list default="true" id="4053e648-f49a-4039-8aee-057cdfe278a5" name="Default Changelist" comment="Se hace merge entre el menu de supervisorView.php (nuevo con dropdown) y el SupervisorModel.php y SupervisorController.php" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605918754700</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Se hace merge entre el menu de supervisorView.php (nuevo con dropdown) y el SupervisorModel.php y SupervisorController.php">
+      <created>1606168027520</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1606168027520</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +175,8 @@
     <MESSAGE value="&#10;LoginController.php se agrega foreach con validacion, esto vincula la tabla roles con los roles permitidos, reemplaza el switch de roles.&#10;dejo el switch comentado por las dudas.&#10;en el LoginModel.php se agrega la funcion traer todos los roles." />
     <MESSAGE value="usuario bloqueado funcionando con total funcionalidad.&#10;pendienteDeRolView.php en vez de mostrar el id de rol , se muestra la descripcion" />
     <MESSAGE value="se arregla bug y validacion en el bloquear usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="se arregla bug y validacion en el bloquear usuario" />
+    <MESSAGE value="Se hace merge entre el menu de supervisorView.php (nuevo con dropdown) y el SupervisorModel.php y SupervisorController.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se hace merge entre el menu de supervisorView.php (nuevo con dropdown) y el SupervisorModel.php y SupervisorController.php" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="174" key="#CLI_Interpreters" timestamp="1605391963781">
@@ -201,9 +199,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606077639917" />
-    <state x="2288" y="47" width="1536" height="860" key="DiffContextDialog" timestamp="1605570596959">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="119" y="31" width="1536" height="860" key="DiffContextDialog" timestamp="1606168081680">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="119" y="31" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606168081680" />
     <state x="2288" y="47" width="1536" height="860" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605570596959" />
     <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1605496334192">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -237,10 +236,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392150288" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1605918810814">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1606168085461">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605918810814" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606168085461" />
     <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605578524908" />
     <state x="2697" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605495839152">
       <screen x="1920" y="0" width="1920" height="1040" />

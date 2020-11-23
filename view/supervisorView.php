@@ -78,17 +78,17 @@
     <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Listar arrastrados</a></li>
 </ul>
 
-<ul id="dropdownaltatractoresyarrastrados" class="dropdown-content mobile">
+<ul id="dropdownaltatractoresyarrastrados" class="dropdown-content">
     <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Dar de alta tractores</a></li>
     <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de alta arrastrados</a></li>
 </ul>
 
-<ul id="dropdownbajatractoresyarrastrados" class="dropdown-content mobile">
+<ul id="dropdownbajatractoresyarrastrados" class="dropdown-content">
     <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Dar de baja tractores</a></li>
     <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de baja arrastrados</a></li>
 </ul>
 
-<ul id="dropdownmodificartractoresyarrastrados" class="dropdown-content mobile">
+<ul id="dropdownmodificartractoresyarrastrados" class="dropdown-content">
     <li class="blue darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar tractores</a></li>
     <li class="blue darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Modificar arrastrados</a></li>
 </ul>
