@@ -3,9 +3,7 @@
     body {
         background-color: #b0a9a9;
     }
-    .btn{
-        background-color: #ff6d00  !important;
-    }
+
     .select-wrapper input.select-dropdown{
         color: white;
     }
@@ -65,7 +63,7 @@
                         </div>
                         {{/select}}
                         <input type="hidden" value="{{usuario}}" name="usuario">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">{{textoDeLaAccionDelBoton}}
+                        <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">{{textoDeLaAccionDelBoton}}
                             <i class="material-icons right">send</i>
                         </button>
                     </form>
@@ -73,7 +71,7 @@
                     {{#accion2}}
                     <form action="/administrador/{{accion2}}" method="post">
                         <input type="hidden" value="{{usuario}}" name="usuario">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">{{textoDeLaAccionDelBoton2}}
+                        <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">{{textoDeLaAccionDelBoton2}}
                             <i class="material-icons right">send</i>
                         </button>
                     </form>
@@ -126,7 +124,7 @@
                                 <label>Seleccione un rol</label>
                             </div>
                             <input type="hidden" value="{{usuario}}" name="usuario">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Modificar Usuario
+                            <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Modificar Usuario
                                 <i class="material-icons right">send</i>
                     </form>
                     </button>

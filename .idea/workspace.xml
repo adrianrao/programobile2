@@ -19,7 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4053e648-f49a-4039-8aee-057cdfe278a5" name="Default Changelist" comment="Se hace merge entre el menu de supervisorView.php (nuevo con dropdown) y el SupervisorModel.php y SupervisorController.php" />
+    <list default="true" id="4053e648-f49a-4039-8aee-057cdfe278a5" name="Default Changelist" comment="se cambia nombre de funcion procesarFormulario a procesarFormularioCliente en el supervisorModel">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/SupervisorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SupervisorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/SupervisorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/SupervisorModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/administradorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/supervisorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/supervisorView.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,13 +67,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\third-party\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\view" />
       <recent name="C:\xampp\htdocs\model" />
       <recent name="C:\xampp\htdocs\controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\third-party\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -151,7 +157,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606168027520</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Se arregla bug en menu de supervisorView.php">
+      <created>1606168248816</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1606168248816</updated>
+    </task>
+    <task id="LOCAL-00009" summary="se cambia nombre de funcion procesarFormulario a procesarFormularioCliente en el supervisorModel">
+      <created>1606168540124</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1606168540124</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +196,9 @@
     <MESSAGE value="usuario bloqueado funcionando con total funcionalidad.&#10;pendienteDeRolView.php en vez de mostrar el id de rol , se muestra la descripcion" />
     <MESSAGE value="se arregla bug y validacion en el bloquear usuario" />
     <MESSAGE value="Se hace merge entre el menu de supervisorView.php (nuevo con dropdown) y el SupervisorModel.php y SupervisorController.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se hace merge entre el menu de supervisorView.php (nuevo con dropdown) y el SupervisorModel.php y SupervisorController.php" />
+    <MESSAGE value="Se arregla bug en menu de supervisorView.php" />
+    <MESSAGE value="se cambia nombre de funcion procesarFormulario a procesarFormularioCliente en el supervisorModel" />
+    <option name="LAST_COMMIT_MESSAGE" value="se cambia nombre de funcion procesarFormulario a procesarFormularioCliente en el supervisorModel" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="174" key="#CLI_Interpreters" timestamp="1605391963781">
@@ -236,10 +258,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392150288" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1606168085461">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1606168547339">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606168085461" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606168547339" />
     <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605578524908" />
     <state x="2697" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605495839152">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -250,15 +272,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="789" y="401" key="com.jetbrains.plugins.webDeployment.ui.UploadBeforeRunTaskDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392274997" />
-    <state x="-1275" y="45" width="1070" height="715" maximized="true" key="dock-window-1" timestamp="1606079140448">
-      <screen x="-1280" y="45" width="1280" height="680" />
+    <state x="1920" y="0" width="1469" height="1028" key="dock-window-1" timestamp="1606182384583">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1275" y="45" width="1070" height="715" maximized="true" key="dock-window-1/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606079140448" />
-    <state x="2080" y="0" width="1391" height="1028" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605487549762" />
-    <state x="0" y="-720" width="1070" height="715" maximized="true" key="dock-window-2" timestamp="1606075642028">
-      <screen x="0" y="-720" width="1280" height="680" />
+    <state x="1920" y="0" width="1469" height="1028" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606182384583" />
+    <state x="2265" y="-19" width="974" height="1047" maximized="true" key="dock-window-2" timestamp="1606182710920">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="-720" width="1070" height="715" maximized="true" key="dock-window-2/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606075642028" />
+    <state x="2265" y="-19" width="974" height="1047" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606182710920" />
     <state x="156" y="-737" width="1070" height="715" maximized="true" key="dock-window-3" timestamp="1606088483675">
       <screen x="0" y="-720" width="1280" height="680" />
     </state>
@@ -267,10 +290,10 @@
       <screen x="-1280" y="45" width="1280" height="680" />
     </state>
     <state x="-1244" y="45" width="1070" height="715" maximized="true" key="dock-window-4/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606011079905" />
-    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup" timestamp="1606088925514">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606179796450">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606088925514" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605472514905" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606179796450" />
   </component>
 </project>
