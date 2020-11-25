@@ -22,8 +22,115 @@ class SupervisorModel
         return $result;
     }
 
+    public function registrarProforma(
+        $id_tractor,
+        $id_arrastrado,
+        $id_cliente,
+        $usuario,
+        $fecha,
+        $cliente_denominacion,
+        $cliente_cuit,
+        $cliente_direccion,
+        $cliente_telefono,
+        $cliente_email,
+        $cliente_contacto1,
+        $cliente_contacto2,
+        $viaje_origen,
+        $viaje_destino,
+        $viaje_fecha_carga,
+        $viaje_ETA,
+        $carga_tipo,
+        $carga_peso,
+        $carga_tipo_hazard,
+        $carga_temperatura_reefer,
+        $costeo_km_estimados,
+        $costeo_combustible_estimado,
+        $costeo_ETD_estimado,
+        $costeo_ETA_estimado,
+        $costeo_viaticos_estimado,
+        $costeo_peajes_estimado,
+        $costeo_pesajes_estimado,
+        $costeo_extras_estimado,
+        $costeo_hazard_estimado,
+        $costeo_reefer_estimado,
+        $costeo_fee_estimado){
+
+       $result = $this->db->ejecutarQuery("
+insert into proforma(
+        `id_tractor`,
+        `id_arrastrado`,
+        `id_cliente`,
+        `usuario`,
+        `fecha`,
+        `cliente_denominacion`,
+        `cliente_cuit`,
+        `cliente_direccion`,
+        `cliente_telefono`,
+        `cliente_email`,
+        `cliente_contacto1`,
+        `cliente_contacto2`,
+        `viaje_origen`
+        ,`viaje_destino`,
+        `viaje_fecha_carga`,
+        `viaje_ETA`,
+        `carga_tipo`,
+        `carga_peso`,
+        `carga_tipo_hazard`,
+        `carga_temperatura_reefer`,
+        `costeo_km_estimados`,
+        `costeo_combustible_estimado`,
+        `costeo_ETD_estimado`,
+        `costeo_ETA_estimado`,
+        `costeo_viaticos_estimado`,
+        `costeo_peajes_estimado`,
+        `costeo_pesajes_estimado`,
+        `costeo_extras_estimado`,
+        `costeo_hazard_estimado`,
+        `costeo_reefer_estimado`,
+        `costeo_fee_estimado`)
+VALUES(
+        $id_tractor,
+        $id_arrastrado,
+        $id_cliente,
+        '$usuario',
+        STR_TO_DATE('$fecha', '%Y-%m-%d'),
+        '$cliente_denominacion',
+        '$cliente_cuit',
+        '$cliente_direccion',
+        '$cliente_telefono',
+        '$cliente_email',
+        '$cliente_contacto1',
+        '$cliente_contacto2',
+        '$viaje_origen',
+        '$viaje_destino',
+        STR_TO_DATE('$viaje_fecha_carga', '%Y-%m-%d'),
+        '$viaje_ETA',
+        '$carga_tipo',
+        $carga_peso,
+        '$carga_tipo_hazard',
+        '$carga_temperatura_reefer',
+        $costeo_km_estimados,
+        $costeo_combustible_estimado,
+        $costeo_ETD_estimado,
+        $costeo_ETA_estimado,
+        $costeo_viaticos_estimado,
+        $costeo_peajes_estimado,
+        $costeo_pesajes_estimado,
+        $costeo_extras_estimado,
+        $costeo_hazard_estimado,
+        $costeo_reefer_estimado,
+        $costeo_fee_estimado);");
+
+       return $result;
+    }
+
     public function eliminarClientePorId($idCliente){
         $result = $this->db->ejecutarQuery("delete from cliente where cliente.id_cliente = $idCliente");
+        return $result;
+    }
+
+    public function traerTodosLosClientes(){
+        $result = $this->db->ejecutarQuery("select * from cliente");
         return $result;
     }
 
@@ -47,7 +154,7 @@ class SupervisorModel
                             direccion_nro = '$direccion_nro',
                             direccion_cp = '$direccion_cp'
                             WHERE cliente.id_cliente = $idCliente"
-                            );
+        );
     }
 
     public function listarClientes(){
@@ -56,7 +163,7 @@ class SupervisorModel
 
     public function clienteYaRegistrado($cuit)
     {
-         $result = $this->db->ejecutarQuery("SELECT * FROM cliente WHERE cuit = '$cuit'");
+        $result = $this->db->ejecutarQuery("SELECT * FROM cliente WHERE cuit = '$cuit'");
 
         return mysqli_num_rows($result);
 

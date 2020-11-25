@@ -1,5 +1,5 @@
 {{> header}}
-    <style>
+<style>
     body{
         background-color: #b0a9a9;
         color: #fff;
@@ -31,7 +31,10 @@
     }
     .select-wrapper input.select-dropdown{
         color: white;
+
     }
+
+
 
     .select-wrapper input.select-dropdown:focus{
         border-bottom: 1px solid #ff6d00;
@@ -39,7 +42,7 @@
 
     .dropdown-content li>a, .dropdown-content li>span{
         font-size: 1rem;
-        color: #fff;
+        color: black;
     }
     .dropdown-nested {
         overflow-y: visible;
@@ -55,6 +58,7 @@
         left: 0%; /*drop hacia la derecha*/
         /* left: auto;*/ /*drop hacia el centro*/
     }
+
 
 </style>
 
@@ -113,12 +117,14 @@
     <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Dar de alta</a></li>
     <li class="orange darken-2"><a href="/supervisor/listarTodosLosClientesAEliminar">Dar de baja</a></li>
     <li class="orange darken-2"><a href="/supervisor/listarTodosLosPosiblesClientesAModificar">Modificar</a></li>
+
 </ul>
 <ul id="dropdownproforma" class="dropdown-content">
     <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Listar</a></li>
     <li class="green darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de alta</a></li>
     <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja</a></li>
     <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
+    <li class="orange darken-2"><a href="/supervisor/mostrarFormularioProforma">Cargar proforma</a></li>
 </ul>
 
 
@@ -183,24 +189,24 @@
 <!-- COMIENZA ACCIONES DE CONTROL DE CLIENTE! -->
 
 {{#listadoDeClientes}}
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12">
-                <div class="card black darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Denominacion: {{denominacion}}</span>
-                        <p><strong>Cuit cliente:</strong> {{cuit}}</p>
-                    </div>
-                    <div class="card-action">
-                        <form action="/supervisor/mostrardetalledecliente" method="post">
-                            <input type="hidden" value="{{id_cliente}}" name="id_cliente">
-                            <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Ver detalle<i class="material-icons right">send</i></button>
-                        </form>
-                    </div>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Denominacion: {{denominacion}}</span>
+                    <p><strong>Cuit cliente:</strong> {{cuit}}</p>
+                </div>
+                <div class="card-action">
+                    <form action="/supervisor/mostrardetalledecliente" method="post">
+                        <input type="hidden" value="{{id_cliente}}" name="id_cliente">
+                        <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Ver detalle<i class="material-icons right">send</i></button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {{/listadoDeClientes}}
 
 {{#detalleCliente}}
@@ -229,46 +235,46 @@
 
 
 {{#listadoDeClientesAeliminar}}
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12">
-                <div class="card black darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Denominacion: {{denominacion}}</span>
-                        <p><strong>Cuit cliente:</strong> {{cuit}}</p>
-                    </div>
-                    <div class="card-action">
-                        <form action="/supervisor/eliminarCliente" method="post">
-                            <input type="hidden" value="{{id_cliente}}" name="id_cliente">
-                            <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Eliminar<i class="material-icons right">send</i></button>
-                        </form>
-                    </div>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Denominacion: {{denominacion}}</span>
+                    <p><strong>Cuit cliente:</strong> {{cuit}}</p>
+                </div>
+                <div class="card-action">
+                    <form action="/supervisor/eliminarCliente" method="post">
+                        <input type="hidden" value="{{id_cliente}}" name="id_cliente">
+                        <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Eliminar<i class="material-icons right">send</i></button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {{/listadoDeClientesAeliminar}}
 
 
 {{#listarTodosLosPosiblesClientesAModificar}}
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12">
-                <div class="card black darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Denominacion: {{denominacion}}</span>
-                        <p><strong>Cuit cliente:</strong> {{cuit}}</p>
-                    </div>
-                    <div class="card-action">
-                        <form action="/supervisor/mostrarDatosDelClienteConcretoAModificar" method="post">
-                            <input type="hidden" value="{{id_cliente}}" name="id_cliente">
-                            <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Modificar<i class="material-icons right">send</i></button>
-                        </form>
-                    </div>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Denominacion: {{denominacion}}</span>
+                    <p><strong>Cuit cliente:</strong> {{cuit}}</p>
+                </div>
+                <div class="card-action">
+                    <form action="/supervisor/mostrarDatosDelClienteConcretoAModificar" method="post">
+                        <input type="hidden" value="{{id_cliente}}" name="id_cliente">
+                        <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Modificar<i class="material-icons right">send</i></button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {{/listarTodosLosPosiblesClientesAModificar}}
 
 
@@ -414,7 +420,7 @@
             </form>
 
         </div>
-{{/mostrarFormularioDeAltaDeCliente}}
+        {{/mostrarFormularioDeAltaDeCliente}}
 
 
 
@@ -425,8 +431,8 @@
 
 
 
-<!-- COMIENZA ACCIONES DE CONTROL DE TRACTOR! -->
-{{#listadoDeTractor}}
+        <!-- COMIENZA ACCIONES DE CONTROL DE TRACTOR! -->
+        {{#listadoDeTractor}}
         <div class="container">
             <div class="row">
                 <div class="col s12 m12">
@@ -445,11 +451,11 @@
                 </div>
             </div>
         </div>
-{{/listadoDeTractor}}
+        {{/listadoDeTractor}}
 
 
 
-{{#detalleTractor}}
+        {{#detalleTractor}}
         <div class="container">
             <div class="row">
                 <div class="col s12 m12">
@@ -469,11 +475,11 @@
                 </div>
             </div>
         </div>
-{{/detalleTractor}}
+        {{/detalleTractor}}
 
 
 
-{{#mostrarFormularioDeAltaDeTractor}}
+        {{#mostrarFormularioDeAltaDeTractor}}
         <div class="row login">
             <div class="col s12 m4 offset-m4">
                 <div class="card">
@@ -523,9 +529,9 @@
                     </form>
 
                 </div>
-{{/mostrarFormularioDeAltaDeTractor}}
+                {{/mostrarFormularioDeAltaDeTractor}}
 
-{{#listadoDeTractoresAEliminar}}
+                {{#listadoDeTractoresAEliminar}}
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m12">
@@ -544,9 +550,9 @@
                         </div>
                     </div>
                 </div>
-{{/listadoDeTractoresAEliminar}}
+                {{/listadoDeTractoresAEliminar}}
 
-{{#listarTodosLosPosiblesTractoresAModificar}}
+                {{#listarTodosLosPosiblesTractoresAModificar}}
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m12">
@@ -565,9 +571,9 @@
                         </div>
                     </div>
                 </div>
-{{/listarTodosLosPosiblesTractoresAModificar}}
+                {{/listarTodosLosPosiblesTractoresAModificar}}
 
-{{#mostrarDatosDelTractorConcretoAModificar}}
+                {{#mostrarDatosDelTractorConcretoAModificar}}
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m12">
@@ -643,12 +649,12 @@
         </div>
 
 
-{{/mostrarDatosDelTractorConcretoAModificar}}
+        {{/mostrarDatosDelTractorConcretoAModificar}}
 
-<!-- COMIENZA ACCIONES DE CONTROL DE ARRASTRADOS! -->
+        <!-- COMIENZA ACCIONES DE CONTROL DE ARRASTRADOS! -->
 
 
-{{#listadoDeArrastrados}}
+        {{#listadoDeArrastrados}}
         <div class="container">
             <div class="row">
                 <div class="col s12 m12">
@@ -666,9 +672,9 @@
                 </div>
             </div>
         </div>
-{{/listadoDeArrastrados}}
+        {{/listadoDeArrastrados}}
 
-{{#detalleArrastrado}}
+        {{#detalleArrastrado}}
         <div class="container">
             <div class="row">
                 <div class="col s12 m12">
@@ -683,10 +689,10 @@
                 </div>
             </div>
         </div>
-{{/detalleArrastrado}}
+        {{/detalleArrastrado}}
 
 
-{{#mostrarFormularioDeAltaDeArrastrado}}
+        {{#mostrarFormularioDeAltaDeArrastrado}}
         <div class="row login">
             <div class="col s12 m4 offset-m4">
                 <div class="card">
@@ -711,9 +717,9 @@
                     </form>
 
                 </div>
-{{/mostrarFormularioDeAltaDeArrastrado}}
+                {{/mostrarFormularioDeAltaDeArrastrado}}
 
-{{#listadoDeArrastradosAEliminar}}
+                {{#listadoDeArrastradosAEliminar}}
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m12">
@@ -731,9 +737,9 @@
                         </div>
                     </div>
                 </div>
-{{/listadoDeArrastradosAEliminar}}
+                {{/listadoDeArrastradosAEliminar}}
 
-{{#listarTodosLosPosiblesArrastradosAModificar}}
+                {{#listarTodosLosPosiblesArrastradosAModificar}}
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m12">
@@ -751,9 +757,9 @@
                         </div>
                     </div>
                 </div>
-{{/listarTodosLosPosiblesArrastradosAModificar}}
+                {{/listarTodosLosPosiblesArrastradosAModificar}}
 
-{{#mostrarDatosDelArrastradoConcretoAModificar}}
+                {{#mostrarDatosDelArrastradoConcretoAModificar}}
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m12">
@@ -777,11 +783,11 @@
                                                 </div>
                                                 <br>
 
-                                            <div class="card-action">
-                                                <input type="hidden" name="id_arrastrado" value="{{id_arrastrado}}">
-                                                <button class="btn waves-effect waves-light blue darken-2" type="submit"
-                                                        name="action">Modificar Arrastrado
-                                                    <i class="material-icons right">send</i>
+                                                <div class="card-action">
+                                                    <input type="hidden" name="id_arrastrado" value="{{id_arrastrado}}">
+                                                    <button class="btn waves-effect waves-light blue darken-2" type="submit"
+                                                            name="action">Modificar Arrastrado
+                                                        <i class="material-icons right">send</i>
                                     </form>
                                     </button>
                                 </div>
@@ -793,8 +799,233 @@
         </div>
 
 
-{{/mostrarDatosDelArrastradoConcretoAModificar}}
+        {{/mostrarDatosDelArrastradoConcretoAModificar}}
 
+
+        {{#mostrarFormularioCargaProforma}}
+        <div class="row login">
+            <div class="col s12 m4 offset-m4">
+                <div class="card">
+                    <div class="card-action gray accent-4 orange-text">
+                        <h3>Cargar Proforma</h3>
+                    </div>
+                    <form method="POST" action="/supervisor/procesarProforma">
+
+                        <div class="form-field">
+                            <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" name="fecha" class="white-text" required>
+
+                            <br><br>
+
+                            <h5>Cliente</h5>
+
+                            <br>
+
+                            <label for="denominacion">Denominacion:</label>
+                            <input type="text" id="denominacion" name="denominacion" class="white-text" required>
+
+                            <br>
+
+                            <label for="id_cliente">Id cliente:</label>
+                            <input type="number" id="id_cliente" name="id_cliente" class="white-text" required>
+
+                            <br>
+
+                            <label for="cuit">Cuit:</label>
+                            <input type="text" id="cuit" name="cuit" class="white-text" required>
+
+                            <br>
+
+                            <label for="direccion">Direccion:</label>
+                            <input type="text" id="direccion" name="direccion" class="white-text" required>
+
+                            <br>
+
+                            <label for="telefono">Telefono:</label>
+                            <input type="text" id="telefono" name="telefono" class="white-text" required>
+
+                            <br>
+
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" class="white-text" required>
+
+                            <br>
+
+                            <label for="contacto1">Contacto 1:</label>
+                            <input type="text" id="contacto1" name="contacto1" class="white-text" required>
+
+                            <br>
+
+                            <label for="contacto2">Contacto 2:</label>
+                            <input type="text" id="contacto2" name="contacto2" class="white-text" required>
+
+                            <br><br>
+
+                            <h5>Viaje</h5>
+
+                            <br>
+
+                            <label for="origen">Origen:</label>
+                            <input type="text" id="origen" name="origen" class="white-text" required>
+
+                            <br>
+
+                            <label for="destino">Destino:</label>
+                            <input type="text" id="destino" name="destino" class="white-text" required>
+
+                            <br>
+
+                            <label for="fecha_carga">Fecha carga:</label>
+                            <input type="date" id="fecha_carga" name="fecha_carga" class="white-text" required>
+
+                            <br>
+
+                            <label for="ETA">ETA:</label>
+                            <input type="text" id="ETA" name="ETA" class="white-text" required>
+
+                            <br><br>
+
+                            <h5>Carga</h5>
+
+                            <br>
+
+                            <label for="tipo_carga">Tipo carga:</label>
+                            <select id="tipo_carga" name="tipo_carga">
+                                <option value="granel" >Granel</option>
+                                <option value="liquida">Liquida</option>
+                            </select>
+
+                            <br>
+
+                            <label for="peso_neto">Peso neto:</label>
+                            <input type="number" id="peso_neto" name="peso_neto" class="white-text" required>
+
+                            <br>
+
+                            <label for="tipo_hazard">Tipo hazard:</label>
+                            <select id="tipo_hazard" name="tipo_hazard">
+                                <option value="class" >Class</option>
+                                <option value="Sclass">Sclass</option>
+                            </select>
+
+                            <br>
+
+                            <label for="temperatura_reefer">Temperatura reefer:</label>
+                            <input type="text" id="temperatura_reefer" name="temperatura_reefer" class="white-text" required>
+
+                            <br><br>
+
+                            <h5>Costeo</h5>
+
+                            <br>
+
+                            <label for="km_estimado">Km estimados:</label>
+                            <input type="number" id="km_estimado" name="km_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="combustible_estimado">Combustible estimado litros:</label>
+                            <input type="number" id="combustible_estimado" name="combustible_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="ETD_estimado">ETD estimado:</label>
+                            <input type="number" id="ETD_estimado" name="ETD_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="ETA_estimado">ETA estimado:</label>
+                            <input type="number" id="ETA_estimado" name="ETA_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="viaticos_estimado">Viaticos estimado:</label>
+                            <input type="number" id="viaticos_estimado" name="viaticos_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="peajes_estimado">Peajes estimado:</label>
+                            <input type="number" id="peajes_estimado" name="peajes_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="pesajes_estimado">Pesajes estimado:</label>
+                            <input type="number" id="pesajes_estimado" name="pesajes_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="extras_estimado">Extras:</label>
+                            <input type="number" id="extras_estimado" name="extras_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="hazard_estimado">Hazard estimado:</label>
+                            <input type="number" id="hazard_estimado" name="hazard_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="reefer_estimado">Reefer estimado:</label>
+                            <input type="number" id="reefer_estimado" name="reefer_estimado" class="white-text" required>
+
+                            <br>
+
+                            <label for="fee_estimado">Fee estimado:</label>
+                            <input type="number" id="fee_estimado" name="fee_estimado" class="white-text" required>
+
+                            <br><br>
+
+                            <h5>Personal</h5>
+
+                            <br>
+
+                            <label for="chofer_asignado">Chofer asignado:</label>
+                            <select id="chofer_asignado" name="chofer_asignado">
+                                <option value="miguel1" >Miguel1</option>
+                                <option value="pepito">Pepito</option>
+                            </select>
+
+                            <br>
+
+                            <label for="id_tractor">Tractor tipo:</label>
+                            <select id="id_tractor" name="id_tractor">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+
+                            <br>
+
+                            <label for="id_arrastrador">Arrastrado tipo:</label>
+                            <select id="id_arrastrador" name="id_arrastrador">
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                            </select>
+
+                            <br>
+
+
+
+                        </div><br>
+
+
+
+
+
+
+
+
+                            <button type="submit" class="btn-large black accent-4">Enviar</button>
+                    </form>
+
+                </div><br>
+
+
+            </div>
+        </div>
+
+
+
+
+{{/mostrarFormularioCargaProforma}}
 
 {{#notificacion}}
 <div class="container">
