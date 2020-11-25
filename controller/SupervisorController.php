@@ -127,20 +127,18 @@ class SupervisorController
         if ($traerTodosLosClientesRegistrados != null) {
             $data["listadoDeClientesAeliminar"] = $traerTodosLosClientesRegistrados;
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
-
         } else {
             $data["colorNotificacion"] = "red";
             $data["notificacion"] = "No hay clientes registrados para eliminar";
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
         }
+
+        echo $this->renderer->render("./view/supervisorView.php", $data);
 
 
     }
 
     public function listarTodosLosClientes(){
-
 
 
         $traerTodosLosClientesRegistrados = $this->supervisorModel->listarClientes();
@@ -149,15 +147,12 @@ class SupervisorController
         if ($traerTodosLosClientesRegistrados != null) {
             $data["listadoDeClientes"] = $traerTodosLosClientesRegistrados;
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
-
         } else {
             $data["colorNotificacion"] = "red";
             $data["notificacion"] = "No hay clientes registrados";
-
-            echo $this->renderer->render("./view/supervisorView.php", $data);
         }
 
+        echo $this->renderer->render("./view/supervisorView.php", $data);
 
     }
 
@@ -191,19 +186,15 @@ class SupervisorController
 
         $traerTodosLosClientesRegistrados = $this->supervisorModel->listarClientes();
 
-
         if ($traerTodosLosClientesRegistrados != null) {
             $data["listarTodosLosPosiblesClientesAModificar"] = $traerTodosLosClientesRegistrados;
-
-            echo $this->renderer->render("./view/supervisorView.php", $data);
 
         } else {
             $data["colorNotificacion"] = "red";
             $data["notificacion"] = "No hay clientes registrados para modificar";
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
         }
-
+        echo $this->renderer->render("./view/supervisorView.php", $data);
 
     }
 
@@ -296,15 +287,12 @@ class SupervisorController
         if ($traerTodosLostractoresRegistrados != null) {
             $data["listadoDeTractor"] = $traerTodosLostractoresRegistrados;
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
-
         } else {
             $data["colorNotificacion"] = "red";
             $data["notificacion"] = "No hay tractores registrados";
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
         }
-
+        echo $this->renderer->render("./view/supervisorView.php", $data);
     }
 
     public function mostrarDetalleDeTractor(){
@@ -358,15 +346,12 @@ class SupervisorController
         if ($traerTodosLostractoresRegistrados != null) {
             $data["listadoDeTractoresAEliminar"] = $traerTodosLostractoresRegistrados;
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
-
         } else {
             $data["colorNotificacion"] = "red";
             $data["notificacion"] = "No hay tractores registrados para eliminar";
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
         }
-
+        echo $this->renderer->render("./view/supervisorView.php", $data);
 
     }
 
@@ -396,15 +381,12 @@ class SupervisorController
         if ($traerTodosLostractoresRegistrados != null) {
             $data["listarTodosLosPosiblesTractoresAModificar"] = $traerTodosLostractoresRegistrados;
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
-
         } else {
             $data["colorNotificacion"] = "red";
             $data["notificacion"] = "No hay tractores registrados para modificar";
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
         }
-
+        echo $this->renderer->render("./view/supervisorView.php", $data);
 
     }
 
@@ -445,15 +427,12 @@ class SupervisorController
         if ($traerTodosLosArrastradosRegistrados != null) {
             $data["listadoDeArrastrados"] = $traerTodosLosArrastradosRegistrados;
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
-
         } else {
             $data["colorNotificacion"] = "red";
             $data["notificacion"] = "No hay arrastrados registrados";
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
         }
-
+        echo $this->renderer->render("./view/supervisorView.php", $data);
     }
 
 
@@ -503,15 +482,12 @@ class SupervisorController
         if ($traerTodosLosArrastradosRegistrados != null) {
             $data["listadoDeArrastradosAEliminar"] = $traerTodosLosArrastradosRegistrados;
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
-
         } else {
             $data["colorNotificacion"] = "red";
             $data["notificacion"] = "No hay arrastrados registrados para eliminar";
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
         }
-
+        echo $this->renderer->render("./view/supervisorView.php", $data);
 
     }
 
@@ -542,15 +518,11 @@ class SupervisorController
         if ($traerTodosLosArrastradosRegistrados != null) {
             $data["listarTodosLosPosiblesArrastradosAModificar"] = $traerTodosLosArrastradosRegistrados;
 
-            echo $this->renderer->render("./view/supervisorView.php", $data);
-
         } else {
             $data["colorNotificacion"] = "red";
             $data["notificacion"] = "No hay Arrastrados registrados para modificar";
-
-            echo $this->renderer->render("./view/supervisorView.php", $data);
         }
-
+        echo $this->renderer->render("./view/supervisorView.php", $data);
 
     }
 
