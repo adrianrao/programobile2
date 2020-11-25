@@ -65,9 +65,9 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <!-- Disparador del dropdown ESCRITORIO -->
-            <li><a class="dropdown-trigger btn blue darken-2" href="#!" data-target="dropdownequipos">AMBL Equipos<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-trigger btn orange darken-2" href="#!" data-target="dropdownclientes">AMBL Clientes<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-trigger btn green darken-2" href="#!" data-target="dropdownproforma">AMBL Proforma<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger2 btn blue darken-2" href="#!" data-target="dropdownequipos">AMBL Equipos<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger2 btn orange darken-2" href="#!" data-target="dropdownclientes">AMBL Clientes<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger2 btn green darken-2" href="#!" data-target="dropdownproforma">AMBL Proforma<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a class="btn red darken-2" href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
         </ul>
     </div>
@@ -128,9 +128,9 @@
 
 
 <ul class="sidenav" id="mobile-demo">
-    <li><a class="dropdown-trigger btn blue darken-2" href="#!" data-target="dropdownequiposmobile">AMBL Equipos<i class="material-icons white-text right">arrow_drop_down</i></a></li>
-    <li><a class="dropdown-trigger btn orange darken-2" href="#!" data-target="dropdownclientesmobile">AMBL Clientes<i class="material-icons white-text right">arrow_drop_down</i></a></li>
-    <li><a class="dropdown-trigger btn green darken-2" href="#!" data-target="dropdownproformamobile">AMBL Proforma<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="dropdown-trigger2 btn blue darken-2" href="#!" data-target="dropdownequiposmobile">AMBL Equipos<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="dropdown-trigger2 btn orange darken-2" href="#!" data-target="dropdownclientesmobile">AMBL Clientes<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="dropdown-trigger2 btn green darken-2" href="#!" data-target="dropdownproformamobile">AMBL Proforma<i class="material-icons white-text right">arrow_drop_down</i></a></li>
     <li><a class="btn red darken-2" href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
 </ul>
 
