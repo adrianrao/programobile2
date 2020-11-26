@@ -130,7 +130,12 @@ VALUES(
     }
 
     public function traerTodosLosClientes(){
-        $result = $this->db->ejecutarQuery("select * from cliente");
+        $result = $this->db->query("select * from cliente");
+        return $result;
+    }
+
+    public function traerTodosLosChoferes(){
+        $result = $this->db->query("select * from empleado where id_rol = 3");
         return $result;
     }
 

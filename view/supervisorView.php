@@ -819,15 +819,16 @@
 
                             <h5>Cliente</h5>
 
+
                             <br>
 
                             <label for="denominacion">Denominacion:</label>
-                            <input type="text" id="denominacion" name="denominacion" class="white-text" required>
+                            <select id="denominacion" name="denominacion">
+                                {{#cargarSelectCliente}}
+                                    <option value="{{id_cliente}}">{{denominacion}}</option>
+                                {{/cargarSelectCliente}}
 
-                            <br>
-
-                            <label for="id_cliente">Id cliente:</label>
-                            <input type="number" id="id_cliente" name="id_cliente" class="white-text" required>
+                            </select>
 
                             <br>
 
@@ -980,8 +981,10 @@
 
                             <label for="chofer_asignado">Chofer asignado:</label>
                             <select id="chofer_asignado" name="chofer_asignado">
-                                <option value="miguel1" >Miguel1</option>
-                                <option value="pepito">Pepito</option>
+                                {{#cargarSelectChofer}}
+                                    <option value="{{usuario}}">{{usuario}}</option>
+                                {{/cargarSelectChofer}}
+
                             </select>
 
                             <br>

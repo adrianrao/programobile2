@@ -34,9 +34,13 @@ class SupervisorController
     {
         
 
-        $data["mostrarFormularioCargaProforma"] = "habilitado" ;
+        $data["mostrarFormularioCargaProforma"] = "habilitado";
+        $data["cargarSelectCliente"] = $this->supervisorModel->traerTodosLosClientes();
+        $data["cargarSelectChofer"] = $this->supervisorModel->traerTodosLosChoferes();
         echo $this->renderer->render("./view/supervisorView.php", $data);
     }
+
+
 
     public function procesarProforma(){
 
