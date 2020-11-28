@@ -464,7 +464,7 @@ class SupervisorController
             $fueRegistrado = $this->supervisorModel->registrarArrastrado($patente , $nroChasis);
         }
 
-        if(isset($fueRegistrado)){
+        if($fueRegistrado){
             $data["colorNotificacion"] = "green";
             $data["notificacion"] = "Registro completado con éxito";
         }else if($arrastradoExisteEnBD){
@@ -557,6 +557,222 @@ class SupervisorController
 
         echo $this->renderer->render("./view/supervisorView.php",$data);
     }
+
+
+
+
+    public function traerChoferesQueNoTienenLicenciaValidada(){
+
+
+        $traerTodosLosChoferesSinLicenciaValida = $this->supervisorModel->traerChoferesAValidarLicencia();
+        $traerTodosLosTiposDeLicencia = $this->supervisorModel->traerTiposDeLicencia();
+
+
+        if ($traerTodosLosChoferesSinLicenciaValida != null) {
+            $data["traerChoferesQueNoTienenLicenciaValidada"] = $traerTodosLosChoferesSinLicenciaValida;
+            $data["traerTodosLosTiposDeLicencia"] = $traerTodosLosTiposDeLicencia;
+        } else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "No hay Choferes con licencia sin validar";
+        }
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+    }
+
+    public function validarLicenciaDeChoferSeleccionado(){
+
+
+        if (isset($_POST["usuario"])) {
+            $usuario = $_POST["usuario"];
+        }
+
+        if (isset($_POST["idTipoDeLicencia"])) {
+            $idTipoDeLicencia = $_POST["idTipoDeLicencia"];
+        }
+
+
+        $fueValidado = $this->supervisorModel->validarLicenciaChofer($usuario,$idTipoDeLicencia);
+
+        if ($fueValidado) {
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "Se ha validado la licencia del chofer con exito";
+        } else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "Fallo al validar licencia";
+        }
+
+        echo $this->renderer->render("./view/supervisorView.php",$data);
+    }
+
+
+
+    public function listarTodosLosCelulares(){
+
+        $traerTodosLosCelularesRegistrados = $this->supervisorModel->traerTodosLosCelulares();
+
+        if ($traerTodosLosCelularesRegistrados != null) {
+            $data["listadoDeCelulares"] = $traerTodosLosCelularesRegistrados;
+
+        } else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "No hay celulares registrados";
+
+        }
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+    }
+
+    public function cargarFormularioDeAltaAcelular()
+    {
+        $data["mostrarFormularioDeAltaDeCelular"] = "Habilitado" ;
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+    }
+
+    public function procesarFormularioCelular(){
+
+        $numeroCelular = $_POST["numeroCelular"];
+
+
+        $celularYaRegistrado = $this->supervisorModel->celularYaRegistrado($numeroCelular);
+
+        if(!$celularYaRegistrado){
+            $fueRegistrado = $this->supervisorModel->darDeAltaCelular($numeroCelular);
+        }
+
+        if($fueRegistrado){
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "Registro completado con éxito";
+        }else if($celularYaRegistrado){
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "El celular ya existe";
+        }else{
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "Error al registrar celular";
+        }
+
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+
+    }
+
+    public function listarTodosLosPosiblesCelularesAModificar()
+    {
+
+        $traerTodosLosCelularesRegistrados = $this->supervisorModel->traerTodosLosCelulares();
+
+        if ($traerTodosLosCelularesRegistrados != null) {
+            $data["listadoDeCelularesPosiblesAModificar"] = $traerTodosLosCelularesRegistrados;
+
+        } else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "No hay Celulares registrados para modificar";
+        }
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+
+    }
+
+    public function quitarChoferAsignado(){
+
+        $idCelular = $_POST["idCelular"];
+
+        $choferDesasignado = $this->supervisorModel->desasignarCelular($idCelular);
+
+        if ($choferDesasignado) {
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "El celular ha quedado sin asignar";
+        } else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "No se pudo modificar la asignacion";
+        }
+
+
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+    }
+
+    public function mostrarDatosDelCelularConcretoAModificar(){
+        $idCelular = $_POST["idCelular"];
+
+        $celularConcretoAModificar = $this->supervisorModel->traerCelularPorId($idCelular);
+        $data["mostrarDatosDelCelularConcretoAModificar"] = $celularConcretoAModificar;
+        $data["traerPosiblesChoferesAAsignar"] = $this->supervisorModel->traerATodosLosChoferesSinCelularAsignado();
+
+
+        if($celularConcretoAModificar[0]["id_chofer"] == null){
+            $data["habilitaElNoTieneChoferAsignado"] = "habilitado";
+        }else {
+            $data["habilitaElChoferQueTieneAsignado"] = "habilitado";
+        }
+
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+    }
+
+
+
+    public function modificarCelularConcreto(){
+
+        $idCelular =  $_POST["idCelular"];
+        $numeroDeCelular = $_POST["numeroCelular"];
+
+        $fueModificado = $this->supervisorModel->modificarCelular($idCelular,$numeroDeCelular);
+
+
+
+        if ($fueModificado) {
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "Se ha modificado la informacion del celular";
+        } else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "Fallo al modificar informacion del celular";
+        }
+
+        echo $this->renderer->render("./view/supervisorView.php",$data);
+    }
+
+
+    public function mostrarCelularesSinAsignacionDeChofer(){
+
+        $traerTodosLosCelularesSinChoferAsignado = $this->supervisorModel->traerTodosLosCelularesSinAsignar();
+        $traerTodosLosChoferesSinCelularAsignado = $this->supervisorModel->traerATodosLosChoferesSinCelularAsignado();
+
+        if($traerTodosLosChoferesSinCelularAsignado == null){
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "No hay choferes para asignar";
+        }else{
+
+
+        if ($traerTodosLosCelularesSinChoferAsignado != null) {
+            $data["mostrarCelularesSinAsignacionDeChofer"]= $traerTodosLosCelularesSinChoferAsignado;
+            $data["choferesSinCelularAsignado"]= $traerTodosLosChoferesSinCelularAsignado;
+        } else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "No hay celulares sin ser asignados";
+
+        }
+        }
+
+
+        echo $this->renderer->render("./view/supervisorView.php",$data);
+    }
+
+    public function asignarCelularAChofer(){
+
+        $idCelular =  $_POST["idCelular"];
+        $choferAsignado = $_POST["usuario"];
+
+        $fueAsignado = $this->supervisorModel->asignarCelular($idCelular,$choferAsignado);
+
+
+
+        if ($fueAsignado) {
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "Se ha asignado el chofer correctamente";
+        } else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "Fallo al asignar el chofer";
+        }
+
+        echo $this->renderer->render("./view/supervisorView.php",$data);
+    }
+
+
+
 
 
 

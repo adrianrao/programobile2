@@ -277,4 +277,62 @@ VALUES(
     }
 
 
+
+    public function traerChoferesAValidarLicencia(){
+        return $this->db->query("SELECT * from empleado where tipo_licencia is null");
+    }
+
+    public function traerTiposDeLicencia(){
+        return $this->db->query("SELECT * from tipo_de_licencia");
+    }
+
+    public function validarLicenciaChofer($usuario ,$tipoDeLicencia){
+        return $this->db->ejecutarQuery("UPDATE empleado SET tipo_licencia = '$tipoDeLicencia' WHERE usuario= '$usuario'");
+    }
+
+
+
+
+    public function traerTodosLosCelulares(){
+        return $this->db->query("SELECT * from celular celu left join empleado emp ON emp.usuario = celu.id_chofer");
+    }
+
+    public function traerCelularPorId($idCelular){
+        return $this->db->query("SELECT * from celular celu left join empleado emp ON emp.usuario = celu.id_chofer WHERE id_celular = $idCelular");
+    }
+
+    public function celularYaRegistrado($numeroCelular)
+    {
+        $result = $this->db->ejecutarQuery("SELECT * FROM celular WHERE nro = $numeroCelular");
+
+        return mysqli_num_rows($result);
+    }
+
+    public function darDeAltaCelular($numeroCelular){
+        return $this->db->ejecutarQuery("insert into celular(nro) 
+                        VALUES($numeroCelular)");
+    }
+
+    public function modificarCelular($idCelular,$nuevoNumeroDeCelular){
+        return $this->db->ejecutarQuery("UPDATE celular SET nro = $nuevoNumeroDeCelular WHERE id_celular = $idCelular ");
+    }
+
+
+    public function desasignarCelular($idCelular){
+        return $this->db->ejecutarQuery("UPDATE celular SET id_chofer = null where id_celular = $idCelular ");
+    }
+
+    public function asignarCelular($idCelular, $chofer){
+        return $this->db->ejecutarQuery("UPDATE celular SET id_chofer = '$chofer' WHERE id_celular = $idCelular ");
+    }
+
+    public function traerATodosLosChoferesSinCelularAsignado(){
+        return $this->db->query("SELECT * from empleado emp  where NOT EXISTS (SELECT NULL FROM celular celu WHERE celu.id_chofer = emp.usuario)");
+    }
+
+    public function traerTodosLosCelularesSinAsignar(){
+        return $this->db->query("SELECT * from celular where  id_chofer is null");
+    }
+
+
 }

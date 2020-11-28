@@ -67,6 +67,8 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <!-- Disparador del dropdown ESCRITORIO -->
+            <li><a class="btn grey darken-2" href="/supervisor/traerChoferesQueNoTienenLicenciaValidada">Validar licencia chofer</a></li>
+            <li><a class="dropdown-trigger2 btn yellow darken-2" href="#!" data-target="dropdowncelulares">AMLA Celular<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a class="dropdown-trigger2 btn blue darken-2" href="#!" data-target="dropdownequipos">AMBL Equipos<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a class="dropdown-trigger2 btn orange darken-2" href="#!" data-target="dropdownclientes">AMBL Clientes<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a class="dropdown-trigger2 btn green darken-2" href="#!" data-target="dropdownproforma">AMBL Proforma<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -81,6 +83,15 @@
 
 
 <!-- Estructura para Menu Dropdown Escritorio-->
+
+
+<ul id="dropdowncelulares" class="dropdown-content">
+    <li><a class="yellow darken-2 white-text" href="/supervisor/listarTodosLosCelulares">Listar</a></li>
+    <li><a class="yellow darken-2 white-text" href="/supervisor/cargarFormularioDeAltaAcelular">Dar de alta</a></li>
+    <li><a class="yellow darken-2 white-text" href="/supervisor/listarTodosLosPosiblesCelularesAModificar">Modificar</a></li>
+    <li><a class="yellow darken-2 white-text" href="/supervisor/mostrarCelularesSinAsignacionDeChofer">Asignar</a></li>
+</ul>
+
 <ul id="dropdownequipos" class="dropdown-content dropdown-nested">
     <li><a class="sub blue darken-2 white-text"  data-target="dropdownlistartractoresyarrastrados">Listar<i class="material-icons right">arrow_right</i></a></li>
     <li><a class="sub blue darken-2 white-text"  data-target="dropdownaltatractoresyarrastrados">Dar de alta<i class="material-icons right">arrow_right</i></a></li>
@@ -117,6 +128,7 @@
     <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosPosiblesClientesAModificar">Modificar</a></li>
 
 </ul>
+
 <ul id="dropdownproforma" class="dropdown-content">
     <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosAModificar">Listar</a></li>
     <li><a class="green darken-2 white-text" href="/supervisor/mostrarFormularioProforma">Cargar proforma</a></li>
@@ -132,11 +144,21 @@
 
 
 <ul class="sidenav" id="mobile-demo">
+    <li><a class="btn grey darken-2" href="/supervisor/traerChoferesQueNoTienenLicenciaValidada">Validar licencia chofer</a></li>
+    <li><a class="dropdown-trigger2 btn yellow darken-2" href="#!" data-target="dropdowncelularesmobile">AMLA Celular<i class="material-icons white-text right">arrow_drop_down</i></a></li>
     <li><a class="dropdown-trigger2 btn blue darken-2" href="#!" data-target="dropdownequiposmobile">AMBL Equipos<i class="material-icons white-text right">arrow_drop_down</i></a></li>
     <li><a class="dropdown-trigger2 btn orange darken-2" href="#!" data-target="dropdownclientesmobile">AMBL Clientes<i class="material-icons white-text right">arrow_drop_down</i></a></li>
     <li><a class="dropdown-trigger2 btn green darken-2" href="#!" data-target="dropdownproformamobile">AMBL Proforma<i class="material-icons white-text right">arrow_drop_down</i></a></li>
     <li><a class="btn red darken-2" href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
 </ul>
+
+<ul id="dropdowncelularesmobile" class="dropdown-content">
+    <li><a class="yellow darken-2 white-text" href="/supervisor/listarTodosLosCelulares">Listar</a></li>
+    <li><a class="yellow darken-2 white-text" href="/supervisor/cargarFormularioDeAltaAcelular">Dar de alta</a></li>
+    <li><a class="yellow darken-2 white-text" href="/supervisor/listarTodosLosPosiblesCelularesAModificar">Modificar</a></li>
+    <li><a class="yellow darken-2 white-text" href="/supervisor/mostrarCelularesSinAsignacionDeChofer">Asignar</a></li>
+</ul>
+
 
 <ul id="dropdownequiposmobile" class="dropdown-content dropdown-nested">
     <li><a class="submobile blue darken-2 white-text"  data-target="dropdownlistartractoresyarrastradosmobile">Listar<i class="material-icons white-text right">arrow_drop_down</i></a></li>
@@ -755,9 +777,9 @@
                         </div>
                     </div>
                 </div>
-                {{/listarTodosLosPosiblesArrastradosAModificar}}
+{{/listarTodosLosPosiblesArrastradosAModificar}}
 
-                {{#mostrarDatosDelArrastradoConcretoAModificar}}
+{{#mostrarDatosDelArrastradoConcretoAModificar}}
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m12">
@@ -797,7 +819,7 @@
         </div>
 
 
-        {{/mostrarDatosDelArrastradoConcretoAModificar}}
+{{/mostrarDatosDelArrastradoConcretoAModificar}}
 
         <!-- COMIENZA ACCIONES DE CONTROL DE PROFORMA! -->
 
@@ -1011,12 +1033,6 @@
                         </div><br>
 
 
-
-
-
-
-
-
                             <button type="submit" class="btn-large black accent-4">Enviar</button>
                     </form>
 
@@ -1030,6 +1046,184 @@
 
 
 {{/mostrarFormularioCargaProforma}}
+
+<!-- COMIENZA ACCIONES DE CONTROL DE VALIDAR LICENCIA! -->
+
+{{#traerChoferesQueNoTienenLicenciaValidada}}
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card black darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title"><strong>Chofer:</strong> {{nombre_completo}}</span>
+                        </div>
+                        <div class="card-action">
+                            <div class="input-field col s12">
+                                <form action="/supervisor/validarLicenciaDeChoferSeleccionado" method="post">
+                                    <select name="idTipoDeLicencia" required>
+                                        <option value="" disabled selected>Sin validar</option>
+                                        {{#traerTodosLosTiposDeLicencia}}
+                                        <option value="{{id_tipo_licencia}}">{{tipo_de_licencia}} {{descripcion}}</option>
+                                        {{/traerTodosLosTiposDeLicencia}}
+                                    </select>
+                                    <label>Seleccione un tipo de licencia</label>
+                            </div>
+                                    <input type="hidden" value="{{usuario}}" name="usuario">
+                                    <button class="btn waves-effect waves-light grey darken-2" type="submit" name="action">Validar<i class="material-icons right">send</i></button>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{{/traerChoferesQueNoTienenLicenciaValidada}}
+
+
+
+
+<!-- COMIENZA ACCIONES DE CONTROL DE AMLA CELULAR! -->
+
+{{#listadoDeCelulares}}
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card black darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Numero del celular: {{nro}}</span>
+                            <p><strong>Chofer asignado:</strong> {{id_chofer}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{{/listadoDeCelulares}}
+
+
+{{#mostrarFormularioDeAltaDeCelular}}
+        <div class="row login">
+            <div class="col s12 m4 offset-m4">
+                <div class="card">
+                    <div class="card-action gray accent-4 orange-text">
+                        <h3>Registrar Celular</h3>
+                    </div>
+                    <form method="POST" action="/supervisor/procesarFormularioCelular">
+                        <div class="card-content">
+
+                            <div class="form-field">
+                                <label for="numeroCelular">Numero Celular:</label>
+                                <input type="tel" id="numeroCelular" name="numeroCelular" class="white-text" required>
+                            </div><br>
+
+                            <div class="form-field center-align">
+                                <button type="submit" class="btn-large black accent-4">Registrar</button>
+                    </form>
+
+                </div>
+{{/mostrarFormularioDeAltaDeCelular}}
+
+
+{{#listadoDeCelularesPosiblesAModificar}}
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m12">
+                            <div class="card black darken-1">
+                                <div class="card-content white-text">
+                                    <span class="card-title"><strong>Celular:</strong> {{nro}} </span>
+                                    <p><strong>Chofer asignado:</strong> {{nombre_completo}}</p>
+                                </div>
+                                <div class="card-action">
+                                    <form action="/supervisor/mostrarDatosDelCelularConcretoAModificar" method="post">
+                                        <input type="hidden" value="{{id_celular}}" name="idCelular">
+                                        <button class="btn waves-effect waves-light yellow darken-2" type="submit" name="action">Modificar<i class="material-icons right">send</i></button>
+                                    </form>
+                                    <br>
+                                    <form action="/supervisor/quitarChoferAsignado" method="post">
+                                        <input type="hidden" value="{{id_celular}}" name="idCelular">
+                                        <button class="btn waves-effect waves-light yellow darken-3" type="submit" name="action">Quitar chofer asignado<i class="material-icons right">send</i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{{/listadoDeCelularesPosiblesAModificar}}
+
+
+
+
+{{#mostrarDatosDelCelularConcretoAModificar}}
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m12">
+                            <div class="card black darken-1">
+                                <div class="card-content white-text">
+                                    <form method="POST" action="/supervisor/modificarCelularConcreto">
+                                        <div class="card-content">
+                                            <h3 class="orange-text">Modificar Celular</h3>
+                                            <div class="form-field">
+                                                <div class="form-field">
+                                                    <label for="numeroCelular">Numero Celular:</label>
+                                                    <input type="text" id="numeroCelular" name="numeroCelular" class="white-text"
+                                                           value="{{nro}}" required>
+                                                </div>
+                                                <br>
+                                                <div class="card-action">
+                                                    <input type="hidden" name="idCelular" value="{{id_celular}}">
+                                                    <button class="btn waves-effect waves-light yellow darken-2" type="submit"
+                                                            name="action">Modificar Celular
+                                                        <i class="material-icons right">send</i>
+
+                                                    </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{{/mostrarDatosDelCelularConcretoAModificar}}
+
+
+
+{{#mostrarCelularesSinAsignacionDeChofer}}
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card black darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title"><strong>Celular:</strong> {{nro}} </span>
+                        </div>
+                        <div class="card-action">
+                            <form action="/supervisor/asignarCelularAChofer" method="post">
+                                <div class="input-field col s12">
+                                    <select name="usuario" required>
+                                        <option value="" disabled selected>Sin chofer asignado</option>
+                                        {{#choferesSinCelularAsignado}}
+                                        <option value="{{usuario}}">{{nombre_completo}}</option>
+                                        {{/choferesSinCelularAsignado}}
+                                    </select>
+                                    <label>Seleccione un chofer</label>
+                                </div>
+                                <input type="hidden" value="{{id_celular}}" name="idCelular">
+                                <button class="btn waves-effect waves-light yellow darken-2" type="submit" name="action">Asignar
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </form>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{{/mostrarCelularesSinAsignacionDeChofer}}
+
+
+
+
+
 
 {{#notificacion}}
 <div class="container">
