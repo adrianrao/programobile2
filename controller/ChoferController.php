@@ -1,7 +1,7 @@
 <?php
 
 
-class CamioneroController
+class ChoferController
 {
     private $camioneroModel;
     private $renderer;
@@ -9,7 +9,7 @@ class CamioneroController
 
     public function __construct($camioneroModel, $renderer)
     {
-        if(RoleValidation::validarRol("supervisor")){
+        if(RoleValidation::validarRol("chofer")){
             $this->camioneroModel = $camioneroModel;
             $this->renderer = $renderer;
         }else{
@@ -19,6 +19,6 @@ class CamioneroController
 
     public function index()
     {
-        echo $this->renderer->render("view/camioneroView.php");
+        echo $this->renderer->render("view/choferView.php");
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-class CamioneroModel
+class ChoferModel
 {
     private $database;
 

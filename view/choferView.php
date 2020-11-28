@@ -53,33 +53,21 @@
 </div>
 {{/mensaje}}
 
-{{#completarTipoDeLicenciaYCelular}}
-<div class="row login">
-    <div class="col s12 m4 offset-m4">
-        <div class="card">
-            <div class="card-action gray accent-4 orange-text">
-                <h3>Cargar tipo de licencia y celular</h3>
+{{#notificacion}}
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title"><strong>Licencia:</strong> {{tipo_licencia}}</span>
+                    <p><strong>Celular:</strong> {{nro}}</p>
+                    <p class="red-text">Aun faltan validar la licencia y/o asignar un celular, por favor, comuniquese con su supervisor</p>
+                </div>
             </div>
-            <form method="POST" action="/camionero/cargarLicenciaYCelular">
-                <div class="card-content">
-
-                    <div class="form-field">
-                        <label for="tipoLicencia">Tipo de licencia:</label>
-                        <input type="text" id="tipoLicencia" name="tipoLicencia" class="white-text" required>
-                    </div><br>
-
-                    <div class="form-field">
-                        <label for="celular">Numero de celular:</label>
-                        <input type="text" id="celular" name="celular" class="white-text" required>
-                    </div><br>
-
-                    <div class="form-field center-align">
-                        <button type="submit" class="btn-large black accent-4">Cargar</button>
-            </form>
-
         </div>
-
-{{/completarTipoDeLicenciaYCelular}}
+    </div>
+</div>
+{{/notificacion}}
 
 
 {{> footer}}

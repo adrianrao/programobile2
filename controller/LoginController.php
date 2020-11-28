@@ -34,7 +34,37 @@ class LoginController
                 $_SESSION["rol"] = $rolDeUsuario;
                 $roles = $this->loginModel->traerTodosLosRoles();
 
+                if($usuarioEncontrado[0]["descripcion"] == "chofer"){
+                    $usuario = $usuarioEncontrado[0]["usuario"];
+                    $informacionDeChofer =$this->loginModel->buscarInformacionDeChofer($usuario);
+                    if($informacionDeChofer[0]["nro"] == null || $usuarioEncontrado[0]["tipo_licencia"] == null){
+                        $data["notificacion"] = $informacionDeChofer;
+
+                        echo $this->renderer->render("./view/choferView.php", $data);
+                        exit();
+                    }else{
+
+                    }
+
+
+                }
+
                 foreach ($roles as $rol) {
+
+                    if($rolDeUsuario == "chofer"){
+                        $usuario = $usuarioEncontrado[0]["usuario"];
+                        $informacionDeChofer =$this->loginModel->buscarInformacionDeChofer($usuario);
+
+
+                    if($informacionDeChofer[0]["nro"] == null || $usuarioEncontrado[0]["tipo_licencia"] == null){
+
+                        $data["notificacion"] = $informacionDeChofer;
+
+                        echo $this->renderer->render("./view/choferView.php", $data);
+                        exit();
+                    }}
+
+
                     if ($rolDeUsuario == $rol["descripcion"]) {
                         echo $this->renderer->render('./view/' . $rolDeUsuario . 'View.php', $data);
                         break;
