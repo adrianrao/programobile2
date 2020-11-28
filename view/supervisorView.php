@@ -34,15 +34,13 @@
 
     }
 
-
-
     .select-wrapper input.select-dropdown:focus{
         border-bottom: 1px solid #ff6d00;
     }
 
     .dropdown-content li>a, .dropdown-content li>span{
         font-size: 1rem;
-        color: black;
+        color: #000000;
     }
     .dropdown-nested {
         overflow-y: visible;
@@ -84,47 +82,47 @@
 
 <!-- Estructura para Menu Dropdown Escritorio-->
 <ul id="dropdownequipos" class="dropdown-content dropdown-nested">
-    <li><a class="sub blue darken-2"  data-target="dropdownlistartractoresyarrastrados">Listar<i class="material-icons right">arrow_right</i></a></li>
-    <li><a class="sub blue darken-2"  data-target="dropdownaltatractoresyarrastrados">Dar de alta<i class="material-icons right">arrow_right</i></a></li>
-    <li><a class="sub blue darken-2"  data-target="dropdownbajatractoresyarrastrados">Dar de baja<i class="material-icons right">arrow_right</i></a></li>
-    <li><a class="sub blue darken-2"  data-target="dropdownmodificartractoresyarrastrados">Modificar<i class="material-icons right">arrow_right</i></a></li>
+    <li><a class="sub blue darken-2 white-text"  data-target="dropdownlistartractoresyarrastrados">Listar<i class="material-icons right">arrow_right</i></a></li>
+    <li><a class="sub blue darken-2 white-text"  data-target="dropdownaltatractoresyarrastrados">Dar de alta<i class="material-icons right">arrow_right</i></a></li>
+    <li><a class="sub blue darken-2 white-text"  data-target="dropdownbajatractoresyarrastrados">Dar de baja<i class="material-icons right">arrow_right</i></a></li>
+    <li><a class="sub blue darken-2 white-text"  data-target="dropdownmodificartractoresyarrastrados">Modificar<i class="material-icons right">arrow_right</i></a></li>
 </ul>
 
 
 <ul id="dropdownlistartractoresyarrastrados" class="dropdown-content">
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosTractores">Listar tractores</a></li>
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosArrastrados">Listar arrastrados</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosTractores">Listar tractores</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosArrastrados">Listar arrastrados</a></li>
 </ul>
 
 <ul id="dropdownaltatractoresyarrastrados" class="dropdown-content">
-    <li class="blue darken-2"><a href="/supervisor/darAltaATractor">Dar de alta tractores</a></li>
-    <li class="blue darken-2"><a href="/supervisor/darAltaAArrastrado">Dar de alta arrastrados</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/darAltaATractor">Dar de alta tractores</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/darAltaAArrastrado">Dar de alta arrastrados</a></li>
 </ul>
 
 <ul id="dropdownbajatractoresyarrastrados" class="dropdown-content">
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosTractoresAEliminar">Dar de baja tractores</a></li>
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosArrastradosAEliminar">Dar de baja arrastrados</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosTractoresAEliminar">Dar de baja tractores</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosArrastradosAEliminar">Dar de baja arrastrados</a></li>
 </ul>
 
 <ul id="dropdownmodificartractoresyarrastrados" class="dropdown-content">
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosPosiblesTractoresAModificar">Modificar tractores</a></li>
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosPosiblesArrastradosAModificar">Modificar arrastrados</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosPosiblesTractoresAModificar">Modificar tractores</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosPosiblesArrastradosAModificar">Modificar arrastrados</a></li>
 </ul>
 
 
 <ul id="dropdownclientes" class="dropdown-content">
-    <li class="orange darken-2"><a href="/supervisor/listarTodosLosClientes">Listar</a></li>
-    <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Dar de alta</a></li>
-    <li class="orange darken-2"><a href="/supervisor/listarTodosLosClientesAEliminar">Dar de baja</a></li>
-    <li class="orange darken-2"><a href="/supervisor/listarTodosLosPosiblesClientesAModificar">Modificar</a></li>
+    <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosClientes">Listar</a></li>
+    <li><a class="orange darken-2 white-text" href="/supervisor/darAltaACliente">Dar de alta</a></li>
+    <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosClientesAEliminar">Dar de baja</a></li>
+    <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosPosiblesClientesAModificar">Modificar</a></li>
 
 </ul>
 <ul id="dropdownproforma" class="dropdown-content">
-    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Listar</a></li>
-    <li class="green darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de alta</a></li>
-    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja</a></li>
-    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
-    <li class="orange darken-2"><a href="/supervisor/mostrarFormularioProforma">Cargar proforma</a></li>
+    <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosAModificar">Listar</a></li>
+    <li><a class="green darken-2 white-text" href="/supervisor/mostrarFormularioProforma">Cargar proforma</a></li>
+    <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Eliminar</a></li>
+    <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
+
 </ul>
 
 
@@ -141,44 +139,44 @@
 </ul>
 
 <ul id="dropdownequiposmobile" class="dropdown-content dropdown-nested">
-    <li><a class="submobile blue darken-2"  data-target="dropdownlistartractoresyarrastradosmobile">Listar<i class="material-icons white-text right">arrow_drop_down</i></a></li>
-    <li><a class="submobile blue darken-2"  data-target="dropdownaltatractoresyarrastradosmobile">Dar de alta<i class="material-icons white-text right">arrow_drop_down</i></a></li>
-    <li><a class="submobile blue darken-2"  data-target="dropdownbajatractoresyarrastradosmobile">Dar de baja<i class="material-icons white-text right">arrow_drop_down</i></a></li>
-    <li><a class="submobile blue darken-2"  data-target="dropdownmodificartractoresyarrastradosmobile">Modificar<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="submobile blue darken-2 white-text"  data-target="dropdownlistartractoresyarrastradosmobile">Listar<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="submobile blue darken-2 white-text"  data-target="dropdownaltatractoresyarrastradosmobile">Dar de alta<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="submobile blue darken-2 white-text"  data-target="dropdownbajatractoresyarrastradosmobile">Dar de baja<i class="material-icons white-text right">arrow_drop_down</i></a></li>
+    <li><a class="submobile blue darken-2 white-text"  data-target="dropdownmodificartractoresyarrastradosmobile">Modificar<i class="material-icons white-text right">arrow_drop_down</i></a></li>
 </ul>
 
 
 <ul id="dropdownlistartractoresyarrastradosmobile" class="dropdown-content mobile">
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosTractores">Listar tractores</a></li>
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosArrastrados">Listar arrastrados</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosTractores">Listar tractores</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosArrastrados">Listar arrastrados</a></li>
 </ul>
 
 <ul id="dropdownaltatractoresyarrastradosmobile" class="dropdown-content mobile">
-    <li class="blue darken-2"><a href="/supervisor/darAltaATractor">Dar de alta tractores</a></li>
-    <li class="blue darken-2"><a href="/supervisor/darAltaAArrastrado">Dar de alta arrastrados</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/darAltaATractor">Dar de alta tractores</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/darAltaAArrastrado">Dar de alta arrastrados</a></li>
 </ul>
 
 <ul id="dropdownbajatractoresyarrastradosmobile" class="dropdown-content mobile">
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosTractoresAEliminar">Dar de baja tractores</a></li>
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosArrastradosAEliminar">Dar de baja arrastrados</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosTractoresAEliminar">Dar de baja tractores</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosArrastradosAEliminar">Dar de baja arrastrados</a></li>
 </ul>
 
 <ul id="dropdownmodificartractoresyarrastradosmobile" class="dropdown-content mobile">
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosPosiblesTractoresAModificar">Modificar tractores</a></li>
-    <li class="blue darken-2"><a href="/supervisor/listarTodosLosPosiblesArrastradosAModificar">Modificar arrastrados</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosPosiblesTractoresAModificar">Modificar tractores</a></li>
+    <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosPosiblesArrastradosAModificar">Modificar arrastrados</a></li>
 </ul>
 
 <ul id="dropdownclientesmobile" class="dropdown-content">
-    <li class="orange darken-2"><a href="/supervisor/listarTodosLosClientes">Listar</a></li>
-    <li class="orange darken-2"><a href="/supervisor/darAltaACliente">Dar de alta</a></li>
-    <li class="orange darken-2"><a href="/supervisor/listarTodosLosClientesAEliminar">Dar de baja</a></li>
-    <li class="orange darken-2"><a href="/supervisor/listarTodosLosPosiblesClientesAModificar">Modificar</a></li>
+    <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosClientes">Listar</a></li>
+    <li><a class="orange darken-2 white-text" href="/supervisor/darAltaACliente">Dar de alta</a></li>
+    <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosClientesAEliminar">Dar de baja</a></li>
+    <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosPosiblesClientesAModificar">Modificar</a></li>
 </ul>
 <ul id="dropdownproformamobile" class="dropdown-content">
-    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Listar</a></li>
-    <li class="green darken-2"><a href="/supervisor/obtenerUsuariosSinRol">Dar de alta</a></li>
-    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Dar de baja</a></li>
-    <li class="green darken-2"><a href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
+    <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosAModificar">Listar</a></li>
+    <li><a class="green darken-2 white-text" href="/supervisor/mostrarFormularioProforma">Cargar proforma</a></li>
+    <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Eliminar</a></li>
+    <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
 </ul>
 
 
@@ -800,6 +798,9 @@
 
 
         {{/mostrarDatosDelArrastradoConcretoAModificar}}
+
+        <!-- COMIENZA ACCIONES DE CONTROL DE PROFORMA! -->
+
 
 
         {{#mostrarFormularioCargaProforma}}
