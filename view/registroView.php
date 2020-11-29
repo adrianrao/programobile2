@@ -69,6 +69,7 @@
         <p class="error center-align {{colorNotificacion}}-text ">{{notificacion}}</p>
         {{/notificacion}}
     </div>
+    
 </div>
 </div>
 </div>

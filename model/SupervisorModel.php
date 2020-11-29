@@ -349,6 +349,7 @@ VALUES(
 
     public function traerTodosLosCelularesSinAsignar(){
         return $this->db->query("SELECT * from celular where  id_chofer is null");
+
     }
 
 

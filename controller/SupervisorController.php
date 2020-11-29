@@ -749,6 +749,7 @@ class SupervisorController
 
 
         echo $this->renderer->render("./view/supervisorView.php",$data);
+
     }
 
     public function asignarCelularAChofer(){
