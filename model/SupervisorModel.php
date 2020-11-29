@@ -135,7 +135,16 @@ VALUES(
     }
 
     public function traerTodosLosChoferes(){
-        $result = $this->db->query("select * from empleado where id_rol = 3");
+        $result = $this->db->query("select  e.nombre_completo from
+                                            empleado e
+                                            join rol r
+                                            on e.id_rol = r.id_rol
+                                            join celular c
+                                            on e.usuario = c.id_chofer
+                                            where r.descripcion = 'chofer'
+                                            and e.tipo_licencia is not null
+                                            and e.usuario in (select cel.id_chofer
+                                            from celular cel);");
         return $result;
     }
 
@@ -279,7 +288,11 @@ VALUES(
 
 
     public function traerChoferesAValidarLicencia(){
-        return $this->db->query("SELECT * from empleado where tipo_licencia is null");
+        return $this->db->query("   select * from empleado
+                                    JOIN rol
+                                    on empleado.id_rol = rol.id_rol
+                                    where empleado.tipo_licencia is null
+                                    and rol.descripcion = 'chofer';");
     }
 
     public function traerTiposDeLicencia(){
@@ -327,7 +340,11 @@ VALUES(
     }
 
     public function traerATodosLosChoferesSinCelularAsignado(){
-        return $this->db->query("SELECT * from empleado emp  where NOT EXISTS (SELECT NULL FROM celular celu WHERE celu.id_chofer = emp.usuario)");
+        return $this->db->query("   SELECT * from empleado emp JOIN
+                                    rol r
+                                    on emp.id_rol = r.id_rol
+                                    where r.descripcion = 'chofer'
+                                    and NOT EXISTS (SELECT NULL FROM celular celu WHERE celu.id_chofer = emp.usuario);");
     }
 
     public function traerTodosLosCelularesSinAsignar(){
