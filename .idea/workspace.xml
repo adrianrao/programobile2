@@ -20,6 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6522bf7-210c-4cf7-b5a3-c2d9a6d3dcdb" name="Default Changelist" comment="se arregla bug y validacion en el bloquear usuario">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ModuleInitializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/ModuleInitializer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ChoferController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ChoferController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/SupervisorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SupervisorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ChoferModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ChoferModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/SupervisorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/SupervisorModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/administradorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administradorView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/choferView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/choferView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/registroView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/registroView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/supervisorView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/supervisorView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +59,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1kISGPeJOZtWgZMWd5YTppUciEC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,7 +117,10 @@
       <workItem from="1606074995121" duration="18286000" />
       <workItem from="1606307792191" duration="16633000" />
       <workItem from="1606352434737" duration="2284000" />
-      <workItem from="1606656553437" duration="4446000" />
+      <workItem from="1606656553437" duration="5504000" />
+      <workItem from="1606682424860" duration="6803000" />
+      <workItem from="1606738638507" duration="10699000" />
+      <workItem from="1606773041615" duration="4527000" />
     </task>
     <task id="LOCAL-00001" summary="Se agrega AdministradorController.php AdministradorModel.php , administradorView.php , administradorModificarUsuarioView.php&#10;Se modifica ModuleInitializer.php para agregar el AdministradorController.php&#10;&#10;Queda pendiente arreglar los datos del tipo DATE que la base no los toma bien&#10;&#10;Y hacer un join para mostrar la descripcion del rol en los usuarios y no el valor numerico del rol&#10;&#10;se agrega en el header font-icon&#10;&#10;falta validar el tipo de login, dependiendo el rol redirreccionar, agregar la variable $_SESSION.">
       <created>1605496857309</created>
@@ -242,10 +257,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="510" y="87" key="NewPhpClassDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606010599743" />
-    <state x="364" y="270" key="NewPhpFileDialog" timestamp="1606311360161">
+    <state x="364" y="270" key="NewPhpFileDialog" timestamp="1606688400882">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="364" y="270" key="NewPhpFileDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606311360161" />
+    <state x="364" y="270" key="NewPhpFileDialog/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606688400882" />
     <state x="512" y="386" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605914461027" />
     <state x="2432" y="386" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605571006173" />
     <state x="1344" y="184" key="RollbackChangesDialog" timestamp="1605914013151">
@@ -271,36 +286,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="789" y="401" key="com.jetbrains.plugins.webDeployment.ui.UploadBeforeRunTaskDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605392274997" />
-    <state x="270" y="-720" width="1014" height="715" maximized="true" key="dock-window-1" timestamp="1606659706598">
+    <state x="98" y="-711" width="1097" height="715" maximized="true" key="dock-window-1" timestamp="1606774077141">
       <screen x="0" y="-720" width="1280" height="680" />
     </state>
-    <state x="215" y="61" width="1053" height="715" maximized="true" key="dock-window-1/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@-1280.45.1280.680" timestamp="1606312120815" />
+    <state x="98" y="-711" width="1097" height="715" maximized="true" key="dock-window-1/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@-1280.45.1280.680" timestamp="1606774077141" />
     <state x="270" y="-720" width="1014" height="715" maximized="true" key="dock-window-1/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.-720.1280.680" timestamp="1606659706598" />
-    <state x="-1324" y="37" width="1053" height="668" maximized="true" key="dock-window-1/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606321390088" />
+    <state x="-1280" y="97" width="1088" height="715" maximized="true" key="dock-window-1/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606688998769" />
     <state x="-1254" y="45" width="1062" height="715" maximized="true" key="dock-window-1/0.0.1366.728/0.-720.1280.680/-1280.45.1280.680@0.0.1366.728" timestamp="1606257647027" />
     <state x="1920" y="0" width="1469" height="1028" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606182384583" />
-    <state x="0" y="-681" width="1096" height="715" maximized="true" key="dock-window-2" timestamp="1606660142729">
-      <screen x="0" y="-720" width="1280" height="680" />
+    <state x="-1203" y="45" width="1097" height="715" maximized="true" key="dock-window-2" timestamp="1606774077141">
+      <screen x="-1280" y="45" width="1280" height="680" />
     </state>
-    <state x="0" y="-681" width="1096" height="715" maximized="true" key="dock-window-2/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606660142729" />
+    <state x="-1203" y="45" width="1097" height="715" maximized="true" key="dock-window-2/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@-1280.45.1280.680" timestamp="1606774077141" />
+    <state x="-1280" y="45" width="1088" height="715" maximized="true" key="dock-window-2/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606688538355" />
     <state x="152" y="-743" width="1062" height="715" maximized="true" key="dock-window-2/0.0.1366.728/0.-720.1280.680/-1280.45.1280.680@0.0.1366.728" timestamp="1606258299462" />
     <state x="2265" y="-19" width="974" height="1047" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606182710920" />
     <state x="-1280" y="45" width="1096" height="715" maximized="true" key="dock-window-3" timestamp="1606660142729">
       <screen x="-1280" y="45" width="1280" height="680" />
     </state>
     <state x="-1280" y="45" width="1096" height="715" maximized="true" key="dock-window-3/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606660142729" />
-    <state x="-1280" y="45" width="1096" height="715" key="dock-window-4" timestamp="1606661126898">
+    <state x="-1280" y="45" width="1096" height="715" maximized="true" key="dock-window-4" timestamp="1606664619432">
       <screen x="-1280" y="45" width="1280" height="680" />
     </state>
-    <state x="-1280" y="45" width="1096" height="715" key="dock-window-4/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606661126898" />
-    <state x="27" y="-720" width="1096" height="715" maximized="true" key="dock-window-5" timestamp="1606660453437">
-      <screen x="0" y="-720" width="1280" height="680" />
+    <state x="-1280" y="45" width="1096" height="715" maximized="true" key="dock-window-4/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606664619432" />
+    <state x="27" y="-720" width="1096" height="715" maximized="true" key="dock-window-5" timestamp="1606739105297">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="27" y="-720" width="1096" height="715" maximized="true" key="dock-window-5/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606660453437" />
-    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup" timestamp="1606272205630">
+    <state x="27" y="-720" width="1096" height="715" maximized="true" key="dock-window-5/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606682875025" />
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup" timestamp="1606742745931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728/-1280.45.1280.680/0.-720.1280.680@0.0.1366.728" timestamp="1606272205630" />
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606742745931" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606179796450" />
   </component>
 </project>

@@ -849,7 +849,7 @@
                             <label for="denominacion">Denominacion:</label>
                             <select id="denominacion" name="denominacion">
                                 {{#cargarSelectCliente}}
-                                    <option value="{{id_cliente}}">{{denominacion}}</option>
+                                    <option value="{{id_cliente}}">{{id_cliente}}</option>
                                 {{/cargarSelectCliente}}
 
                             </select>

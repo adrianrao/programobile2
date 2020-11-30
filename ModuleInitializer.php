@@ -53,12 +53,22 @@ class ModuleInitializer
     }
 
     public function createSupervisorController()
-    {
-        include_once("model/SupervisorModel.php");
-        include_once("controller/SupervisorController.php");
+{
+    include_once("model/SupervisorModel.php");
+    include_once("controller/SupervisorController.php");
 
-        $model = new SupervisorModel($this->database);
-        return new SupervisorController($model, $this->renderer);
+    $model = new SupervisorModel($this->database);
+    return new SupervisorController($model, $this->renderer);
+}
+
+
+    public function createChoferController()
+    {
+        include_once("model/ChoferModel.php");
+        include_once("controller/ChoferController.php");
+
+        $model = new ChoferModel($this->database);
+        return new ChoferController($model, $this->renderer);
     }
 
 }

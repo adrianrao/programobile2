@@ -135,7 +135,7 @@ VALUES(
     }
 
     public function traerTodosLosChoferes(){
-        $result = $this->db->query("select  e.nombre_completo from
+        $result = $this->db->query("select e.usuario,  e.nombre_completo from
                                             empleado e
                                             join rol r
                                             on e.id_rol = r.id_rol

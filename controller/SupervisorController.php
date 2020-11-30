@@ -46,7 +46,7 @@ class SupervisorController
 
         $id_tractor = $_POST["id_tractor"];
         $id_arrastrado = $_POST["id_arrastrador"];
-        $id_cliente = $_POST["id_cliente"];
+        $id_cliente = 1;
         $usuario = $_POST["chofer_asignado"];
         $fecha = $_POST["fecha"];
         $cliente_denominacion = $_POST["denominacion"];

@@ -21,7 +21,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a  class="btn orange darken-2" href="/administrador/obtenerUsuariosSinRol">Asignar rol a usuarios sin rol</a></li>
             <li><a  class="btn orange darken-2" href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear a usuarios</a></li>
-            <li><a  class="btn orange darken-2" href="/administrador/traerTodosLosUsuariosAModificar">Modificar usuario</a></li>
+            <li><a  class="btn orange darken-2" href="/administrador/traerDatosDelUsuarioSeleccionadoParaAModificar">Modificar usuario</a></li>
             <li><a  class="btn red darken-2" href="/administrador/cerrarSesion">Cerrar sesión</a></li>
         </ul>
     </div>

@@ -32,6 +32,7 @@ class LoginController
             if ($usuarioEncontrado != null) {
                 $data["mensaje"] = $usuarioEncontrado;
                 $rolDeUsuario = $usuarioEncontrado[0]["descripcion"];
+                $_SESSION["usuarioChofer"] = $usuarioObtenido;
                 $_SESSION["rol"] = $rolDeUsuario;
                 $roles = $this->loginModel->traerTodosLosRoles();
 
