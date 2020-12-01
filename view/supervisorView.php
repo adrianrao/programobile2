@@ -835,7 +835,7 @@
                     </div>
                     <form method="POST" action="/supervisor/procesarProforma">
 
-                        <div class="form-field">
+                        <div class=" card-action form-field">
                             <label for="fecha">Fecha:</label>
                         <input type="date" id="fecha" name="fecha" class="white-text" required>
 
@@ -848,9 +848,9 @@
 
                             <label for="denominacion">Denominacion:</label>
                             <select id="denominacion" name="denominacion">
-                                {{#cargarSelectCliente}}
-                                    <option value="{{id_cliente}}">{{id_cliente}}</option>
-                                {{/cargarSelectCliente}}
+<!--                                {{#cargarSelectCliente}}-->
+<!--                                    <option value="{{id_cliente}}">{{id_cliente}}</option>-->
+<!--                                {{/cargarSelectCliente}}-->
 
                             </select>
 
@@ -1005,9 +1005,9 @@
 
                             <label for="chofer_asignado">Chofer asignado:</label>
                             <select id="chofer_asignado" name="chofer_asignado">
-                                {{#cargarSelectChofer}}
-                                    <option value="{{usuario}}">{{nombre_completo}}</option>
-                                {{/cargarSelectChofer}}
+<!--                                {{#cargarSelectChofer}}-->
+<!--                                    <option value="{{usuario}}">{{nombre_completo}}</option>-->
+<!--                                {{/cargarSelectChofer}}-->
 
                             </select>
 

@@ -9,11 +9,6 @@ class SupervisorModel
         $this->db = $database;
     }
 
-
-
-
-
-
     public function registrarCliente($email, $telefono, $contacto1, $contacto2, $cuit,$denominacion,$calle,$nro, $codigoPostal){
         $result = $this->db->ejecutarQuery(
             "insert into cliente(email,telefono,contacto1,contacto2,cuit, denominacion, direccion_calle, direccion_nro, direccion_cp) 
@@ -125,17 +120,15 @@ VALUES(
     }
 
     public function eliminarClientePorId($idCliente){
-        $result = $this->db->ejecutarQuery("delete from cliente where cliente.id_cliente = $idCliente");
-        return $result;
+        return $this->db->ejecutarQuery("delete from cliente where cliente.id_cliente = $idCliente");
     }
 
     public function traerTodosLosClientes(){
-        $result = $this->db->query("select * from cliente");
-        return $result;
+        return $this->db->query("select * from cliente");
     }
 
     public function traerTodosLosChoferes(){
-        $result = $this->db->query("select e.usuario,  e.nombre_completo from
+        return $this->db->query("select e.usuario,  e.nombre_completo from
                                             empleado e
                                             join rol r
                                             on e.id_rol = r.id_rol
@@ -144,8 +137,7 @@ VALUES(
                                             where r.descripcion = 'chofer'
                                             and e.tipo_licencia is not null
                                             and e.usuario in (select cel.id_chofer
-                                            from celular cel);");
-        return $result;
+                                            from celular cel)");
     }
 
     public function buscarClientePorId($id_cliente){
@@ -182,14 +174,6 @@ VALUES(
         return mysqli_num_rows($result);
 
     }
-
-
-
-
-
-
-
-
 
 
     public function buscarArrastradoPorId($idArrastrado){
