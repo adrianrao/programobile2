@@ -40,15 +40,15 @@ class SupervisorModel
         $carga_temperatura_reefer,
         $costeo_km_estimados,
         $costeo_combustible_estimado,
-        $costeo_ETD_estimado,
-        $costeo_ETA_estimado,
         $costeo_viaticos_estimado,
         $costeo_peajes_estimado,
         $costeo_pesajes_estimado,
         $costeo_extras_estimado,
         $costeo_hazard_estimado,
         $costeo_reefer_estimado,
-        $costeo_fee_estimado){
+        $costeo_fee_estimado,
+        $costeo_total_estimado,
+        $viaje_ETD){
 
        $result = $this->db->ejecutarQuery("
 insert into proforma(
@@ -74,15 +74,16 @@ insert into proforma(
         `carga_temperatura_reefer`,
         `costeo_km_estimados`,
         `costeo_combustible_estimado`,
-        `costeo_ETD_estimado`,
-        `costeo_ETA_estimado`,
         `costeo_viaticos_estimado`,
         `costeo_peajes_estimado`,
         `costeo_pesajes_estimado`,
         `costeo_extras_estimado`,
         `costeo_hazard_estimado`,
         `costeo_reefer_estimado`,
-        `costeo_fee_estimado`)
+        `costeo_fee_estimado`,
+        `costeo_total_estimado`,
+        `viaje_ETD`
+        )
 VALUES(
         $id_tractor,
         $id_arrastrado,
@@ -99,22 +100,22 @@ VALUES(
         '$viaje_origen',
         '$viaje_destino',
         STR_TO_DATE('$viaje_fecha_carga', '%Y-%m-%d'),
-        '$viaje_ETA',
+        STR_TO_DATE('$viaje_ETA', '%Y-%m-%d'),        
         '$carga_tipo',
         $carga_peso,
         '$carga_tipo_hazard',
         '$carga_temperatura_reefer',
         $costeo_km_estimados,
         $costeo_combustible_estimado,
-        $costeo_ETD_estimado,
-        $costeo_ETA_estimado,
         $costeo_viaticos_estimado,
         $costeo_peajes_estimado,
         $costeo_pesajes_estimado,
         $costeo_extras_estimado,
         $costeo_hazard_estimado,
         $costeo_reefer_estimado,
-        $costeo_fee_estimado);");
+        $costeo_fee_estimado,
+        $costeo_total_estimado,
+        STR_TO_DATE('$viaje_ETD', '%Y-%m-%d'));");
 
        return $result;
     }

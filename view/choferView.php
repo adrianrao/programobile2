@@ -80,13 +80,13 @@
 
                 <br>
 
-                <label for="costeo_ETD_real">ETD real:</label>
-                <input type="number" value="{{costeo_ETD_real}}" id="costeo_ETD_real" name="costeo_ETD_real" class="white-text" required>
+                <label for="fecha_partida_real">Fecha partida real:</label>
+                <input type="date" value="{{fecha_partida_real}}" id="fecha_partida_real" name="fecha_partida_real" class="white-text" required>
 
                 <br>
 
-                <label for="costeo_ETA_real">ETA real:</label>
-                <input type="number" value="{{costeo_ETA_real}}" id="costeo_ETA_real" name="costeo_ETA_real" class="white-text" required>
+                <label for="fecha_arribo_real">Fecha arribo real:</label>
+                <input type="date" value="{{fecha_arribo_real}}" id="fecha_arribo_real" name="fecha_arribo_real" class="white-text" required>
 
                 <br>
 
@@ -229,13 +229,15 @@
 
                 <br>
 
-                <label for="costeo_ETD_real">ETD real:</label>
-                <input type="number" id="costeo_ETD_real" name="costeo_ETD_real" class="white-text" required>
+                <br>
+
+                <label for="fecha_partida_real">Fecha partida real:</label>
+                <input type="date" value="{{fecha_partida_real}}" id="fecha_partida_real" name="fecha_partida_real" class="white-text" required>
 
                 <br>
 
-                <label for="costeo_ETA_real">ETA real:</label>
-                <input type="number" id="costeo_ETA_real" name="costeo_ETA_real" class="white-text" required>
+                <label for="fecha_arribo_real">Fecha arribo real:</label>
+                <input type="date" value="{{fecha_arribo_real}}" id="fecha_arribo_real" name="fecha_arribo_real" class="white-text" required>
 
                 <br>
 

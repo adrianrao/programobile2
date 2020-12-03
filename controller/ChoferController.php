@@ -49,8 +49,8 @@ class ChoferController
 
         $costeo_km_reales = $_POST["costeo_km_reales"];
         $costeo_combustible_real = $_POST["costeo_combustible_real"];
-        $costeo_ETD_real = $_POST["costeo_ETD_real"];
-        $costeo_ETA_real = $_POST["costeo_ETA_real"];
+        $fecha_partida_real = $_POST["fecha_partida_real"];
+        $fecha_arribo_real = $_POST["fecha_arribo_real"];
         $costeo_viaticos_real = $_POST["costeo_viaticos_real"];
         $costeo_peajes_real = $_POST["costeo_peajes_real"];
         $costeo_pesajes_real = $_POST["costeo_pesajes_real"];
@@ -63,8 +63,8 @@ class ChoferController
             $id_proforma,
             $costeo_km_reales,
             $costeo_combustible_real,
-            $costeo_ETD_real,
-            $costeo_ETA_real,
+            $fecha_partida_real,
+            $fecha_arribo_real,
             $costeo_viaticos_real,
             $costeo_peajes_real,
             $costeo_pesajes_real,

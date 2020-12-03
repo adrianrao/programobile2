@@ -835,7 +835,7 @@
                     </div>
                     <form method="POST" action="/supervisor/procesarProforma">
 
-                        <div class=" card-action form-field">
+                        <div class="form-field">
                             <label for="fecha">Fecha:</label>
                         <input type="date" id="fecha" name="fecha" class="white-text" required>
 
@@ -848,9 +848,9 @@
 
                             <label for="denominacion">Denominacion:</label>
                             <select id="denominacion" name="denominacion">
-<!--                                {{#cargarSelectCliente}}-->
-<!--                                    <option value="{{id_cliente}}">{{id_cliente}}</option>-->
-<!--                                {{/cargarSelectCliente}}-->
+                                {{#cargarSelectCliente}}
+                                    <option value="{{id_cliente}}">{{denominacion}}</option>
+                                {{/cargarSelectCliente}}
 
                             </select>
 
@@ -905,8 +905,13 @@
 
                             <br>
 
+                            <label for="ETD">ETD:</label>
+                            <input type="date" id="ETD" name="ETD" class="white-text" required>
+
+                            <br>
+
                             <label for="ETA">ETA:</label>
-                            <input type="text" id="ETA" name="ETA" class="white-text" required>
+                            <input type="date" id="ETA" name="ETA" class="white-text" required>
 
                             <br><br>
 
@@ -952,15 +957,6 @@
                             <label for="combustible_estimado">Combustible estimado litros:</label>
                             <input type="number" id="combustible_estimado" name="combustible_estimado" class="white-text" required>
 
-                            <br>
-
-                            <label for="ETD_estimado">ETD estimado:</label>
-                            <input type="number" id="ETD_estimado" name="ETD_estimado" class="white-text" required>
-
-                            <br>
-
-                            <label for="ETA_estimado">ETA estimado:</label>
-                            <input type="number" id="ETA_estimado" name="ETA_estimado" class="white-text" required>
 
                             <br>
 
@@ -1005,9 +1001,9 @@
 
                             <label for="chofer_asignado">Chofer asignado:</label>
                             <select id="chofer_asignado" name="chofer_asignado">
-<!--                                {{#cargarSelectChofer}}-->
-<!--                                    <option value="{{usuario}}">{{nombre_completo}}</option>-->
-<!--                                {{/cargarSelectChofer}}-->
+                                {{#cargarSelectChofer}}
+                                    <option value="{{usuario}}">{{nombre_completo}}</option>
+                                {{/cargarSelectChofer}}
 
                             </select>
 

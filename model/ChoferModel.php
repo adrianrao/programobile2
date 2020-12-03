@@ -50,8 +50,8 @@ class ChoferModel
     public function insertarDatosDelViajeEnBD($id_proforma,
                                               $costeo_km_reales,
                                               $costeo_combustible_real,
-                                              $costeo_ETD_real,
-                                              $costeo_ETA_real,
+                                              $fecha_partida_real,
+                                              $fecha_arribo_real,
                                               $costeo_viaticos_real,
                                               $costeo_peajes_real,
                                               $costeo_pesajes_real,
@@ -62,8 +62,6 @@ class ChoferModel
 
                         $costeo_total_real =  $costeo_km_reales+
                                               $costeo_combustible_real+
-                                              $costeo_ETD_real+
-                                              $costeo_ETA_real+
                                               $costeo_viaticos_real+
                                               $costeo_peajes_real+
                                               $costeo_pesajes_real+
@@ -75,8 +73,8 @@ class ChoferModel
         return $this->database->ejecutarQuery("UPDATE proforma p SET 
                                                 p.costeo_km_reales = $costeo_km_reales,
                                                 p.costeo_combustible_real = $costeo_combustible_real,
-                                                p.costeo_ETD_real = $costeo_ETD_real,
-                                                p.costeo_ETA_real = $costeo_ETA_real,
+                                                p.fecha_partida_real = STR_TO_DATE('$fecha_partida_real', '%Y-%m-%d'),
+                                                p.fecha_arribo_real = STR_TO_DATE('$fecha_arribo_real', '%Y-%m-%d'),
                                                 p.costeo_viaticos_real = $costeo_viaticos_real,
                                                 p.costeo_peajes_Real = $costeo_peajes_real,
                                                 p.costeo_pesajes_real = $costeo_pesajes_real,
