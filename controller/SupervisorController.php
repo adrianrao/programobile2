@@ -59,6 +59,7 @@ class SupervisorController
         $viaje_origen = $_POST["origen"];
         $viaje_destino = $_POST["destino"];
         $viaje_fecha_carga = $_POST["fecha_carga"];
+        $viaje_ETD = $_POST["ETD"];
         $viaje_ETA = $_POST["ETA"];
         $carga_tipo = $_POST["tipo_carga"];
         $carga_peso = $_POST["peso_neto"];
@@ -66,8 +67,6 @@ class SupervisorController
         $carga_temperatura_reefer = $_POST["temperatura_reefer"];
         $costeo_km_estimados = $_POST["km_estimado"];
         $costeo_combustible_estimado = $_POST["combustible_estimado"];
-        $costeo_ETD_estimado = $_POST["ETD_estimado"];
-        $costeo_ETA_estimado = $_POST["ETA_estimado"];
         $costeo_viaticos_estimado = $_POST["viaticos_estimado"];
         $costeo_peajes_estimado = $_POST["peajes_estimado"];
         $costeo_pesajes_estimado = $_POST["pesajes_estimado"];
@@ -75,6 +74,22 @@ class SupervisorController
         $costeo_hazard_estimado = $_POST["hazard_estimado"];
         $costeo_reefer_estimado = $_POST["reefer_estimado"];
         $costeo_fee_estimado = $_POST["fee_estimado"];
+
+        $costeo_total_estimado =
+            $costeo_km_estimados+
+            $costeo_combustible_estimado+
+            $costeo_viaticos_estimado+
+            $costeo_peajes_estimado+
+            $costeo_pesajes_estimado+
+            $costeo_extras_estimado+
+            $costeo_hazard_estimado+
+            $costeo_reefer_estimado+
+            $costeo_fee_estimado;
+
+
+
+
+
 
 
        $result = $this->supervisorModel->registrarProforma(
@@ -100,15 +115,15 @@ class SupervisorController
            $carga_temperatura_reefer,
            $costeo_km_estimados,
            $costeo_combustible_estimado,
-           $costeo_ETD_estimado,
-           $costeo_ETA_estimado,
            $costeo_viaticos_estimado,
            $costeo_peajes_estimado,
            $costeo_pesajes_estimado,
            $costeo_extras_estimado,
            $costeo_hazard_estimado,
            $costeo_reefer_estimado,
-           $costeo_fee_estimado);
+           $costeo_fee_estimado,
+           $costeo_total_estimado,
+           $viaje_ETD);
 
         if(isset($result)){
             $data["colorNotificacion"] = "green";
