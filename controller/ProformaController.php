@@ -3,14 +3,14 @@
 
 class ProformaController
 {
-    private $supervisorModel;
+    private $proformaModel;
     private $renderer;
 
 
     public function __construct($supervisorModel, $renderer)
     {
         if(RoleValidation::validarRol("supervisor")){
-            $this->supervisorModel = $supervisorModel;
+            $this->proformaModel = $supervisorModel;
             $this->renderer = $renderer;
         }else{
             RoleValidation::logoutPorRolNoValido($renderer);
@@ -65,7 +65,7 @@ class ProformaController
         $costeo_fee_estimado = $_POST["fee_estimado"];
 
 
-        $result = $this->supervisorModel->registrarProforma(
+        $result = $this->proformaModel->registrarProforma(
             $id_tractor,
             $id_arrastrado,
             $id_cliente,
@@ -107,6 +107,45 @@ class ProformaController
         }
 
 
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+    }
+
+    public function mostrarProformas(){
+        $registros = $this->proformaModel->obtenerProformas();
+
+        $data["listadoDeProformas"] = $registros;
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+
+    }
+
+    public function mostrardetalleproforma(){
+        $idProforma = $_POST["id_proforma"];
+        $registro = $this->proformaModel->obtenerProforma($idProforma);
+
+        $data["detalleProforma"] = $registro;
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+
+    }
+
+    public function mostrarProformasAEliminar(){
+        $registros = $this->proformaModel->obtenerProformas();
+
+        $data["listadoDeProformasAEliminar"] = $registros;
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+
+    }
+
+    public function eliminar(){
+        $idProforma = $_POST["id_proforma"];
+        $elimino = $this->proformaModel->eliminar($idProforma);
+        
+        if ($elimino) {
+            $data["colorNotificacion"] = "green";
+            $data["notificacion"] = "Se ha borrado la proforma de la base de datos";
+        } else {
+            $data["colorNotificacion"] = "red";
+            $data["notificacion"] = "Fallo al borrar proforma";
+        }
         echo $this->renderer->render("./view/supervisorView.php", $data);
     }
 

@@ -90,4 +90,9 @@ class ProformaModel
         $sql = "SELECT * FROM proforma";
         return $this->db->executeQuery($sql);
     }
+
+    public function obtenerProforma($idProforma){
+        $sql = "SELECT * FROM proforma WHERE id_proforma = $idProforma";
+        return $this->db->executeQuery($sql);
+    }
 }
