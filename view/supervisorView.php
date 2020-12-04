@@ -131,7 +131,7 @@
 
 <ul id="dropdownproforma" class="dropdown-content">
     <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosAModificar">Listar</a></li>
-    <li><a class="green darken-2 white-text" href="/supervisor/mostrarFormularioProforma">Cargar proforma</a></li>
+    <li><a class="green darken-2 white-text" href="/proforma/mostrarFormularioProforma">Cargar proforma</a></li>
     <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosABorrarOBloquear">Eliminar</a></li>
     <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
 
@@ -833,7 +833,7 @@
                     <div class="card-action gray accent-4 orange-text">
                         <h3>Cargar Proforma</h3>
                     </div>
-                    <form method="POST" action="/supervisor/procesarProforma">
+                    <form method="POST" action="/proforma/procesarProforma">
 
                         <div class=" card-action form-field">
                             <label for="fecha">Fecha:</label>

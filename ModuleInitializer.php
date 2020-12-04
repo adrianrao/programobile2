@@ -71,4 +71,12 @@ class ModuleInitializer
         return new ChoferController($model, $this->renderer);
     }
 
+    public function createProformaController(){
+        include_once("model/ProformaModel.php");
+        include_once("controller/ProformaController.php");
+
+        $model = new ProformaModel($this->database);
+        return new ProformaController($model, $this->renderer);
+    }
+
 }
