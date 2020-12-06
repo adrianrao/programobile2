@@ -1,4 +1,4 @@
-{{> headerProforma}}
+{{> headerSupervisor}}
 
 {{#listado}}
 <div class="container">

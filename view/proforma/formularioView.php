@@ -1,4 +1,4 @@
-{{> headerProforma}}
+{{> headerSupervisor}}
 
 {{#formulario}}
 <div class="row login">
