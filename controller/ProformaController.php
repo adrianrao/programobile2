@@ -124,7 +124,6 @@ class ProformaController
 
         $data["detalleProforma"] = $registro;
         echo $this->renderer->render("./view/supervisorView.php", $data);
-
     }
 
     public function mostrarProformasAEliminar(){
@@ -133,6 +132,22 @@ class ProformaController
         $data["listadoDeProformasAEliminar"] = $registros;
         echo $this->renderer->render("./view/supervisorView.php", $data);
 
+    }
+
+    public function mostrarProformasAModificar(){
+        $registros = $this->proformaModel->obtenerProformas();
+
+        $data["listadoDeProformasAModificar"] = $registros;
+        echo $this->renderer->render("./view/supervisorView.php", $data);
+
+    }
+
+    public function obtenerDatos(){
+        $idProforma = $_POST["id_proforma"];
+        $registro = $this->proformaModel->obtenerProforma($idProforma);
+
+        $data["modificacionProforma"] = $registro;
+        echo $this->renderer->render("./view/supervisorView.php", $data);
     }
 
     public function eliminar(){

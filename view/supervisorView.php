@@ -158,7 +158,7 @@
     <li><a class="green darken-2 white-text" href="/proforma/mostrarProformas">Listar</a></li>
     <li><a class="green darken-2 white-text" href="/proforma/mostrarFormularioProforma">Cargar proforma</a></li>
     <li><a class="green darken-2 white-text" href="/proforma/mostrarProformasAEliminar">Eliminar</a></li>
-    <li><a class="green darken-2 white-text" href="/supervisor/traerTodosLosUsuariosAModificar">Modificar</a></li>
+    <li><a class="green darken-2 white-text" href="/proforma/mostrarProformasAModificar">Modificar</a></li>
 
 </ul>
 
@@ -1329,6 +1329,173 @@
             </div>
         </div>
         {{/listadoDeProformasAEliminar}}
+
+        {{#listadoDeProformasAModificar}}
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card black darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Numero: {{id_proforma}}</span>
+                            <p><strong>Fecha:</strong> {{fecha}}</p>
+                            <p><strong>Origen:</strong> {{viaje_origen}}</p>
+                            <p><strong>Destino:</strong> {{viaje_destino}}</p>
+                            <p><strong>Denominacion:</strong> {{cliente_denominacion}}</p>
+                        </div>
+                        <div class="card-action">
+                            <form action="/proforma/obtenerDatos" method="post">
+                                <input type="hidden" value="{{id_proforma}}" name="id_proforma">
+                                <button class="btn waves-effect waves-light orange darken-2" type="submit"
+                                        name="action">Modificar<i
+                                            class="material-icons right">send</i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/listadoDeProformasAModificar}}
+
+        {{#modificacionProforma}}
+        <div class="row login">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <div class="card-action gray accent-4 orange-text">
+                        <h3>Modificacion Proforma</h3>
+                    </div>
+                    <form method="POST" action="/proforma/modificarProforma">
+                        <div class="card-action form-field">
+                            <label for="fecha">Fecha:</label>
+                            <input type="date" id="fecha" name="fecha" class="white-text" value="{{fecha}}">
+                            <br><br>
+                            <h5>Cliente</h5>
+                            <br>
+                            <label for="denominacion">Denominacion:</label>
+                            <select id="denominacion" name="denominacion">
+                                {{#cargarSelectCliente}}
+                                <option value="{{id_cliente}}">{{denominacion}}</option>
+                                {{/cargarSelectCliente}}
+
+                            </select>
+                            <br>
+                            <label for="cuit">Cuit:</label>
+                            <input type="text" id="cuit" name="cuit" class="white-text" value="{{cliente_cuit}}">
+                            <br>
+                            <label for="direccion">Direccion:</label>
+                            <input type="text" id="direccion" name="direccion" class="white-text" value="{{cliente_direccion}}">
+                            <br>
+                            <label for="telefono">Telefono:</label>
+                            <input type="text" id="telefono" name="telefono" class="white-text" value="{{cliente_telefono}}">
+                            <br>
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" class="white-text" value="{{cliente_email}}">
+                            <br>
+                            <label for="contacto1">Contacto 1:</label>
+                            <input type="text" id="contacto1" name="contacto1" class="white-text" value="{{cliente_contacto1}}">
+                            <br>
+                            <label for="contacto2">Contacto 2:</label>
+                            <input type="text" id="contacto2" name="contacto2" class="white-text" value="{{cliente_contacto2}}">
+                            <br><br>
+                            <h5>Viaje</h5>
+                            <br>
+                            <label for="origen">Origen:</label>
+                            <input type="text" id="origen" name="origen" class="white-text" value="{{viaje_origen}}">
+                            <br>
+                            <label for="destino">Destino:</label>
+                            <input type="text" id="destino" name="destino" class="white-text" value="{{viaje_destino}}>
+                            <br>
+                            <label for="fecha_carga">Fecha carga:</label>
+                            <input type="date" id="fecha_carga" name="fecha_carga" class="white-text" value="{{viaje_fecha_carga}}>
+                            <br>
+                            <label for="ETD">ETD:</label>
+                            <input type="date" id="ETD" name="ETD" class="white-text" required>
+                            <br>
+                            <label for="ETA">ETA:</label>
+                            <input type="date" id="ETA" name="ETA" class="white-text" value="{{viaje_ETA}}">
+                            <br><br>
+                            <h5>Carga</h5>
+                            <br>
+                            <label for="tipo_carga">Tipo carga:</label>
+                            <select id="tipo_carga" name="tipo_carga">
+                                <option value="granel">Granel</option>
+                                <option value="liquida">Liquida</option>
+                            </select>
+                            <br>
+                            <label for="peso_neto">Peso neto:</label>
+                            <input type="number" id="peso_neto" name="peso_neto" class="white-text" value="{{carga_peso}}">
+                            <br>
+                            <label for="tipo_hazard">Tipo hazard:</label>
+                            <select id="tipo_hazard" name="tipo_hazard">
+                                <option value="class">Class</option>
+                                <option value="Sclass">Sclass</option>
+                            </select>
+                            <br>
+                            <label for="temperatura_reefer">Temperatura reefer:</label>
+                            <input type="text" id="temperatura_reefer" name="temperatura_reefer" class="white-text"
+                                   value="{{carga_temperatura_reefer}}">
+                            <br><br>
+                            <h5>Costeo</h5>
+                            <br>
+                            <label for="km_estimado">Km estimados:</label>
+                            <input type="number" id="km_estimado" name="km_estimado" class="white-text" value="{{costeo_km_estimados}}">
+                            <br>
+                            <label for="combustible_estimado">Combustible estimado litros:</label>
+                            <input type="number" id="combustible_estimado" name="combustible_estimado"
+                                   class="white-text" value="{{costeo_combustible_estimado}}">
+                            <br>
+                            <label for="viaticos_estimado">Viaticos estimado:</label>
+                            <input type="number" id="viaticos_estimado" name="viaticos_estimado" class="white-text"
+                                   value="{{costeo_viaticos_estimado}}">
+                            <br>
+                            <label for="peajes_estimado">Peajes estimado:</label>
+                            <input type="number" id="peajes_estimado" name="peajes_estimado" class="white-text"
+                                   value="{{costeo_peajes_estimados}}">
+                            <br>
+                            <label for="extras_estimado">Extras:</label>
+                            <input type="number" id="extras_estimado" name="extras_estimado" class="white-text"
+                                   value="{{costeo_extras_estimados}}">
+                            <br>
+                            <label for="hazard_estimado">Hazard estimado:</label>
+                            <input type="number" id="hazard_estimado" name="hazard_estimado" class="white-text"
+                                   value="{{costeo_hazard_estimado}}">
+                            <br>
+                            <label for="reefer_estimado">Reefer estimado:</label>
+                            <input type="number" id="reefer_estimado" name="reefer_estimado" class="white-text"
+                                   value="{{costeo_reefer_estimado}}">
+                            <br>
+                            <label for="fee_estimado">Fee estimado:</label>
+                            <input type="number" id="fee_estimado" name="fee_estimado" class="white-text" value="{{costeo_fee_estimado}}">
+                            <br><br>
+                            <h5>Personal</h5>
+                            <br>
+                            <label for="chofer_asignado">Chofer asignado:</label>
+                            <select id="chofer_asignado" name="chofer_asignado">
+                                {{#cargarSelectChofer}}
+                                <option value="{{usuario}}">{{nombre_completo}}</option>
+                                {{/cargarSelectChofer}}
+                            </select>
+                            <br>
+                            <label for="id_tractor">Tractor tipo:</label>
+                            <select id="id_tractor" name="id_tractor">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                            <br>
+                            <label for="id_arrastrador">Arrastrado tipo:</label>
+                            <select id="id_arrastrador" name="id_arrastrador">
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                            </select>
+                            <br>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn-large black accent-4">Enviar</button>
+                    </form>
+                </div>
+                <br>
+            </div>
+        </div>
+        {{/modificacionProforma}}
 
         <!-- COMIENZA ACCIONES DE CONTROL DE VALIDAR LICENCIA! -->
 
