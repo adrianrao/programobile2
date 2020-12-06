@@ -17,17 +17,18 @@ class ProformaController
         }
     }
 
-
     public function index()
     {
         echo $this->renderer->render("view/supervisorView.php");
     }
 
+    #region Formulario
     public function mostrarFormularioProforma(){
-        $data["mostrarFormularioCargaProforma"] = "habilitado";
+        $data["formulario"] = "habilitado";
+        $data["alta"] = true;
 //        $data["cargarSelectCliente"] = $this->supervisorModel->traerTodosLosClientes();
 //        $data["cargarSelectChofer"] = $this->supervisorModel->traerTodosLosChoferes();
-        echo $this->renderer->render("./view/supervisorView.php", $data);
+        echo $this->renderer->render("./view/proforma/formularioView.php", $data);
     }
 
     public function procesarProforma(){
@@ -110,45 +111,53 @@ class ProformaController
         echo $this->renderer->render("./view/supervisorView.php", $data);
     }
 
-    public function mostrarProformas(){
-        $registros = $this->proformaModel->obtenerProformas();
-
-        $data["listadoDeProformas"] = $registros;
-        echo $this->renderer->render("./view/supervisorView.php", $data);
-
-    }
-
-    public function mostrardetalleproforma(){
+    public function obtenerDatos(){
         $idProforma = $_POST["id_proforma"];
         $registro = $this->proformaModel->obtenerProforma($idProforma);
 
-        $data["detalleProforma"] = $registro;
-        echo $this->renderer->render("./view/supervisorView.php", $data);
+        $data["formulario"] = $registro;
+        $data["actualizacion"] = true;
+        echo $this->renderer->render("./view/proforma/formularioView.php", $data);
+    }
+
+    public function mostrarDetalle(){
+        $idProforma = $_POST["id_proforma"];
+        $registro = $this->proformaModel->obtenerProforma($idProforma);
+
+        $data["formulario"] = $registro;
+        $data["detalle"] = $registro;
+        echo $this->renderer->render("./view/proforma/formularioView.php", $data);
+    }
+    #endregion
+
+    #region Listado
+    public function mostrarProformas(){
+        $registros = $this->proformaModel->obtenerProformas();
+
+        $data["listado"] = $registros;
+        $data["detalle"] = true;
+        echo $this->renderer->render("./view/proforma/listadoView.php", $data);
+
+    }
+    public function mostrarProformasAModificar(){
+        $registros = $this->proformaModel->obtenerProformas();
+
+        $data["listado"] = $registros;
+        $data["modificar"] = true;
+        echo $this->renderer->render("./view/proforma/listadoView.php", $data);
+
     }
 
     public function mostrarProformasAEliminar(){
         $registros = $this->proformaModel->obtenerProformas();
 
-        $data["listadoDeProformasAEliminar"] = $registros;
-        echo $this->renderer->render("./view/supervisorView.php", $data);
+        $data["listado"] = $registros;
+        $data["eliminar"] = true;
+        echo $this->renderer->render("./view/proforma/listadoView.php", $data);
 
     }
+    #endregion
 
-    public function mostrarProformasAModificar(){
-        $registros = $this->proformaModel->obtenerProformas();
-
-        $data["listadoDeProformasAModificar"] = $registros;
-        echo $this->renderer->render("./view/supervisorView.php", $data);
-
-    }
-
-    public function obtenerDatos(){
-        $idProforma = $_POST["id_proforma"];
-        $registro = $this->proformaModel->obtenerProforma($idProforma);
-
-        $data["modificacionProforma"] = $registro;
-        echo $this->renderer->render("./view/supervisorView.php", $data);
-    }
 
     public function eliminar(){
         $idProforma = $_POST["id_proforma"];
