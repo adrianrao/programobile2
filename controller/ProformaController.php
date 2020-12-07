@@ -173,6 +173,10 @@ class ProformaController
         echo $this->renderer->render("./view/supervisorView.php", $data);
     }
 
+    public function getClientes(){
+         return $this->proformaModel->obtenerProformas();
+    }
+
     public function cerrarSesion()
     {
         session_destroy();
