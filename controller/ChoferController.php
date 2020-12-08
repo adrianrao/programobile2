@@ -63,6 +63,10 @@ class ChoferController
 
         $this->data["mostrarFormularioCargaDeDatosDelViaje"] = $this->choferModel->encontrarProformaPorId($id_proforma);
 
+        $costoCombustible = $this->choferModel->obtenerTotalCargaCombustible($id_proforma);
+
+        $this->data["costo_combustible_real"] = $costoCombustible;
+
         echo $this->renderer->render("view/chofer/mostrarFormularioCargaDeDatosDelViajeView.php", $this->data);
     }
 

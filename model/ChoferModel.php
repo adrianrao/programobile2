@@ -102,6 +102,10 @@ class ChoferModel
         return $esChoferConDatosValidados;
     }
 
+    public function obtenerTotalCargaCombustible($idProforma){
+        return $this->database->executeQuery("SELECT sum(importe) as importe from carga_combustible where id_proforma = $idProforma ");
+    }
+
     private function validaSiElChoferTieneTodosLosDatosCargados($usuario){
 
         $losDatosEstanCargados = false;

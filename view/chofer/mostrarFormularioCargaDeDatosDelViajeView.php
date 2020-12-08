@@ -9,7 +9,7 @@
             <div class="card-action gray accent-4 orange-text">
                 <h3>Cargar datos de viaje</h3>
             </div>
-            <form method="POST" action="/chofer/procesarDatosDeViaje">
+            <form class="card-action" method="POST" action="/chofer/procesarDatosDeViaje">
 
                 <br>
 
@@ -38,9 +38,16 @@
 
                 <br>
 
-                <label for="costeo_combustible_real">Combustible real:</label>
-                <input type="number" id="costeo_combustible_real" name="costeo_combustible_real" class="white-text"
+                <label for="costeo_combustible_real">Costo Combustible real:</label>
+                {{#costo_combustible_real}}
+                <input type="number" id="costeo_combustible_real" name="costeo_combustible_real" value="{{importe}}" class="white-text"
                        required>
+                {{/costo_combustible_real}}
+                {{^costo_combustible_real}}
+                <input type="number" id="costeo_combustible_real" name="costeo_combustible_real" value="0" class="white-text"
+                       required>
+
+                {{/costo_combustible_real}}
 
                 <br>
 
