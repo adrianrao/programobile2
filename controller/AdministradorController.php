@@ -5,6 +5,8 @@ class AdministradorController
 
     private $administradorModel;
     private $renderer;
+    private $data;
+    private $showNotifiacation;
 
 
     public function __construct($administradorModel, $renderer)
@@ -12,6 +14,8 @@ class AdministradorController
         if(RoleValidation::validarRol("administrador")){
             $this->administradorModel = $administradorModel;
             $this->renderer = $renderer;
+            $this->data["administrador"] = true;
+            $this->showNotifiacation = new ShowNotification($renderer,"administrador" );
         }else{
             RoleValidation::logoutPorRolNoValido($renderer);
         }
@@ -19,57 +23,39 @@ class AdministradorController
 
     public function index()
     {
-        echo $this->renderer->render("view/administradorView.php");
+        echo $this->renderer->render("view/administrador/administradorView.php",$this->data);
     }
 
 
     public function obtenerUsuariosSinRol()
     {
-
         $traerTodosLosUsuariosSinRol = $this->administradorModel->traerTodosLosUsuariosSinRol();
 
         if ($traerTodosLosUsuariosSinRol != null) {
             $roles = $this->administradorModel->traerTodosLosRoles();
-            $data["accionDelAdministrador"] = $traerTodosLosUsuariosSinRol;
-            $data["roles"] = $roles;
-            $data["select"] = "habilitar";
-            $data["accion"] = "asignarRolAUsuario";
-            $data["textoDeLaAccionDelBoton"] = "Asignar Rol";
-            echo $this->renderer->render("./view/administradorView.php", $data);
+            $this->data["listadoDeUsuariosSinRol"] = $traerTodosLosUsuariosSinRol;
+            $this->data["roles"] = $roles;
+            echo $this->renderer->render("./view/administrador/listadoDeUsuariosSinRolView.php", $this->data);
         } else {
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "No hay usuarios pendientes de asignar rol";
-
-            echo $this->renderer->render("./view/administradorView.php", $data);
+            $this->showNotifiacation->mostrar("No hay usuarios pendientes de asignar rol","green");
         }
-
     }
 
     public function asignarRolAUsuario()
     {
-
-
         if (isset($_POST["usuario"])) {
             $idUsuario = $_POST["usuario"];
         }
-
         if (isset($_POST["rol"])) {
             $rol = $_POST["rol"];
         }
-
         $fueAssignado = $this->administradorModel->asignarRol($rol, $idUsuario);
 
         if ($fueAssignado) {
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "El rol ha sido asignado correctamente";
+            $this->showNotifiacation->mostrar("El rol ha sido asignado correctamente","green");
         } else {
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "El rol no se pudo asignar correctamente";
+            $this->showNotifiacation->mostrar("El rol no se pudo asignar correctamente","red");
         }
-
-
-        echo $this->renderer->render("./view/administradorView.php", $data);
-
     }
 
     public function traerTodosLosUsuariosABorrarOBloquear()
@@ -77,17 +63,10 @@ class AdministradorController
         $traerTodosLosUsuariosABorrar = $this->administradorModel->traerTodosLosUsuariosABorrar();
 
         if ($traerTodosLosUsuariosABorrar != null) {
-            $data["accionDelAdministrador"] = $traerTodosLosUsuariosABorrar;
-            $data["accion"] = "darDeBajaUnUsuario";
-            $data["accion2"] = "bloquearUnUsuario";
-            $data["textoDeLaAccionDelBoton"] = "Dar de baja";
-            $data["textoDeLaAccionDelBoton2"] = "Bloquear";
-            echo $this->renderer->render("./view/administradorView.php", $data);
+            $this->data["listadoDeUsuariosSinRol"] = $traerTodosLosUsuariosABorrar;
+            echo $this->renderer->render("./view/administrador/listadoDeUsuariosABloquearOEliminarView.php",$this->data);
         } else {
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "No hay usuarios para borrar o bloquear";
-
-            echo $this->renderer->render("./view/administradorView.php", $data);
+            $this->showNotifiacation->mostrar("No hay usuarios para borrar o bloquear","red");
         }
     }
 
@@ -99,15 +78,11 @@ class AdministradorController
         $fueBorrado = $this->administradorModel->deleteUsuario($usuario);
 
         if ($fueBorrado) {
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "Se ha borrado el usuario de la base de datos";
+            $this->showNotifiacation->mostrar("Se ha borrado el usuario de la base de datos","green");
         } else {
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "Fallo al borrar usuario";
+            $this->showNotifiacation->mostrar("Fallo al borrar usuario","red");
         }
 
-
-        echo $this->renderer->render("./view/administradorView.php", $data);
     }
 
     public function bloquearUnUsuario()
@@ -125,30 +100,21 @@ class AdministradorController
             }
         }
 
-
         $fueBloqueado = $this->administradorModel->bloquearAUnUsuario($usuario, $idRolBloqueado);
 
-
         if ($fueBloqueado) {
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "Se ha bloqueado el usuario del sistema";
+            $this->showNotifiacation->mostrar("Se ha bloqueado el usuario del sistema","green");
         } else {
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "Fallo al bloquear el usuario";
+            $this->showNotifiacation->mostrar("Fallo al bloquear el usuario","red");
         }
-
-
-        echo $this->renderer->render("./view/administradorView.php", $data);
     }
 
     public function traerTodosLosUsuariosAModificar()
     {
         $traerTodosLosUsuariosAModificar = $this->administradorModel->traerTodosLosUsuariosAModificar();
+        $this->data["listadoDeUsuariosAModificar"] = $traerTodosLosUsuariosAModificar;
 
-        $data["accionDelAdministrador"] = $traerTodosLosUsuariosAModificar;
-        $data["accion"] = "traerDatosDelUsuarioSeleccionadoParaAModificar";
-        $data["textoDeLaAccionDelBoton"] = "Modificar Usuario";
-        echo $this->renderer->render("./view/administradorView.php", $data);
+        echo $this->renderer->render("./view/administrador/listadoDeUsuariosAModificarView.php", $this->data);
     }
 
 
@@ -157,9 +123,9 @@ class AdministradorController
     {
         $roles = $this->administradorModel->traerTodosLosRoles();
         $usuario = $this->administradorModel->buscarUsuarioPorId($_POST["usuario"]);
-        $data["usuarioAModificar"] = $usuario;
-        $data["roles"] = $roles;
-        echo $this->renderer->render("./view/administradorView.php", $data);
+        $this->data["mostrarDatosDelUsuarioConcretoAModificar"] = $usuario;
+        $this->data["roles"] = $roles;
+        echo $this->renderer->render("./view/administrador/mostrarDatosDelUsuarioConcretoAModificarView.php", $this->data);
 
     }
 
@@ -179,15 +145,10 @@ class AdministradorController
         $fueModificado = $this->administradorModel->modificarUnUsuario($nuevoNombreUsuario, $usuarioAModificar, $nombre_completo, $dni, $f_nac, $id_rol);
 
         if ($fueModificado) {
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "Modificacion Exitosa";
+            $this->showNotifiacation->mostrar("Modificacion Exitosa","green");
         } else {
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "Fallo la modificacion";
+            $this->showNotifiacation->mostrar("Fallo la modificacion","red");
         }
-
-        echo $this->renderer->render("./view/administradorView.php", $data);
-
 
     }
 

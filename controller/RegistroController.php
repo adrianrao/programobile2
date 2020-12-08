@@ -11,12 +11,13 @@ class RegistroController
     public function __construct($registroModel,$renderer){
         $this->registroModel = $registroModel;
         $this->renderer = $renderer;
+        $this->showNotifiacation = new ShowNotification($renderer,"registro" );
 
     }
 
     public function index(){
 
-        echo $this->renderer->render( "view/registroView.php");
+        echo $this->renderer->render( "view/registro/registroView.php");
     }
 
 
@@ -34,20 +35,13 @@ class RegistroController
             $fueRegistrado = $this->registroModel->registrarEmpleado($usuario, $nombreCompleto, $password, $dni, $f_nac);
         }
 
-
         if(isset($fueRegistrado)){
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "Registro completado con éxito";
+            $this->showNotifiacation->mostrar("Registro completado con éxito","green");
         }else if($usuarioExisteEnDB){
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "El usuario ya existe";
+            $this->showNotifiacation->mostrar("El usuario ya existe","red");
         }else{
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "Error al registrar usuario";
+            $this->showNotifiacation->mostrar("Error al registrar usuario","red");
         }
-
-        echo $this->renderer->render("./view/registroView.php", $data);
-
 
     }
 

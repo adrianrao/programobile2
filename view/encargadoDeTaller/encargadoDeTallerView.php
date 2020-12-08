@@ -17,13 +17,13 @@
 
 <nav >
     <div style="padding: 0 10px !important" class="nav-wrapper black">
-        <a href="/administrador" class="brand-logo">Encargado de taller</a>
+        <a href="../../index.php" class="brand-logo">Encargado de taller</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a  class="btn orange darken-2" href="/encargadoDeTaller/mostrarFormularioAltaDeService">Realizar Service</a></li>
             <li><a  class="btn orange darken-2" href="/encargadoDeTaller/traerPosiblesServiceAModificar">Modificar Service</a></li>
 
-            <li><a  class="btn red darken-2" href="/administrador/cerrarSesion">Cerrar sesión</a></li>
+            <li><a  class="btn red darken-2" href="/encargadoDeTaller/cerrarSesion">Cerrar sesión</a></li>
         </ul>
     </div>
 </nav>

@@ -87,5 +87,37 @@ class ChoferModel
                                                 where p.id_proforma = $id_proforma;");
     }
 
+    public function buscarInformacionDeChofer($usuario){
+        return $this->database->query("SELECT * FROM empleado LEFT JOIN rol ON empleado.id_rol = rol.id_rol LEFT JOIN celular on empleado.usuario = celular.id_chofer LEFT JOIN tipo_de_licencia on empleado.tipo_licencia = tipo_de_licencia.id_tipo_licencia WHERE usuario = '$usuario'");
+    }
+
+
+    public function validarSiELUsuarioEsChoferYSiTodosLosDatosEstanCargados($usuario,$rolDeUsuario){
+        $esChoferConDatosValidados = true;
+
+        if($rolDeUsuario == "chofer"){
+            $esChoferConDatosValidados= $this->validaSiElChoferTieneTodosLosDatosCargados($usuario);
+        }
+
+        return $esChoferConDatosValidados;
+    }
+
+    private function validaSiElChoferTieneTodosLosDatosCargados($usuario){
+
+        $losDatosEstanCargados = false;
+
+        $informacionDeChofer = $this->buscarInformacionDeChofer($usuario);
+
+        if($informacionDeChofer[0]["nro"] == null || $informacionDeChofer[0]["tipo_licencia"] == null){
+
+            $losDatosEstanCargados = false;
+
+        }else{
+
+            $losDatosEstanCargados = true;
+        }
+        return $losDatosEstanCargados;
+    }
+
 
 }

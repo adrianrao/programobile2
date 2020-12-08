@@ -5,6 +5,8 @@ class ProformaController
 {
     private $proformaModel;
     private $renderer;
+    private $data;
+    private $showNotifiacation;
 
 
     public function __construct($supervisorModel, $renderer)
@@ -12,6 +14,8 @@ class ProformaController
         if(RoleValidation::validarRol("supervisor")){
             $this->proformaModel = $supervisorModel;
             $this->renderer = $renderer;
+            $this->data["supervisor"] = true;
+            $this->showNotifiacation = new ShowNotification($renderer,"supervisor" );
         }else{
             RoleValidation::logoutPorRolNoValido($renderer);
         }
@@ -19,16 +23,14 @@ class ProformaController
 
     public function index()
     {
-        echo $this->renderer->render("view/supervisorView.php");
+        echo $this->renderer->render("view/supervisor/supervisorView.php");
     }
 
     #region Formulario
     public function mostrarFormularioProforma(){
-        $data["formulario"] = "habilitado";
-        $data["alta"] = true;
-//        $data["cargarSelectCliente"] = $this->supervisorModel->traerTodosLosClientes();
-//        $data["cargarSelectChofer"] = $this->supervisorModel->traerTodosLosChoferes();
-        echo $this->renderer->render("./view/proforma/formularioView.php", $data);
+        $this->data["cargarSelectCliente"] = $this->proformaModel->traerTodosLosClientes();
+        $this->data["cargarSelectChofer"] = $this->proformaModel->traerTodosLosChoferes();
+        echo $this->renderer->render("./view/supervisor/proforma/mostrarFormularioAltaDeProformaView.php", $this->data);
     }
 
     public function procesarProforma(){
@@ -100,33 +102,29 @@ class ProformaController
             $costeo_fee_estimado);
 
         if(isset($result)){
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "Registro completado con éxito";
+            $this->showNotifiacation->mostrar("Registro completado con éxito","green");
         }else{
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "Error al registrar";
+            $this->showNotifiacation->mostrar("Error al registrar","red");
         }
 
-
-        echo $this->renderer->render("./view/supervisorView.php", $data);
     }
 
     public function obtenerDatos(){
         $idProforma = $_POST["id_proforma"];
         $registro = $this->proformaModel->obtenerProforma($idProforma);
 
-        $data["formulario"] = $registro;
-        $data["actualizacion"] = true;
-        echo $this->renderer->render("./view/proforma/formularioView.php", $data);
+        $this->data["formulario"] = $registro;
+        $this->data["actualizacion"] = true;
+        echo $this->renderer->render("./view/supervisor/proforma/formularioView.php", $this->data);
     }
 
     public function mostrarDetalle(){
         $idProforma = $_POST["id_proforma"];
         $registro = $this->proformaModel->obtenerProforma($idProforma);
 
-        $data["formulario"] = $registro;
-        $data["detalle"] = $registro;
-        echo $this->renderer->render("./view/proforma/formularioView.php", $data);
+        $this->data["formulario"] = $registro;
+        $this->data["detalle"] = $registro;
+        echo $this->renderer->render("./view/supervisor/proforma/formularioView.php", $this->data);
     }
     #endregion
 
@@ -134,26 +132,26 @@ class ProformaController
     public function mostrarProformas(){
         $registros = $this->proformaModel->obtenerProformas();
 
-        $data["listado"] = $registros;
-        $data["detalle"] = true;
-        echo $this->renderer->render("./view/proforma/listadoView.php", $data);
+        $this->data["listado"] = $registros;
+        $this->data["detalle"] = true;
+        echo $this->renderer->render("./view/supervisor/proforma/listadoView.php", $this->data);
 
     }
     public function mostrarProformasAModificar(){
         $registros = $this->proformaModel->obtenerProformas();
 
-        $data["listado"] = $registros;
-        $data["modificar"] = true;
-        echo $this->renderer->render("./view/proforma/listadoView.php", $data);
+        $this->data["listado"] = $registros;
+        $this->data["modificar"] = true;
+        echo $this->renderer->render("./view/supervisor/proforma/listadoView.php", $this->data);
 
     }
 
     public function mostrarProformasAEliminar(){
         $registros = $this->proformaModel->obtenerProformas();
 
-        $data["listado"] = $registros;
-        $data["eliminar"] = true;
-        echo $this->renderer->render("./view/proforma/listadoView.php", $data);
+        $this->data["listado"] = $registros;
+        $this->data["eliminar"] = true;
+        echo $this->renderer->render("./view/supervisor/proforma/listadoView.php", $this->data);
 
     }
     #endregion
@@ -164,13 +162,13 @@ class ProformaController
         $elimino = $this->proformaModel->eliminar($idProforma);
         
         if ($elimino) {
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "Se ha borrado la proforma de la base de datos";
+            $this->data["colorNotificacion"] = "green";
+            $this->data["notificacion"] = "Se ha borrado la proforma de la base de datos";
         } else {
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "Fallo al borrar proforma";
+            $this->data["colorNotificacion"] = "red";
+            $this->data["notificacion"] = "Fallo al borrar proforma";
         }
-        echo $this->renderer->render("./view/supervisorView.php", $data);
+        echo $this->renderer->render("./view/supervisor/supervisorView.php", $this->data);
     }
 
     public function cerrarSesion()

@@ -150,6 +150,12 @@ class EncargadoDeTallerController
 
 
     }
+    public function cerrarSesion()
+    {
+        session_destroy();
+        echo $this->renderer->render("./view/loginView.php");
+
+    }
 
 }
 

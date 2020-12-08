@@ -4,6 +4,7 @@ include_once("helper/Database.php");
 include_once("helper/Config.php");
 require_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("helper/RoleValidation.php");
+include_once("helper/ShowNotification.php");
 
 
 class ModuleInitializer
@@ -77,6 +78,14 @@ class ModuleInitializer
 
         $model = new ProformaModel($this->database);
         return new ProformaController($model, $this->renderer);
+    }
+
+    public function createEncargadoDeTallerController(){
+        include_once("model/EncargadoDeTallerModel.php");
+        include_once("controller/EncargadoDeTallerController.php");
+
+        $model = new EncargadoDeTallerModel($this->database);
+        return new EncargadoDeTallerController($model, $this->renderer);
     }
 
 }

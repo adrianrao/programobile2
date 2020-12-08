@@ -5,6 +5,8 @@ class ChoferController
 {
     private $choferModel;
     private $renderer;
+    private $data;
+    private $showNotifiacation;
 
 
     public function __construct($choferModel, $renderer)
@@ -12,6 +14,8 @@ class ChoferController
         if(RoleValidation::validarRol("chofer")){
             $this->choferModel = $choferModel;
             $this->renderer = $renderer;
+            $this->data["chofer"] = true;
+            $this->showNotifiacation = new ShowNotification($renderer,"chofer" );
         }else{
             RoleValidation::logoutPorRolNoValido($renderer);
         }
@@ -19,28 +23,47 @@ class ChoferController
 
     public function index()
     {
-        echo $this->renderer->render("view/choferView.php");
+        $usuario = $_SESSION["usuario"];
+        $rolDeUsuario = $_SESSION["rol"];
+
+
+        if(!$this->choferModel->validarSiELUsuarioEsChoferYSiTodosLosDatosEstanCargados($usuario,$rolDeUsuario)){
+
+            $informacionDeChofer =$this->choferModel->buscarInformacionDeChofer($usuario);
+
+
+            $this->data["faltaValidarLicenciaYORegistro"] = $informacionDeChofer;
+
+            echo $this->renderer->render("view/chofer/choferSinDatosValidadosView.php", $this->data);
+            exit();
+
+        }
+
+        echo $this->renderer->render("view/chofer/choferView.php",$this->data);
     }
+
 
     public function mostrarLasPosiblesProformasACargar(){
 
-        $usuario = $_SESSION["usuarioChofer"];
-
-        $data["listadoDeProformas"] = $this->choferModel->listarProformas($usuario);
-
-        echo $this->renderer->render("view/choferView.php", $data);
+        $usuario = $_SESSION["usuario"];
+        $traerTodasLasProformasPosiblesACargar = $this->choferModel->listarProformas($usuario);
 
 
+        if ($traerTodasLasProformasPosiblesACargar != null) {
+            $this->data["listadoDeProformas"] = $traerTodasLasProformasPosiblesACargar;
+            echo $this->renderer->render("view/chofer/listadoDeProformasView.php", $this->data);
+        } else {
+            $this->showNotifiacation->mostrar("No hay Proformas a cargar","red");
+        }
     }
 
     public function modificarProformaConcreta()
     {
-
         $id_proforma = $_POST["id_proforma"];
 
-        $data["mostrarFormularioCargaDeDatosDelViaje"] = $this->choferModel->encontrarProformaPorId($id_proforma);
+        $this->data["mostrarFormularioCargaDeDatosDelViaje"] = $this->choferModel->encontrarProformaPorId($id_proforma);
 
-        echo $this->renderer->render("view/choferView.php", $data);
+        echo $this->renderer->render("view/chofer/mostrarFormularioCargaDeDatosDelViajeView.php", $this->data);
     }
 
     public function procesarDatosDeViaje(){
@@ -76,25 +99,24 @@ class ChoferController
 
 
             if ($result) {
-                $data["colorNotificacion"] = "green";
-                $data["notificacion"] = "Modificacion Exitosa";
+                $this->showNotifiacation->mostrar("Modificacion Exitosa","green");
             } else {
-                $data["colorNotificacion"] = "red";
-                $data["notificacion"] = "Fallo la modificacion";
+                $this->showNotifiacation->mostrar("Fallo la modificacion","red");
             }
-
-            echo $this->renderer->render("view/choferView.php", $data);
 
     }
 
     public function listarTodasLasProformasModificar(){
 
-            $usuario = $_SESSION["usuarioChofer"];
+        $usuario = $_SESSION["usuario"];
+        $traerTodasLasProformasModificar = $this->choferModel->listarTodasLasProformasModificar($usuario);
 
-            $data["listarTodasLasProformasModificar"] = $this->choferModel->listarTodasLasProformasModificar($usuario);
-
-            echo $this->renderer->render("view/choferView.php", $data);
-
+        if ($traerTodasLasProformasModificar != null) {
+            $this->data["listarTodasLasProformasModificar"] = $traerTodasLasProformasModificar;
+            echo $this->renderer->render("view/chofer/listarTodasLasProformasModificarView.php", $this->data);
+        } else {
+            $this->showNotifiacation->mostrar("No hay Proformas a modificar","red");
+        }
 
     }
 
@@ -103,9 +125,9 @@ class ChoferController
 
         $idProforma = $_POST["id_proforma"];
 
-        $data["verDetalleDeProformaConcretaAModificar"] = $this->choferModel->encontrarProformaPorId($idProforma);
+        $this->data["verDetalleDeProformaConcretaAModificar"] = $this->choferModel->encontrarProformaPorId($idProforma);
 
-        echo $this->renderer->render("view/choferView.php", $data);
+        echo $this->renderer->render("view/chofer/verDetalleDeProformaConcretaAModificarView.php", $this->data);
 
 
     }
@@ -114,6 +136,13 @@ class ChoferController
 
         $this->procesarDatosDeViaje();
 
+
+    }
+
+    public function cerrarSesion()
+    {
+        session_destroy();
+        echo $this->renderer->render("./view/loginView.php");
 
     }
 

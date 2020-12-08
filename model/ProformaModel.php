@@ -10,7 +10,7 @@ class ProformaModel
         $this->db = $database;
     }
 
-    public function registrar($id_tractor, $id_arrastrado, $id_cliente, $usuario, $fecha, $cliente_denominacion,
+    public function registrarProforma($id_tractor, $id_arrastrado, $id_cliente, $usuario, $fecha, $cliente_denominacion,
                               $cliente_cuit, $cliente_direccion, $cliente_telefono, $cliente_email, $cliente_contacto1, $cliente_contacto2, $viaje_origen,
                               $viaje_destino, $viaje_fecha_carga, $viaje_ETA, $carga_tipo, $carga_peso, $carga_tipo_hazard, $carga_temperatura_reefer, $costeo_km_estimados,
                               $costeo_combustible_estimado, $costeo_ETD_estimado, $costeo_ETA_estimado, $costeo_viaticos_estimado,
@@ -92,7 +92,24 @@ class ProformaModel
     }
 
     public function obtenerProforma($idProforma){
-        $sql = "SELECT * FROM proforma WHERE id_proforma = $idProforma";
+        $sql = "SELECT * FROM proforma p join cliente c on p.id_cliente = c.id_cliente ";
         return $this->db->executeQuery($sql);
+    }
+
+    public function traerTodosLosClientes(){
+        return $this->db->query("select * from cliente");
+    }
+
+    public function traerTodosLosChoferes(){
+        return $this->db->query("select e.usuario,  e.nombre_completo from
+                                            empleado e
+                                            join rol r
+                                            on e.id_rol = r.id_rol
+                                            join celular c
+                                            on e.usuario = c.id_chofer
+                                            where r.descripcion = 'chofer'
+                                            and e.tipo_licencia is not null
+                                            and e.usuario in (select cel.id_chofer
+                                            from celular cel)");
     }
 }

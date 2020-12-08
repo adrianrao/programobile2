@@ -1,4 +1,4 @@
-{{> headerSupervisor}}
+{{> header}}
 
 {{#formulario}}
 <div class="row login">
@@ -18,6 +18,7 @@
                     <br>
                     <label for="denominacion">Denominacion:</label>
                     <select id="denominacion" name="denominacion">
+                        <option value="" disabled selected>Seleccione un Cliente</option>
                         {{#cargarSelectCliente}}
                         <option value="{{id_cliente}}">{{denominacion}}</option>
                         {{/cargarSelectCliente}}
@@ -119,6 +120,7 @@
                     <br>
                     <label for="chofer_asignado">Chofer asignado:</label>
                     <select id="chofer_asignado" name="chofer_asignado">
+                        <option value="" disabled selected>Seleccione un Chofer</option>
                         {{#cargarSelectChofer}}
                         <option value="{{usuario}}">{{nombre_completo}}</option>
                         {{/cargarSelectChofer}}
@@ -155,10 +157,10 @@
                     <br>
                     <label for="denominacion">Denominacion:</label>
                     <select id="denominacion" name="denominacion">
+                        <option value="{{id_cliente}}">{{denominacion}}</option>
                         {{#cargarSelectCliente}}
                         <option value="{{id_cliente}}">{{denominacion}}</option>
                         {{/cargarSelectCliente}}
-
                     </select>
                     <br>
                     <label for="cuit">Cuit:</label>

@@ -22,6 +22,20 @@
     </style>
 </header>
 
+{{#notificacion}}
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card black darken-1">
+                <div class="card-content white-text">
+                    <p class="error center-align {{colorNotificacion}}-text ">{{notificacion}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/notificacion}}
+
 
 <div class="row login">
     <div class="col s12 m4 offset-m4">
@@ -63,21 +77,13 @@
 
         </div><br>
         <div class="center-align">
-            <a href="/login" class="btn-large red accent-5 center-align">Volver al lobby</a>
+            <a href="../../index.php" class="btn-large red accent-5 center-align">Volver al lobby</a>
         </div>
-        {{#notificacion}}
-        <p class="error center-align {{colorNotificacion}}-text ">{{notificacion}}</p>
-        {{/notificacion}}
     </div>
 
 </div>
 </div>
 </div>
 
-
-
-
-
 {{> footer}}
 
-</html>

@@ -6,11 +6,13 @@ class LoginController
 
     private $loginModel;
     private $renderer;
+    private $moduleInitializer;
 
 
     public function __construct($loginModel,$renderer){
         $this->loginModel = $loginModel;
         $this->renderer = $renderer;
+        $this->moduleInitializer = new ModuleInitializer();
 
     }
 
@@ -22,7 +24,7 @@ class LoginController
     public function procesarFormulario()
     {
         if (isset($_SESSION["rol"])) {
-            echo $this->renderer->render('./view/' . $_SESSION["rol"] . 'View.php');
+            Router::executeActionFromController($this->moduleInitializer,$_SESSION["rol"],"index");
         } else {
 
             $usuarioObtenido = $_POST["usuario"];
@@ -30,39 +32,28 @@ class LoginController
             $usuarioEncontrado = $this->loginModel->buscarEmpleado($usuarioObtenido, $passwordObtenido);
 
             if ($usuarioEncontrado != null) {
-                $data["mensaje"] = $usuarioEncontrado;
+
                 $rolDeUsuario = $usuarioEncontrado[0]["descripcion"];
-                $_SESSION["usuarioChofer"] = $usuarioObtenido;
                 $_SESSION["rol"] = $rolDeUsuario;
+                $_SESSION["usuario"] = $usuarioEncontrado[0]["usuario"];
                 $roles = $this->loginModel->traerTodosLosRoles();
-
-
-                if(!$this->loginModel->validarSiELUsuarioEsChoferYSiTodosLosDatosEstanCargados($usuarioEncontrado)){
-
-                    $usuario = $usuarioEncontrado[0]["usuario"];
-                    $informacionDeChofer =$this->loginModel->buscarInformacionDeChofer($usuario);
-
-                    $data["faltaValidarLicenciaYORegistro"] = $informacionDeChofer;
-
-                    echo $this->renderer->render("./view/choferView.php", $data);
-                    exit();
-                }else{
-                    $data["choferHabilitado"] = "ok";
-                }
-
 
                 foreach ($roles as $rol) {
 
-                    if ($rolDeUsuario == $rol["descripcion"]) {
-                        echo $this->renderer->render('./view/' . $rolDeUsuario . 'View.php', $data);
+                    if($rolDeUsuario == "bloqueado"){
+                        $data["mensaje"] = $usuarioEncontrado;
+                        echo $this->renderer->render("./view/bloqueadoView.php", $data);
                         break;
                     } else if ($rolDeUsuario == null) {
+                        $data["mensaje"] = $usuarioEncontrado;
                         echo $this->renderer->render("./view/pendienteDeRolView.php", $data);
                         break;
+                    } else if ($rolDeUsuario == $rol["descripcion"]) {
+
+                        Router::executeActionFromController($this->moduleInitializer,$rolDeUsuario,"index");
+
                     }
                 }
-
-
             } else {
                 $data["mensaje"] = "Usuario y/o contraseña incorrecto";
                 echo $this->renderer->render("./view/loginView.php", $data);
