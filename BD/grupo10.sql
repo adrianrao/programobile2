@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2020 a las 02:20:08
+-- Tiempo de generación: 08-12-2020 a las 04:05:54
 -- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.10
+-- Versión de PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,18 +32,17 @@ USE `grupo10`;
 CREATE TABLE `arrastrado` (
   `id_arrastrado` int(11) NOT NULL,
   `nro_chasis` varchar(40) DEFAULT NULL,
-  `patente` varchar(40) DEFAULT NULL
+  `patente_arrastrado` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `arrastrado`
 --
 
-INSERT INTO `arrastrado` (`id_arrastrado`, `nro_chasis`, `patente`) VALUES
+INSERT INTO `arrastrado` (`id_arrastrado`, `nro_chasis`, `patente_arrastrado`) VALUES
 (1, '312312', 'dasd123adss'),
 (2, 'NICOOOOO', '1561611'),
-(3, 'NICOOOOO', '1561611'),
-(4, '47535', 'hjkhjk');
+(3, 'NICOOOOO', '1561611');
 
 -- --------------------------------------------------------
 
@@ -233,9 +232,7 @@ CREATE TABLE `proforma` (
 --
 
 INSERT INTO `proforma` (`id_proforma`, `id_tractor`, `id_arrastrado`, `id_cliente`, `usuario`, `fecha`, `viaje_origen`, `viaje_destino`, `viaje_fecha_carga`, `viaje_ETA`, `carga_tipo`, `carga_peso`, `carga_tipo_hazard`, `carga_temperatura_reefer`, `costeo_km_estimados`, `costeo_km_reales`, `costeo_combustible_estimado`, `costeo_combustible_real`, `fecha_partida_real`, `fecha_arribo_real`, `costeo_viaticos_estimado`, `costeo_viaticos_real`, `costeo_peajes_estimado`, `costeo_peajes_real`, `costeo_pesajes_estimado`, `costeo_pesajes_real`, `costeo_extras_estimado`, `costeo_extras_real`, `costeo_hazard_estimado`, `costeo_hazard_real`, `costeo_reefer_estimado`, `costeo_reefer_real`, `costeo_fee_estimado`, `costeo_fee_real`, `estado`, `costeo_total_real`, `costeo_total_estimado`, `viaje_ETD`) VALUES
-(67, 1, 1, 1, 'Daniel12', '1999-12-12', '1', '1', '1999-12-12', '0000-00-00', 'granel', 8, 'class', '8', 8, 200, 8, 300, '0000-00-00', '0000-00-00', 8, 600, 8, 700, 8, 800, 8, 900, 8, 1000, 8, 2000, 8, 3000, 'Finalizado', 10400, NULL, NULL),
-(68, 1, 1, 34, 'Daniel12', '1999-12-12', '1', '1', '1111-11-11', '0000-00-00', 'granel', 1, 'class', '1', 1, 0, 1, 0, '0000-00-00', '0000-00-00', 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 10, 'Finalizado', 10, NULL, NULL),
-(69, 1, 1, 34, 'Maurod', '1999-12-12', '1', '1', '1999-12-12', '0000-00-00', 'granel', 1, 'class', '1', 1, 2908765, 1, 1, '0000-00-00', '0000-00-00', 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 1, 9, 1, 9, 'Finalizado', 2908819, NULL, NULL),
+(68, 2, 1, 34, 'Daniel12', '1999-12-12', '1', '1', '1111-11-11', '0000-00-00', 'granel', 1, 'class', '1', 1, 0, 1, 0, '0000-00-00', '0000-00-00', 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 10, 'Finalizado', 10, NULL, NULL),
 (70, 1, 1, 1, 'Daniel12', '2020-11-03', 'Buenos Aires', 'Mar del plata', '2020-11-11', '0000-00-00', 'liquida', 1, 'class', '1', 1, NULL, 1, NULL, NULL, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 'pendiente', NULL, NULL, NULL),
 (71, 1, 1, 1, 'Maurod', '2020-12-07', 'Rosario', 'Cordoba', '2020-12-10', '2020-12-23', 'liquida', 2000, 'Sclass', '29', 200, NULL, 200, NULL, NULL, NULL, 2000, NULL, 30000, NULL, 40000, NULL, 50000, NULL, 6000, NULL, 7000, NULL, 8000, NULL, 'pendiente', NULL, NULL, NULL),
 (72, 1, 1, 1, 'Maurod', '2020-12-11', 'Buenos Aires', 'Cordoba', '2020-12-17', '2020-12-23', 'granel', 20000, 'class', '20000', 2000, NULL, 1, NULL, NULL, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 11, NULL, 'pendiente', NULL, 2018, NULL),
@@ -345,7 +342,7 @@ CREATE TABLE `tractor` (
   `nro_chasis` varchar(40) DEFAULT NULL,
   `marca` varchar(40) DEFAULT NULL,
   `modelo` varchar(40) DEFAULT NULL,
-  `patente` varchar(40) DEFAULT NULL,
+  `patente_tractor` varchar(40) DEFAULT NULL,
   `kilometraje` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -353,7 +350,7 @@ CREATE TABLE `tractor` (
 -- Volcado de datos para la tabla `tractor`
 --
 
-INSERT INTO `tractor` (`id_tractor`, `año_fabricacion`, `nro_motor`, `nro_chasis`, `marca`, `modelo`, `patente`, `kilometraje`) VALUES
+INSERT INTO `tractor` (`id_tractor`, `año_fabricacion`, `nro_motor`, `nro_chasis`, `marca`, `modelo`, `patente_tractor`, `kilometraje`) VALUES
 (1, '2020-11-03', '3123', '312312', 'dsadas', 'dasdas', 'AD223CN', 12321),
 (2, '1999-10-10', '12314r3r345', 'Mia34mdsakl2', 'Ford', 'Ranger', '833KEY', 90000);
 
