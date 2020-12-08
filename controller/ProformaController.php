@@ -42,6 +42,8 @@ class ProformaController
     public function mostrarFormularioProforma(){
         $this->data["cargarSelectCliente"] = $this->proformaModel->traerTodosLosClientes();
         $this->data["cargarSelectChofer"] = $this->proformaModel->traerTodosLosChoferes();
+        $this->data["cargarSelectArrastrado"] = $this->proformaModel->traerTodosLosArrastrados();
+        $this->data["cargarSelectTractor"] = $this->proformaModel->traerTodosLosTractores();
         echo $this->renderer->render("./view/supervisor/proforma/mostrarFormularioAltaDeProformaView.php", $this->data);
     }
 
@@ -126,6 +128,10 @@ class ProformaController
     }
 
     public function mostrarDatosDeProformaAModificar(){
+        $this->data["cargarSelectCliente"] = $this->proformaModel->traerTodosLosClientes();
+        $this->data["cargarSelectChofer"] = $this->proformaModel->traerTodosLosChoferes();
+        $this->data["cargarSelectArrastrado"] = $this->proformaModel->traerTodosLosArrastrados();
+        $this->data["cargarSelectTractor"] = $this->proformaModel->traerTodosLosTractores();
         $idProforma = $_POST["id_proforma"];
         $registro = $this->proformaModel->obtenerProforma($idProforma);
         $this->data["mostrarDatosDeProformaAModificar"] = $registro;

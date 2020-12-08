@@ -16,32 +16,8 @@
         <h5>Cliente</h5>
         <br/>
         <label for="denominacion">Denominacion:</label>
-        <input type="text" class="white-text" value="{{viaje_denominacion}}" disabled="disabled"/>
+        <input type="text" class="white-text" value="{{denominacion}}" disabled="disabled"/>
         <br/>
-        <label for="cuit">Cuit:</label>
-        <input type="text" id="cuit" name="cuit" class="white-text" value="{{cliente_cuit}}"
-               disabled="disabled"/>
-        <br/>
-        <label for="direccion">Direccion:</label>
-        <input type="text" id="direccion" name="direccion" class="white-text"
-               value="{{cliente_direccion}}" disabled="disabled"/>
-        <br/>
-        <label for="telefono">Telefono:</label>
-        <input type="text" id="telefono" name="telefono" class="white-text"
-               value="{{cliente_telefono}}" disabled="disabled"/>
-        <br/>
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" class="white-text" value="{{cliente_email}}"
-               disabled="disabled"/>
-        <br/>
-        <label for="contacto1">Contacto 1:</label>
-        <input type="text" id="contacto1" name="contacto1" class="white-text"
-               value="{{cliente_contacto1}}" disabled="disabled"/>
-        <br/>
-        <label for="contacto2">Contacto 2:</label>
-        <input type="text" id="contacto2" name="contacto2" class="white-text"
-               value="{{cliente_contacto2}}" disabled="disabled"/>
-        <br/><br/>
         <h5>Viaje</h5>
         <br/>
         <label for="origen">Origen:</label>
@@ -97,6 +73,20 @@
         <input value="{{costeo_peajes_estimado}}" type="text" id="peajes_estimado"
                name="peajes_estimado" class="white-text" disabled="disabled"/>
         <br/>
+        <h5>Personal</h5>
+        <br>
+        <label for="chofer_asignado">Chofer asignado:</label>
+        <input value="{{nombre_completo}}" type="text" id="chofer_asignado"
+               name="chofer_asignado" class="white-text" disabled="disabled"/>
+        <br>
+        <label for="id_tractor">Tractor tipo:</label>
+        <input value="{{patente_tractor}}" type="text" id="id_tractor"
+               name="id_tractor" class="white-text" disabled="disabled"/>
+        <br>
+        <label for="id_arrastrador">Tractor tipo:</label>
+        <input value="{{patente_arrastrado}}" type="text" id="id_arrastrador"
+               name="id_arrastrador" class="white-text" disabled="disabled"/>
+        <br>
 </form>
         </div>
         <br>

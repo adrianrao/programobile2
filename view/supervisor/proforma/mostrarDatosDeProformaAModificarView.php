@@ -15,7 +15,7 @@
         <br>
         <label for="id_cliente">Denominacion:</label>
         <select id="id_cliente" name="id_cliente">
-            <option value="{{id_cliente}}">{{denominacion}}</option>
+            <option value="{{id_cliente}}" selected>{{denominacion}}</option>
             {{#cargarSelectCliente}}
             <option value="{{id_cliente}}">{{denominacion}}</option>
             {{/cargarSelectCliente}}
@@ -42,6 +42,7 @@
         <br>
         <label for="tipo_carga">Tipo carga:</label>
         <select id="tipo_carga" name="tipo_carga">
+            <option value="{{carga_tipo}}" selected>{{carga_tipo}}</option>
             <option value="granel">Granel</option>
             <option value="liquida">Liquida</option>
         </select>
@@ -52,6 +53,7 @@
         <br>
         <label for="tipo_hazard">Tipo hazard:</label>
         <select id="tipo_hazard" name="tipo_hazard">
+            <option value="{{carga_tipo_hazard}}" selected>{{carga_tipo_hazard}}</option>
             <option value="class">Class</option>
             <option value="Sclass">Sclass</option>
         </select>
@@ -110,14 +112,18 @@
         <br>
         <label for="id_tractor">Tractor tipo:</label>
         <select id="id_tractor" name="id_tractor">
-            <option value="1">1</option>
-            <option value="2">2</option>
+            <option value="{{id_tractor}}" selected>{{patente_tractor}}</option>
+            {{#cargarSelectTractor}}
+            <option value="{{id_tractor}}">{{patente_tractor}}</option>
+            {{/cargarSelectTractor}}
         </select>
         <br>
         <label for="id_arrastrador">Arrastrado tipo:</label>
         <select id="id_arrastrador" name="id_arrastrador">
-            <option value="1">1</option>
-            <option value="2" selected>2</option>
+            <option value="{{id_arrastrado}}" selected>{{patente_arrastrado}}</option>
+            {{#cargarSelectArrastrado}}
+            <option value="{{id_arrastrado}}">{{patente_arrastrado}}</option>
+            {{/cargarSelectArrastrado}}
         </select>
         <br>
     </div>

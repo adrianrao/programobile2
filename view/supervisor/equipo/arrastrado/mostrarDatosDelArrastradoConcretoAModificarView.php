@@ -12,7 +12,7 @@
                                 <div class="form-field">
                                     <label for="marca">Patente:</label>
                                     <input type="text" id="patente" name="patente" class="white-text"
-                                           value="{{patente}}"
+                                           value="{{patente_arrastrado}}"
                                            required>
                                 </div>
                                 <br>

@@ -5,7 +5,7 @@
         <div class="col s12 m12">
             <div class="card black darken-1">
                 <div class="card-content white-text">
-                    <span class="card-title"><strong>Patente de arrastrado:</strong> {{patente}} </span>
+                    <span class="card-title"><strong>Patente de arrastrado:</strong> {{patente_arrastrado}} </span>
                 </div>
                 <div class="card-action">
                     <form action="/supervisor/mostrarDetalleDeArrastrado" method="post">

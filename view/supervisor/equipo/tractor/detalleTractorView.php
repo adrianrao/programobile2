@@ -14,7 +14,7 @@
                             {{modelo}}
                         </li>
                         <li class="collection-item"><strong class="orange-text text-lighten-2">Patente:</strong>
-                            {{patente}}
+                            {{patente_tractor}}
                         </li>
                         <li class="collection-item"><strong class="orange-text text-lighten-2">Año de
                                 fabricacion:</strong> {{año_fabricacion}}

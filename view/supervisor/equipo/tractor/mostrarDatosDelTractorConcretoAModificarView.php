@@ -50,7 +50,7 @@
                                 <div class="form-field">
                                     <label for="patente">Patente:</label>
                                     <input type="text" id="patente" name="patente" class="white-text"
-                                           value="{{patente}}"
+                                           value="{{patente_tractor}}"
                                            required>
                                 </div>
                                 <br>

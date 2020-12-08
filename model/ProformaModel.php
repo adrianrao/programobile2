@@ -71,12 +71,16 @@ class ProformaModel
 
 
     public function obtenerProformas(){
-        $sql = "SELECT * FROM proforma";
+        $sql = "SELECT * FROM proforma p join cliente c on p.id_cliente = c.id_cliente";
         return $this->db->executeQuery($sql);
     }
 
     public function obtenerProforma($idProforma){
-        $sql = "SELECT * FROM proforma p join cliente c on p.id_cliente = c.id_cliente where p.id_proforma = $idProforma ";
+        $sql = "SELECT * FROM proforma p join cliente c on p.id_cliente = c.id_cliente 
+                                         join empleado e on p.usuario = e.usuario 
+                                         join tractor t on p.id_tractor = t.id_tractor 
+                                         join arrastrado a on p.id_arrastrado = a.id_arrastrado
+                                         where p.id_proforma = $idProforma ";
         return $this->db->executeQuery($sql);
     }
 
@@ -95,5 +99,13 @@ class ProformaModel
                                             and e.tipo_licencia is not null
                                             and e.usuario in (select cel.id_chofer
                                             from celular cel)");
+    }
+
+    public function traerTodosLosArrastrados(){
+        return $this->db->query("select * from arrastrado");
+    }
+
+    public function traerTodosLosTractores(){
+        return $this->db->query("select * from tractor");
     }
 }

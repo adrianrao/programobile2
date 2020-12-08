@@ -17,109 +17,6 @@ class SupervisorModel
         return $result;
     }
 
-    public function registrarProforma(
-        $id_tractor,
-        $id_arrastrado,
-        $id_cliente,
-        $usuario,
-        $fecha,
-        $cliente_denominacion,
-        $cliente_cuit,
-        $cliente_direccion,
-        $cliente_telefono,
-        $cliente_email,
-        $cliente_contacto1,
-        $cliente_contacto2,
-        $viaje_origen,
-        $viaje_destino,
-        $viaje_fecha_carga,
-        $viaje_ETA,
-        $carga_tipo,
-        $carga_peso,
-        $carga_tipo_hazard,
-        $carga_temperatura_reefer,
-        $costeo_km_estimados,
-        $costeo_combustible_estimado,
-        $costeo_viaticos_estimado,
-        $costeo_peajes_estimado,
-        $costeo_pesajes_estimado,
-        $costeo_extras_estimado,
-        $costeo_hazard_estimado,
-        $costeo_reefer_estimado,
-        $costeo_fee_estimado,
-        $costeo_total_estimado,
-        $viaje_ETD){
-
-       $result = $this->db->ejecutarQuery("
-insert into proforma(
-        `id_tractor`,
-        `id_arrastrado`,
-        `id_cliente`,
-        `usuario`,
-        `fecha`,
-        `cliente_denominacion`,
-        `cliente_cuit`,
-        `cliente_direccion`,
-        `cliente_telefono`,
-        `cliente_email`,
-        `cliente_contacto1`,
-        `cliente_contacto2`,
-        `viaje_origen`
-        ,`viaje_destino`,
-        `viaje_fecha_carga`,
-        `viaje_ETA`,
-        `carga_tipo`,
-        `carga_peso`,
-        `carga_tipo_hazard`,
-        `carga_temperatura_reefer`,
-        `costeo_km_estimados`,
-        `costeo_combustible_estimado`,
-        `costeo_viaticos_estimado`,
-        `costeo_peajes_estimado`,
-        `costeo_pesajes_estimado`,
-        `costeo_extras_estimado`,
-        `costeo_hazard_estimado`,
-        `costeo_reefer_estimado`,
-        `costeo_fee_estimado`,
-        `costeo_total_estimado`,
-        `viaje_ETD`
-        )
-VALUES(
-        $id_tractor,
-        $id_arrastrado,
-        $id_cliente,
-        '$usuario',
-        STR_TO_DATE('$fecha', '%Y-%m-%d'),
-        '$cliente_denominacion',
-        '$cliente_cuit',
-        '$cliente_direccion',
-        '$cliente_telefono',
-        '$cliente_email',
-        '$cliente_contacto1',
-        '$cliente_contacto2',
-        '$viaje_origen',
-        '$viaje_destino',
-        STR_TO_DATE('$viaje_fecha_carga', '%Y-%m-%d'),
-        STR_TO_DATE('$viaje_ETA', '%Y-%m-%d'),        
-        '$carga_tipo',
-        $carga_peso,
-        '$carga_tipo_hazard',
-        '$carga_temperatura_reefer',
-        $costeo_km_estimados,
-        $costeo_combustible_estimado,
-        $costeo_viaticos_estimado,
-        $costeo_peajes_estimado,
-        $costeo_pesajes_estimado,
-        $costeo_extras_estimado,
-        $costeo_hazard_estimado,
-        $costeo_reefer_estimado,
-        $costeo_fee_estimado,
-        $costeo_total_estimado,
-        STR_TO_DATE('$viaje_ETD', '%Y-%m-%d'));");
-
-       return $result;
-    }
-
     public function eliminarClientePorId($idCliente){
         return $this->db->ejecutarQuery("delete from cliente where cliente.id_cliente = $idCliente");
     }
@@ -183,7 +80,7 @@ VALUES(
 
     public function registrarArrastrado($numeroDeChasis, $patente){
         $result = $this->db->ejecutarQuery(
-            "insert into arrastrado(nro_chasis,patente) 
+            "insert into arrastrado(nro_chasis,patente_arrastrado) 
                         VALUES('$numeroDeChasis', '$patente')"
         );
         return $result;
@@ -191,7 +88,7 @@ VALUES(
 
     public function arrastradoYaRegistrado($patente)
     {
-        $result = $this->db->ejecutarQuery("SELECT * FROM arrastrado WHERE patente = '$patente'");
+        $result = $this->db->ejecutarQuery("SELECT * FROM arrastrado WHERE patente_arrastrado = '$patente'");
 
         return mysqli_num_rows($result);
     }
@@ -210,7 +107,7 @@ VALUES(
         return $this->db->ejecutarQuery("
                             UPDATE arrastrado SET
                             nro_chasis = '$numeroDeChasis' ,
-                            patente = '$patente'
+                            patente_arrastrado = '$patente'
                             WHERE arrastrado.id_arrastrado = $idArrastrado"
         );
     }
@@ -233,7 +130,7 @@ VALUES(
 
     public function registrarTractor($anioFabricacion, $nroMotor, $nroChasis, $marca, $modelo,$patente,$kilometraje){
         $result = $this->db->ejecutarQuery(
-            "insert into tractor(año_fabricacion,nro_motor,nro_chasis,marca,modelo, patente, kilometraje) 
+            "insert into tractor(año_fabricacion,nro_motor,nro_chasis,marca,modelo, patente_tractor, kilometraje) 
                         VALUES( STR_TO_DATE('$anioFabricacion', '%Y-%m-%d'), '$nroMotor', '$nroChasis', '$marca', '$modelo','$patente',$kilometraje)"
         );
         return $result;
@@ -241,7 +138,7 @@ VALUES(
 
     public function tractorYaRegistrado($patente)
     {
-        $result = $this->db->ejecutarQuery("SELECT * FROM tractor WHERE patente = '$patente'");
+        $result = $this->db->ejecutarQuery("SELECT * FROM tractor WHERE patente_tractor = '$patente'");
 
         return mysqli_num_rows($result);
     }
@@ -264,7 +161,7 @@ VALUES(
                             nro_chasis = '$nroChasis', 
                             marca = '$marca',
                             modelo = '$modelo',
-                            patente = '$patente',
+                            patente_tractor = '$patente',
                             kilometraje = '$kilometraje'
                             WHERE tractor.id_tractor= $idTractor"
         );

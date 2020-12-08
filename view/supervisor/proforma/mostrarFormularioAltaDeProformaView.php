@@ -108,14 +108,18 @@
                     <br>
                     <label for="id_tractor">Tractor tipo:</label>
                     <select id="id_tractor" name="id_tractor">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option value="" disabled selected>Seleccione un tractor</option>
+                        {{#cargarSelectTractor}}
+                        <option value="{{id_tractor}}">{{patente_tractor}}</option>
+                        {{/cargarSelectTractor}}
                     </select>
                     <br>
                     <label for="id_arrastrador">Arrastrado tipo:</label>
                     <select id="id_arrastrador" name="id_arrastrador">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option value="" disabled selected>Seleccione un arrastrado</option>
+                        {{#cargarSelectArrastrado}}
+                        <option value="{{id_arrastrado}}">{{patente_arrastrado}}</option>
+                        {{/cargarSelectArrastrado}}
                     </select>
                     <br>
                 </div>

@@ -6,7 +6,7 @@
             <div class="card black darken-1">
                 <div class="card-content white-text">
                     <span class="card-title">Marca: {{marca}}</span>
-                    <p><strong>Patente de Tractor:</strong> {{patente}}</p>
+                    <p><strong>Patente de Tractor:</strong> {{patente_tractor}}</p>
                 </div>
                 <div class="card-action">
                     <form action="/supervisor/eliminarTractor" method="post">

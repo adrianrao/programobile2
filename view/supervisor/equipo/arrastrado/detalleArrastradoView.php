@@ -8,7 +8,7 @@
                     <ul class="collection with-header">
                         <li class="collection-header"><strong class="orange-text text-lighten-2">
                                 <h4>Arrastrado:
-                            </strong> {{patente}}</h4>
+                            </strong> {{patente_arrastrado}}</h4>
                         </li>
                         <li class="collection-item"><strong class="orange-text text-lighten-2">Numero de
                                 chasis:</strong> {{nro_chasis}}

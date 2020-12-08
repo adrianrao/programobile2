@@ -10,7 +10,7 @@
                     <p><strong>Fecha:</strong> {{fecha}}</p>
                     <p><strong>Origen:</strong> {{viaje_origen}}</p>
                     <p><strong>Destino:</strong> {{viaje_destino}}</p>
-                    <p><strong>Denominacion:</strong> {{cliente_denominacion}}</p>
+                    <p><strong>Denominacion:</strong> {{denominacion}}</p>
                 </div>
                 <div class="card-action">
 
