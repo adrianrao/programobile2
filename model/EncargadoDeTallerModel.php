@@ -79,13 +79,13 @@ class EncargadoDeTallerModel
     }
 
     public function buscarServicePorId($id_service){
-        return $this->db->query(   "select s.id_service, s.costo, s.descripcion, s.fecha, s.repuesto_utilizado, t.patente, m.nombre
+        return $this->db->query( "select *
                                     from service s
                                     join mecanico m
                                     on s.id_mecanico = m.id_mecanico
                                     JOIN tractor t
                                     on s.id_tractor = t.id_tractor
-                                    where s.id_service = $id_service");
+                                    where id_service = $id_service");
 
     }
 

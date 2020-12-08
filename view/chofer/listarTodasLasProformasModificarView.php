@@ -17,7 +17,7 @@
                         <input type="hidden" value="{{id_proforma}}" name="id_proforma">
 
                         <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">
-                            Detalle
+                            Modificar<i class="material-icons right">send</i>
                         </button>
                     </form>
                 </div>

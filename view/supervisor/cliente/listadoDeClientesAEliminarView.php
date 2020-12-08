@@ -12,8 +12,8 @@
                     <form action="/supervisor/eliminarCliente" method="post">
                         <input type="hidden" value="{{id_cliente}}" name="id_cliente">
                         <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">
-                            Eliminar<i
-                                class="material-icons right">send</i></button>
+                            Eliminar <i class="material-icons right">send</i>
+                        </button>
                     </form>
                 </div>
             </div>

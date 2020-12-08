@@ -6,6 +6,8 @@ class EncargadoDeTallerController
 
     private $encargadoDeTallerModel;
     private $renderer;
+    private $data;
+    private $showNotifiacation;
 
 
     public function __construct($encargadoDeTallerModel, $renderer)
@@ -13,6 +15,8 @@ class EncargadoDeTallerController
         if(RoleValidation::validarRol("encargadoDeTaller")){
             $this->encargadoDeTallerModel = $encargadoDeTallerModel;
             $this->renderer = $renderer;
+            $this->data["encargadoDeTaller"] = true;
+            $this->showNotifiacation = new ShowNotification($renderer,"encargadoDeTaller" );
         }else{
             RoleValidation::logoutPorRolNoValido($renderer);
         }
@@ -21,22 +25,15 @@ class EncargadoDeTallerController
 
     public function index()
     {
-        echo $this->renderer->render("view/encargadoDeTallerView.php");
+        echo $this->renderer->render("view/encargadoDeTaller/encargadoDeTallerView.php",$this->data);
     }
 
     public function mostrarFormularioAltaDeService(){
 
+        $this->data["cargarSelectTractor"] = $this->encargadoDeTallerModel->traerTodosLosTractores();
+        $this->data["cargarSelectMecanico"] = $this->encargadoDeTallerModel->traerTodosLosMecanicos();
 
-        $data["formularioAltaDeService"] = "habilitado";
-        $data["cargarSelectTractor"] = $this->encargadoDeTallerModel->traerTodosLosTractores();
-        $data["cargarSelectMecanico"] = $this->encargadoDeTallerModel->traerTodosLosMecanicos();
-
-
-
-        echo $this->renderer->render("./view/encargadoDeTallerView.php", $data);
-
-
-
+        echo $this->renderer->render("./view/encargadoDeTaller/formularioAltaDeServiceView.php", $this->data);
 
     }
 
@@ -52,8 +49,6 @@ class EncargadoDeTallerController
         $tipo_service = $_POST["tipo_service"];
 
 
-
-
         $result = $this->encargadoDeTallerModel->cargarServiceEnBD(
             $costo,
             $descripcion,
@@ -65,53 +60,33 @@ class EncargadoDeTallerController
             $tipo_service);
 
         if ($result) {
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "Se cargo el service correctamente";
+            $this->showNotifiacation->mostrar("Se cargo el service correctamente","green");
         } else {
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "Error al cargar el service";
+            $this->showNotifiacation->mostrar("Error al cargar el service","red");
         }
-
-        echo $this->renderer->render("./view/encargadoDeTallerView.php", $data);
-
-
-    }
-
-    public function mostrarFormularioModificarService(){
-
-
-
-
-        $data["formularioAltaDeService"] = "habilitado";
-        $data["cargarSelectTractor"] = $this->encargadoDeTallerModel->traerTodosLosTractores();
-        $data["cargarSelectMecanico"] = $this->encargadoDeTallerModel->traerTodosLosMecanicos();
-
-
-
-
-        echo $this->renderer->render("./view/encargadoDeTallerView.php", $data);
-
-
     }
 
     public function traerPosiblesServiceAModificar(){
 
+        $traerPosiblesServiceAModificar = $this->encargadoDeTallerModel->traerTodosLosService();
 
-
-        $data["traerPosiblesServiceAModificar"] = $this->encargadoDeTallerModel->traerTodosLosService();
-
-        echo $this->renderer->render("./view/encargadoDeTallerView.php", $data);
+        if ($traerPosiblesServiceAModificar != null) {
+            $this->data["traerPosiblesServiceAModificar"] = $traerPosiblesServiceAModificar;
+            echo $this->renderer->render("./view/encargadoDeTaller/traerPosiblesServiceAModificarView.php", $this->data);
+        } else {
+            $this->showNotifiacation->mostrar("No hay services registrados a modificar","red");
+        }
     }
 
-    public function verDetalleService(){
+    public function mostrarFormularioModificarService(){
 
         $id_service = $_POST["id_service"];
 
-        $data["cargarSelectTractor"] = $this->encargadoDeTallerModel->traerTodosLosTractores();
-        $data["cargarSelectMecanico"] = $this->encargadoDeTallerModel->traerTodosLosMecanicos();
-        $data["modificarServiceConcreto"] = $this->encargadoDeTallerModel->buscarServicePorId($id_service);
+        $this->data["cargarSelectTractor"] = $this->encargadoDeTallerModel->traerTodosLosTractores();
+        $this->data["cargarSelectMecanico"] = $this->encargadoDeTallerModel->traerTodosLosMecanicos();
+        $this->data["modificarServiceConcreto"] = $this->encargadoDeTallerModel->buscarServicePorId($id_service);
 
-        echo $this->renderer->render("./view/encargadoDeTallerView.php", $data);
+        echo $this->renderer->render("./view/encargadoDeTaller/modificarServiceConcretoView.php", $this->data);
 
     }
 
@@ -139,17 +114,35 @@ class EncargadoDeTallerController
             $tipo_service);
 
         if ($result) {
-            $data["colorNotificacion"] = "green";
-            $data["notificacion"] = "Se cargo el service correctamente";
+            $this->showNotifiacation->mostrar("Se cargo el service correctamente","green");
         } else {
-            $data["colorNotificacion"] = "red";
-            $data["notificacion"] = "Error al cargar el service";
+            $this->showNotifiacation->mostrar("Error al cargar el service","red");
         }
-
-        echo $this->renderer->render("./view/encargadoDeTallerView.php",$data);
-
-
     }
+
+
+    public function traerTodosLosService(){
+
+        $traerPosiblesService = $this->encargadoDeTallerModel->traerTodosLosService();
+
+        if ($traerPosiblesService != null) {
+            $this->data["mostrarTodosLosServicesRegistrados"] = $traerPosiblesService;
+            echo $this->renderer->render("./view/encargadoDeTaller/mostrarTodosLosServicesRegistradosView.php", $this->data);
+        } else {
+            $this->showNotifiacation->mostrar("No hay services registrados","red");
+        }
+    }
+
+    public function verDetalleDeServices(){
+        $idService = $_POST["id_service"];
+
+        $this->data["verDetalleDeServices"] = $this->encargadoDeTallerModel->buscarServicePorId($idService);
+
+        echo $this->renderer->render("./view/encargadoDeTaller/mostrarDetalleDeServicesView.php", $this->data);
+    }
+
+
+
     public function cerrarSesion()
     {
         session_destroy();

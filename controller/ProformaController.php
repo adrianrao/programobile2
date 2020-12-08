@@ -23,13 +23,20 @@ class ProformaController
 
     public function index()
     {
-        echo $this->renderer->render("view/supervisor/supervisorView.php");
+        echo $this->renderer->render("view/supervisor/supervisorView.php",$this->data);
     }
 
     public function mostrarProformas(){
-        $registros = $this->proformaModel->obtenerProformas();
-        $this->data["mostrarListadoDeProformas"] = $registros;
-        echo $this->renderer->render("./view/supervisor/proforma/mostrarListadoDeProformasView.php", $this->data);
+
+        $traerTodasLasProformasRegistradas = $this->proformaModel->obtenerProformas();
+
+        if ($traerTodasLasProformasRegistradas != null) {
+            $this->data["mostrarListadoDeProformas"] = $traerTodasLasProformasRegistradas;
+            echo $this->renderer->render("./view/supervisor/proforma/mostrarListadoDeProformasView.php", $this->data);
+        } else {
+            $this->showNotifiacation->mostrar("No hay proformas registradas","red");
+        }
+
     }
     public function mostrarDetalle(){
         $idProforma = $_POST["id_proforma"];
@@ -106,9 +113,15 @@ class ProformaController
     }
 
     public function mostrarProformasAEliminar(){
-        $registros = $this->proformaModel->obtenerProformas();
-        $this->data["mostrarListadoDeProformasAEliminar"] = $registros;
-        echo $this->renderer->render("./view/supervisor/proforma/mostrarListadoDeProformasAEliminarView.php", $this->data);
+
+        $traerTodasLasProformasRegistradas = $this->proformaModel->obtenerProformas();
+
+        if ($traerTodasLasProformasRegistradas != null) {
+            $this->data["mostrarListadoDeProformasAEliminar"] = $traerTodasLasProformasRegistradas;
+            echo $this->renderer->render("./view/supervisor/proforma/mostrarListadoDeProformasAEliminarView.php", $this->data);
+        } else {
+            $this->showNotifiacation->mostrar("No hay proformas a eleminar","red");
+        }
     }
 
     public function eliminar(){
@@ -122,9 +135,15 @@ class ProformaController
     }
 
     public function mostrarProformasAModificar(){
-        $registros = $this->proformaModel->obtenerProformas();
-        $this->data["mostrarListadoDeProformasAModificar"] = $registros;
-        echo $this->renderer->render("./view/supervisor/proforma/mostrarListadoDeProformasAModificarView.php", $this->data);
+
+        $traerTodasLasProformasRegistradas = $this->proformaModel->obtenerProformas();
+
+        if ($traerTodasLasProformasRegistradas != null) {
+            $this->data["mostrarListadoDeProformasAModificar"] = $traerTodasLasProformasRegistradas;
+            echo $this->renderer->render("./view/supervisor/proforma/mostrarListadoDeProformasAModificarView.php", $this->data);
+        } else {
+            $this->showNotifiacation->mostrar("No hay proformas a modificar","red");
+        }
     }
 
     public function mostrarDatosDeProformaAModificar(){
