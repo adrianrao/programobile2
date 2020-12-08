@@ -15,32 +15,14 @@
                     <br><br>
                     <h5>Cliente</h5>
                     <br>
-                    <label for="denominacion">Denominacion:</label>
-                    <select id="denominacion" name="denominacion">
+                    <label for="id_cliente">Denominacion:</label>
+                    <select id="id_cliente" name="id_cliente" required>
                         <option value="" disabled selected>Seleccione un Cliente</option>
                         {{#cargarSelectCliente}}
                         <option value="{{id_cliente}}">{{denominacion}}</option>
                         {{/cargarSelectCliente}}
                     </select>
                     <br>
-                    <label for="cuit">Cuit:</label>
-                    <input type="text" id="cuit" name="cuit" class="white-text" required>
-                    <br>
-                    <label for="direccion">Direccion:</label>
-                    <input type="text" id="direccion" name="direccion" class="white-text" required>
-                    <br>
-                    <label for="telefono">Telefono:</label>
-                    <input type="text" id="telefono" name="telefono" class="white-text" required>
-                    <br>
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" name="email" class="white-text" required>
-                    <br>
-                    <label for="contacto1">Contacto 1:</label>
-                    <input type="text" id="contacto1" name="contacto1" class="white-text" required>
-                    <br>
-                    <label for="contacto2">Contacto 2:</label>
-                    <input type="text" id="contacto2" name="contacto2" class="white-text" required>
-                    <br><br>
                     <h5>Viaje</h5>
                     <br>
                     <label for="origen">Origen:</label>
@@ -52,11 +34,8 @@
                     <label for="fecha_carga">Fecha carga:</label>
                     <input type="date" id="fecha_carga" name="fecha_carga" class="white-text" required>
                     <br>
-                    <label for="ETD_estimado">ETD:</label>
-                    <input type="date" id="ETD_estimado" name="ETD_estimado" class="white-text" required>
-                    <br>
-                    <label for="ETA_estimado">ETA:</label>
-                    <input type="date" id="ETA_estimado" name="ETA_estimado" class="white-text" required>
+                    <label for="ETA">ETA:</label>
+                    <input type="date" id="ETA" name="ETA" class="white-text" required>
                     <br><br>
                     <h5>Carga</h5>
                     <br>

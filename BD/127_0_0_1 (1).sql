@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2020 a las 00:10:24
+-- Tiempo de generación: 08-12-2020 a las 02:20:08
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -120,7 +120,8 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`id_cliente`, `email`, `telefono`, `contacto1`, `contacto2`, `cuit`, `denominacion`, `direccion_calle`, `direccion_nro`, `direccion_cp`) VALUES
 (1, 'nicolasherrera_05@hotmail.com', '123123', 'asdas', 'dasda', '213123', 'Tesla Motors Modificado', 'as', '1232', '1231'),
-(34, 'dasd', 'lkj', 'lkj', 'lkj', 'lkj', 'Coca Cola', 'l', 'kjl', 'jl');
+(34, 'dasd', 'lkj', 'lkj', 'lkj', 'lkj', 'Coca Cola', 'l', 'kjl', 'jl'),
+(35, 'dd', 'w', 'edwa', 'dwd', 'd', 'dsad', 'f', 'gh', 'fg');
 
 -- --------------------------------------------------------
 
@@ -143,6 +144,7 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`usuario`, `nombre_completo`, `password`, `dni`, `f_nac`, `tipo_licencia`, `id_rol`) VALUES
+('Angel12', 'Angel Rodriguez', '12', 2147483647, '1999-12-12', NULL, 4),
 ('Daniel12', 'Daniel Ortega', '12', 12, '1999-12-12', 12, 3),
 ('juan2', 'juan', '12', 12, '1999-12-12', NULL, 2),
 ('Maurod', 'Mauro Dallasera', '12', 12, '1999-12-12', 9, 3),
@@ -156,8 +158,16 @@ INSERT INTO `empleado` (`usuario`, `nombre_completo`, `password`, `dni`, `f_nac`
 
 CREATE TABLE `mecanico` (
   `id_mecanico` int(11) NOT NULL,
-  `descripcion` varchar(40) DEFAULT NULL
+  `nombre` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `mecanico`
+--
+
+INSERT INTO `mecanico` (`id_mecanico`, `nombre`) VALUES
+(1, 'Chirola'),
+(2, 'Ramon Puerta');
 
 -- --------------------------------------------------------
 
@@ -184,17 +194,10 @@ CREATE TABLE `proforma` (
   `id_cliente` int(11) DEFAULT NULL,
   `usuario` varchar(40) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
-  `cliente_denominacion` varchar(40) DEFAULT NULL,
-  `cliente_cuit` varchar(40) DEFAULT NULL,
-  `cliente_direccion` varchar(40) DEFAULT NULL,
-  `cliente_telefono` varchar(40) DEFAULT NULL,
-  `cliente_email` varchar(40) DEFAULT NULL,
-  `cliente_contacto1` varchar(40) DEFAULT NULL,
-  `cliente_contacto2` varchar(40) DEFAULT NULL,
   `viaje_origen` varchar(40) DEFAULT NULL,
   `viaje_destino` varchar(40) DEFAULT NULL,
   `viaje_fecha_carga` date DEFAULT NULL,
-  `viaje_ETA` varchar(40) DEFAULT NULL,
+  `viaje_ETA` date DEFAULT NULL,
   `carga_tipo` varchar(40) DEFAULT NULL,
   `carga_peso` double DEFAULT NULL,
   `carga_tipo_hazard` varchar(40) DEFAULT NULL,
@@ -203,10 +206,8 @@ CREATE TABLE `proforma` (
   `costeo_km_reales` double DEFAULT NULL,
   `costeo_combustible_estimado` double DEFAULT NULL,
   `costeo_combustible_real` double DEFAULT NULL,
-  `costeo_ETD_estimado` double DEFAULT NULL,
-  `costeo_ETD_real` double DEFAULT NULL,
-  `costeo_ETA_estimado` double DEFAULT NULL,
-  `costeo_ETA_real` double DEFAULT NULL,
+  `fecha_partida_real` date DEFAULT NULL,
+  `fecha_arribo_real` date DEFAULT NULL,
   `costeo_viaticos_estimado` double DEFAULT NULL,
   `costeo_viaticos_real` double DEFAULT NULL,
   `costeo_peajes_estimado` double DEFAULT NULL,
@@ -223,18 +224,24 @@ CREATE TABLE `proforma` (
   `costeo_fee_real` double DEFAULT NULL,
   `estado` varchar(40) DEFAULT 'pendiente',
   `costeo_total_real` double DEFAULT NULL,
-  `costeo_total_estimado` double DEFAULT NULL
+  `costeo_total_estimado` double DEFAULT NULL,
+  `viaje_ETD` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `proforma`
 --
 
-INSERT INTO `proforma` (`id_proforma`, `id_tractor`, `id_arrastrado`, `id_cliente`, `usuario`, `fecha`, `cliente_denominacion`, `cliente_cuit`, `cliente_direccion`, `cliente_telefono`, `cliente_email`, `cliente_contacto1`, `cliente_contacto2`, `viaje_origen`, `viaje_destino`, `viaje_fecha_carga`, `viaje_ETA`, `carga_tipo`, `carga_peso`, `carga_tipo_hazard`, `carga_temperatura_reefer`, `costeo_km_estimados`, `costeo_km_reales`, `costeo_combustible_estimado`, `costeo_combustible_real`, `costeo_ETD_estimado`, `costeo_ETD_real`, `costeo_ETA_estimado`, `costeo_ETA_real`, `costeo_viaticos_estimado`, `costeo_viaticos_real`, `costeo_peajes_estimado`, `costeo_peajes_real`, `costeo_pesajes_estimado`, `costeo_pesajes_real`, `costeo_extras_estimado`, `costeo_extras_real`, `costeo_hazard_estimado`, `costeo_hazard_real`, `costeo_reefer_estimado`, `costeo_reefer_real`, `costeo_fee_estimado`, `costeo_fee_real`, `estado`, `costeo_total_real`, `costeo_total_estimado`) VALUES
-(67, 1, 1, 1, 'Daniel12', '1999-12-12', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1999-12-12', '18', 'granel', 8, 'class', '8', 8, 200, 8, 300, 8, 400, 8, 500, 8, 600, 8, 700, 8, 800, 8, 900, 8, 1000, 8, 2000, 8, 3000, 'Finalizado', 10400, NULL),
-(68, 1, 1, 34, 'Daniel12', '1999-12-12', '1', '112312312', '1231', '1', '1', '1', '1', '1', '1', '1111-11-11', '1', 'granel', 1, 'class', '1', 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 10, 'Finalizado', 10, NULL),
-(69, 1, 1, 34, 'Maurod', '1999-12-12', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1999-12-12', '12 horas', 'granel', 1, 'class', '1', 1, 2908765, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 1, 9, 1, 9, 'Finalizado', 2908819, NULL),
-(70, 1, 1, 1, 'Daniel12', '2020-11-03', '34', '3070885149', '2361 NW 67TH Av,', '7869912769', 'nherrera3276@gmail.com', 'adasdas', 'Lionel messi', 'Buenos Aires', 'Mar del plata', '2020-11-11', '1', 'liquida', 1, 'class', '1', 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 'pendiente', NULL, NULL);
+INSERT INTO `proforma` (`id_proforma`, `id_tractor`, `id_arrastrado`, `id_cliente`, `usuario`, `fecha`, `viaje_origen`, `viaje_destino`, `viaje_fecha_carga`, `viaje_ETA`, `carga_tipo`, `carga_peso`, `carga_tipo_hazard`, `carga_temperatura_reefer`, `costeo_km_estimados`, `costeo_km_reales`, `costeo_combustible_estimado`, `costeo_combustible_real`, `fecha_partida_real`, `fecha_arribo_real`, `costeo_viaticos_estimado`, `costeo_viaticos_real`, `costeo_peajes_estimado`, `costeo_peajes_real`, `costeo_pesajes_estimado`, `costeo_pesajes_real`, `costeo_extras_estimado`, `costeo_extras_real`, `costeo_hazard_estimado`, `costeo_hazard_real`, `costeo_reefer_estimado`, `costeo_reefer_real`, `costeo_fee_estimado`, `costeo_fee_real`, `estado`, `costeo_total_real`, `costeo_total_estimado`, `viaje_ETD`) VALUES
+(67, 1, 1, 1, 'Daniel12', '1999-12-12', '1', '1', '1999-12-12', '0000-00-00', 'granel', 8, 'class', '8', 8, 200, 8, 300, '0000-00-00', '0000-00-00', 8, 600, 8, 700, 8, 800, 8, 900, 8, 1000, 8, 2000, 8, 3000, 'Finalizado', 10400, NULL, NULL),
+(68, 1, 1, 34, 'Daniel12', '1999-12-12', '1', '1', '1111-11-11', '0000-00-00', 'granel', 1, 'class', '1', 1, 0, 1, 0, '0000-00-00', '0000-00-00', 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 10, 'Finalizado', 10, NULL, NULL),
+(69, 1, 1, 34, 'Maurod', '1999-12-12', '1', '1', '1999-12-12', '0000-00-00', 'granel', 1, 'class', '1', 1, 2908765, 1, 1, '0000-00-00', '0000-00-00', 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 1, 9, 1, 9, 'Finalizado', 2908819, NULL, NULL),
+(70, 1, 1, 1, 'Daniel12', '2020-11-03', 'Buenos Aires', 'Mar del plata', '2020-11-11', '0000-00-00', 'liquida', 1, 'class', '1', 1, NULL, 1, NULL, NULL, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 'pendiente', NULL, NULL, NULL),
+(71, 1, 1, 1, 'Maurod', '2020-12-07', 'Rosario', 'Cordoba', '2020-12-10', '2020-12-23', 'liquida', 2000, 'Sclass', '29', 200, NULL, 200, NULL, NULL, NULL, 2000, NULL, 30000, NULL, 40000, NULL, 50000, NULL, 6000, NULL, 7000, NULL, 8000, NULL, 'pendiente', NULL, NULL, NULL),
+(72, 1, 1, 1, 'Maurod', '2020-12-11', 'Buenos Aires', 'Cordoba', '2020-12-17', '2020-12-23', 'granel', 20000, 'class', '20000', 2000, NULL, 1, NULL, NULL, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 11, NULL, 'pendiente', NULL, 2018, NULL),
+(73, 1, 1, 1, 'Daniel12', '2020-12-20', '1', '13', '0001-01-01', '0001-01-01', 'granel', 1, 'class', '1', 1, NULL, 1, NULL, NULL, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 'pendiente', NULL, 9, NULL),
+(74, 1, 1, 1, 'Daniel12', '2020-12-20', '1', '13', '0001-01-01', '0001-01-01', 'granel', 1, 'class', '1', 1, NULL, 1, NULL, NULL, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 1, NULL, 'pendiente', NULL, 9, NULL),
+(75, 1, 1, 1, 'Maurod', '2020-12-01', '1', '1', '2020-12-02', '2020-12-06', 'granel', 1, 'class', '1', 1, 2000, 1, 900, '2020-12-14', '2020-12-15', 1, 3900, 1, 2000, 1, 2000, 1, 1000, 1, 1000, 11, 1000, 12, 1000, 'Finalizado', 14800, 30, '2020-12-04');
 
 -- --------------------------------------------------------
 
@@ -255,7 +262,7 @@ INSERT INTO `rol` (`id_rol`, `descripcion`) VALUES
 (1, 'administrador'),
 (2, 'supervisor'),
 (3, 'chofer'),
-(4, 'encargado taller'),
+(4, 'encargadoDeTaller'),
 (5, 'mecanico'),
 (6, 'bloqueado');
 
@@ -270,10 +277,24 @@ CREATE TABLE `service` (
   `costo` double DEFAULT NULL,
   `descripcion` varchar(40) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
-  `repuesto_utilizados` varchar(40) DEFAULT NULL,
+  `repuesto_utilizado` varchar(40) DEFAULT NULL,
   `id_tractor` int(11) DEFAULT NULL,
-  `id_mecanico` int(11) DEFAULT NULL
+  `id_mecanico` int(11) DEFAULT NULL,
+  `km_unidad` double DEFAULT NULL,
+  `tipo_service` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `service`
+--
+
+INSERT INTO `service` (`id_service`, `costo`, `descripcion`, `fecha`, `repuesto_utilizado`, `id_tractor`, `id_mecanico`, `km_unidad`, `tipo_service`) VALUES
+(1, 200, 'Cambio de aceite importado', '2019-01-01', 'Motul 20 50 mineral', 2, 2, 200000, 'interno'),
+(2, 1321, 'cambio de cubiertas', '2000-12-12', '4 cubiertas 210 40 40', 2, 2, NULL, NULL),
+(3, 70000, 'Cambio de tren delantero', '2020-11-12', 'Tren delantero completo', 1, 2, NULL, NULL),
+(4, 999, 'Cambio de aros', '1999-12-12', 'Aros', 1, 2, NULL, NULL),
+(5, 200, 'Cambio de rulemanes', '1999-12-12', 'rulemanes XXL', 2, 2, NULL, NULL),
+(6, 90000, 'Cambio de opticas', '1999-12-12', 'Opticas iveco 3306', 2, 2, 200000, 'interno');
 
 -- --------------------------------------------------------
 
@@ -333,7 +354,8 @@ CREATE TABLE `tractor` (
 --
 
 INSERT INTO `tractor` (`id_tractor`, `año_fabricacion`, `nro_motor`, `nro_chasis`, `marca`, `modelo`, `patente`, `kilometraje`) VALUES
-(1, '2020-11-03', '3123', '312312', 'dsadas', 'dasdas', 'asdas', 12321);
+(1, '2020-11-03', '3123', '312312', 'dsadas', 'dasdas', 'AD223CN', 12321),
+(2, '1999-10-10', '12314r3r345', 'Mia34mdsakl2', 'Ford', 'Ranger', '833KEY', 90000);
 
 --
 -- Índices para tablas volcadas
@@ -461,13 +483,13 @@ ALTER TABLE `celular`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `mecanico`
 --
 ALTER TABLE `mecanico`
-  MODIFY `id_mecanico` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mecanico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `posicion`
@@ -479,7 +501,7 @@ ALTER TABLE `posicion`
 -- AUTO_INCREMENT de la tabla `proforma`
 --
 ALTER TABLE `proforma`
-  MODIFY `id_proforma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_proforma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -491,7 +513,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `service`
 --
 ALTER TABLE `service`
-  MODIFY `id_service` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_service` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_de_licencia`
@@ -503,7 +525,7 @@ ALTER TABLE `tipo_de_licencia`
 -- AUTO_INCREMENT de la tabla `tractor`
 --
 ALTER TABLE `tractor`
-  MODIFY `id_tractor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_tractor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
