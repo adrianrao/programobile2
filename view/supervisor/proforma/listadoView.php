@@ -45,3 +45,16 @@
 {{/listado}}
 
 {{> footer}}
+
+<script>
+
+    window.onload = async () => {
+        await getClientes();
+    }
+
+    const getClientes = async() => {
+        let response = await axios.post("proforma/getClientes",{})
+        console.log(response)
+    }
+
+</script>
