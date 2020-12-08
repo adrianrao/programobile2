@@ -152,7 +152,7 @@ VALUES(
 
         return $this->db->executeQuery($sql);
 
-        
+
     }
 
     public function eliminar($id_proforma)
