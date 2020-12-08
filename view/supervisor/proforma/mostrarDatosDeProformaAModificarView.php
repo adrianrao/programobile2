@@ -30,18 +30,19 @@
         <input type="text" id="destino" name="destino" class="white-text" value="{{viaje_destino}}">
         <br>
         <label for="fecha_carga">Fecha carga:</label>
-        <input type="date" id="fecha_carga" name="fecha_carga" class="white-text" value="{{viaje_fecha_carga}}>
+        <input type="date" id="fecha_carga" name="fecha_carga" class="white-text" value="{{viaje_fecha_carga}}">
                             <br>
-                            <label for=" ETD">ETD:</label>
-        <input type="text" id="ETD" name="ETD" class="white-text" required>
+
+        <label for="ETD">ETD:</label>
+        <input type="date" id="ETD" name="ETD" class="white-text" value="{{viaje_ETD}}" required>
         <br>
         <label for="ETA">ETA:</label>
-        <input type="text" id="ETA" name="ETA" class="white-text" value="{{viaje_ETA}}">
+        <input type="date" id="ETA" name="ETA" class="white-text" value="{{viaje_ETA}}">
         <br><br>
         <h5>Carga</h5>
         <br>
-        <label for="tipo_carga">Tipo carga:</label>
-        <select id="tipo_carga" name="tipo_carga">
+        <label for="carga_tipo">Tipo carga:</label>
+        <select id="carga_tipo" name="carga_tipo">
             <option value="{{carga_tipo}}" selected>{{carga_tipo}}</option>
             <option value="granel">Granel</option>
             <option value="liquida">Liquida</option>
@@ -78,15 +79,15 @@
         <br>
         <label for="peajes_estimado">Peajes estimado:</label>
         <input type="number" id="peajes_estimado" name="peajes_estimado" class="white-text"
-               value="{{costeo_peajes_estimados}}">
+               value="{{costeo_peajes_estimado}}">
         <br>
         <label for="pesajes_estimado">Pesajes estimado:</label>
         <input type="number" id="pesajes_estimado" name="pesajes_estimado" class="white-text"
-               value="{{costeo_pesajes_estimados}}>
+               value="{{costeo_pesajes_estimado}}>
         <br>
         <label for="extras_estimado">Extras:</label>
         <input type="number" id="extras_estimado" name="extras_estimado" class="white-text"
-               value="{{costeo_extras_estimados}}">
+               value="{{costeo_extras_estimado}}">
         <br>
         <label for="hazard_estimado">Hazard estimado:</label>
         <input type="number" id="hazard_estimado" name="hazard_estimado" class="white-text"
@@ -112,17 +113,17 @@
         <br>
         <label for="id_tractor">Tractor tipo:</label>
         <select id="id_tractor" name="id_tractor">
-            <option value="{{id_tractor}}" selected>{{patente_tractor}}</option>
+            <option value="{{id_tractor}}" selected>{{patente}}</option>
             {{#cargarSelectTractor}}
-            <option value="{{id_tractor}}">{{patente_tractor}}</option>
+            <option value="{{id_tractor}}">{{patente}}</option>
             {{/cargarSelectTractor}}
         </select>
         <br>
-        <label for="id_arrastrador">Arrastrado tipo:</label>
-        <select id="id_arrastrador" name="id_arrastrador">
-            <option value="{{id_arrastrado}}" selected>{{patente_arrastrado}}</option>
+        <label for="id_arrastrado">Arrastrado tipo:</label>
+        <select id="id_arrastrado" name="id_arrastrado">
+            <option value="{{id_arrastrado}}" selected>{{patente}}</option>
             {{#cargarSelectArrastrado}}
-            <option value="{{id_arrastrado}}">{{patente_arrastrado}}</option>
+            <option value="{{id_arrastrado}}">{{patente}}</option>
             {{/cargarSelectArrastrado}}
         </select>
         <br>
