@@ -57,13 +57,14 @@ class ProformaController
     public function procesarProforma(){
 
         $id_tractor = $_POST["id_tractor"];
-        $id_arrastrado = $_POST["id_arrastrador"];
+        $id_arrastrado = 1;
         $id_cliente = $_POST["id_cliente"];
         $usuario = $_POST["chofer_asignado"];
         $fecha = $_POST["fecha"];
         $viaje_origen = $_POST["origen"];
         $viaje_destino = $_POST["destino"];
         $viaje_fecha_carga = $_POST["fecha_carga"];
+        $viaje_ETD = $_POST["ETD"];
         $viaje_ETA = $_POST["ETA"];
         $carga_tipo = $_POST["tipo_carga"];
         $carga_peso = $_POST["peso_neto"];
@@ -78,6 +79,22 @@ class ProformaController
         $costeo_hazard_estimado = $_POST["hazard_estimado"];
         $costeo_reefer_estimado = $_POST["reefer_estimado"];
         $costeo_fee_estimado = $_POST["fee_estimado"];
+
+        $costeo_total_estimado =
+            $costeo_km_estimados+
+            $costeo_combustible_estimado+
+            $costeo_viaticos_estimado+
+            $costeo_peajes_estimado+
+            $costeo_pesajes_estimado+
+            $costeo_extras_estimado+
+            $costeo_hazard_estimado+
+            $costeo_reefer_estimado+
+            $costeo_fee_estimado;
+
+
+
+
+
 
 
         $result = $this->proformaModel->registrarProforma(
@@ -102,14 +119,26 @@ class ProformaController
             $costeo_extras_estimado,
             $costeo_hazard_estimado,
             $costeo_reefer_estimado,
-            $costeo_fee_estimado);
+            $costeo_fee_estimado,
+            $costeo_total_estimado,
+            $viaje_ETD);
+
+
 
         if(isset($result)){
-            $this->showNotifiacation->mostrar("Registro completado con éxito","green");
+            $this->data["colorNotificacion"] = "green";
+            $this->data["notificacion"] = "Registro completado con éxito";
         }else{
-            $this->showNotifiacation->mostrar("Error al registrar","red");
+            $this->data["colorNotificacion"] = "red";
+            $this->data["notificacion"] = "Error al registrar";
         }
 
+        $this->data["cargarSelectChofer"] = $this->proformaModel->traerTodosLosChoferes();
+        $this->data["cargarSelectTractor"] = $this->proformaModel->traerTodosLosTractores();
+        $this->data["cargarSelectArrastrado"] = $this->proformaModel->traerTodosLosTractores();
+
+
+        echo $this->renderer->render("view/supervisor/supervisorView.php",$this->data);
     }
 
     public function mostrarProformasAEliminar(){
@@ -159,9 +188,9 @@ class ProformaController
 
     public function modificarProforma(){
 
-        $idProforma = $_POST["id_proforma"];
+        $id_proforma = $_POST["id_proforma"];
         $id_tractor = $_POST["id_tractor"];
-        $id_arrastrado = $_POST["id_arrastrador"];
+        $id_arrastrado = $_POST["id_arrastrado"];
         $id_cliente = $_POST["id_cliente"];
         $usuario = $_POST["chofer_asignado"];
         $fecha = $_POST["fecha"];
@@ -169,7 +198,8 @@ class ProformaController
         $viaje_destino = $_POST["destino"];
         $viaje_fecha_carga = $_POST["fecha_carga"];
         $viaje_ETA = $_POST["ETA"];
-        $carga_tipo = $_POST["tipo_carga"];
+        $viaje_ETD = $_POST["ETD"];
+        $carga_tipo = $_POST["carga_tipo"];
         $carga_peso = $_POST["peso_neto"];
         $carga_tipo_hazard = $_POST["tipo_hazard"];
         $carga_temperatura_reefer = $_POST["temperatura_reefer"];
@@ -183,16 +213,25 @@ class ProformaController
         $costeo_reefer_estimado = $_POST["reefer_estimado"];
         $costeo_fee_estimado = $_POST["fee_estimado"];
 
+        $costeo_total_estimado =
+            $costeo_km_estimados+
+            $costeo_combustible_estimado+
+            $costeo_viaticos_estimado+
+            $costeo_peajes_estimado+
+            $costeo_pesajes_estimado+
+            $costeo_extras_estimado+
+            $costeo_hazard_estimado+
+            $costeo_reefer_estimado+
+            $costeo_fee_estimado;
+
+
         $modifico = $this->proformaModel->modificar(
-            $idProforma,
-            $id_tractor,
-            $id_arrastrado,
-            $id_cliente,
-            $usuario,
             $fecha,
+            $id_cliente,
             $viaje_origen,
             $viaje_destino,
             $viaje_fecha_carga,
+            $viaje_ETD,
             $viaje_ETA,
             $carga_tipo,
             $carga_peso,
@@ -206,7 +245,12 @@ class ProformaController
             $costeo_extras_estimado,
             $costeo_hazard_estimado,
             $costeo_reefer_estimado,
-            $costeo_fee_estimado);
+            $costeo_fee_estimado,
+            $usuario,
+            $id_tractor,
+            $id_arrastrado,
+            $id_proforma,
+            $costeo_total_estimado);
 
 
 

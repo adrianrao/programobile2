@@ -10,29 +10,115 @@ class ProformaModel
         $this->db = $database;
     }
 
-    public function registrarProforma($id_tractor, $id_arrastrado, $id_cliente, $usuario, $fecha, $viaje_origen,
-                              $viaje_destino, $viaje_fecha_carga, $viaje_ETA, $carga_tipo, $carga_peso, $carga_tipo_hazard, $carga_temperatura_reefer, $costeo_km_estimados,
-                              $costeo_combustible_estimado, $costeo_viaticos_estimado,
-                              $costeo_peajes_estimado, $costeo_pesajes_estimado, $costeo_extras_estimado, $costeo_hazard_estimado, $costeo_reefer_estimado, $costeo_fee_estimado)
-    {
+    public function registrarProforma(
+        $id_tractor,
+        $id_arrastrado,
+        $id_cliente,
+        $usuario,
+        $fecha,
+        $viaje_origen,
+        $viaje_destino,
+        $viaje_fecha_carga,
+        $viaje_ETA,
+        $carga_tipo,
+        $carga_peso,
+        $carga_tipo_hazard,
+        $carga_temperatura_reefer,
+        $costeo_km_estimados,
+        $costeo_combustible_estimado,
+        $costeo_viaticos_estimado,
+        $costeo_peajes_estimado,
+        $costeo_pesajes_estimado,
+        $costeo_extras_estimado,
+        $costeo_hazard_estimado,
+        $costeo_reefer_estimado,
+        $costeo_fee_estimado,
+        $costeo_total_estimado,
+        $viaje_ETD){
 
-        $sql = " INSERT INTO proforma ";
-        $sql .= "(`id_tractor`,`id_arrastrado`,`id_cliente`,`usuario`,`fecha`,";
-        $sql .= "`viaje_origen`,`viaje_destino`,`viaje_fecha_carga`,`viaje_ETA`,";
-        $sql .= "`carga_tipo`,`carga_peso`,`carga_tipo_hazard`,`carga_temperatura_reefer`,`costeo_km_estimados`,`costeo_combustible_estimado`,`costeo_ETD_estimado`,`costeo_ETA_estimado`,`costeo_viaticos_estimado`,`costeo_peajes_estimado`,";
-        $sql .= "`costeo_pesajes_estimado`,`costeo_extras_estimado`,`costeo_hazard_estimado`,`costeo_reefer_estimado`,`costeo_fee_estimado`)";
-        $sql .= " VALUES ";
+        $result = $this->db->ejecutarQuery("
+insert into proforma(
+        `id_tractor`,
+        `id_arrastrado`,
+        `id_cliente`,
+        `usuario`,
+        `fecha`,
+        `viaje_origen`
+        ,`viaje_destino`,
+        `viaje_fecha_carga`,
+        `viaje_ETA`,
+        `carga_tipo`,
+        `carga_peso`,
+        `carga_tipo_hazard`,
+        `carga_temperatura_reefer`,
+        `costeo_km_estimados`,
+        `costeo_combustible_estimado`,
+        `costeo_viaticos_estimado`,
+        `costeo_peajes_estimado`,
+        `costeo_pesajes_estimado`,
+        `costeo_extras_estimado`,
+        `costeo_hazard_estimado`,
+        `costeo_reefer_estimado`,
+        `costeo_fee_estimado`,
+        `costeo_total_estimado`,
+        `viaje_ETD`
+        )
+VALUES(
+        $id_tractor,
+        $id_arrastrado,
+        $id_cliente,
+        '$usuario',
+        STR_TO_DATE('$fecha', '%Y-%m-%d'),
+        '$viaje_origen',
+        '$viaje_destino',
+        STR_TO_DATE('$viaje_fecha_carga', '%Y-%m-%d'),
+        STR_TO_DATE('$viaje_ETA', '%Y-%m-%d'),        
+        '$carga_tipo',
+        $carga_peso,
+        '$carga_tipo_hazard',
+        '$carga_temperatura_reefer',
+        $costeo_km_estimados,
+        $costeo_combustible_estimado,
+        $costeo_viaticos_estimado,
+        $costeo_peajes_estimado,
+        $costeo_pesajes_estimado,
+        $costeo_extras_estimado,
+        $costeo_hazard_estimado,
+        $costeo_reefer_estimado,
+        $costeo_fee_estimado,
+        $costeo_total_estimado,
+        STR_TO_DATE('$viaje_ETD', '%Y-%m-%d'));");
 
-        $sql .= "$id_tractor,$id_arrastrado,$id_cliente,'$usuario',STR_TO_DATE('$fecha', '%Y-%m-%d'),'$viaje_origen','$viaje_destino',STR_TO_DATE('$viaje_fecha_carga', '%Y-%m-%d'),'$viaje_ETA','$carga_tipo',$carga_peso,'$carga_tipo_hazard',";
-        $sql .= "'$carga_temperatura_reefer', $costeo_km_estimados,$costeo_combustible_estimado,$costeo_viaticos_estimado,$costeo_peajes_estimado,$costeo_pesajes_estimado,$costeo_extras_estimado,$costeo_hazard_estimado,$costeo_reefer_estimado,$costeo_fee_estimado)";
-
-        return $this->db->executeQuery($sql);
+        return $result;
     }
 
-    public function modificar($id_proforma, $id_tractor, $id_arrastrado, $id_cliente, $usuario, $fecha, $viaje_origen,
-                              $viaje_destino, $viaje_fecha_carga, $viaje_ETA, $carga_tipo, $carga_peso, $carga_tipo_hazard, $carga_temperatura_reefer, $costeo_km_estimados,
-                              $costeo_combustible_estimado, $costeo_viaticos_estimado,
-                              $costeo_peajes_estimado, $costeo_pesajes_estimado, $costeo_extras_estimado, $costeo_hazard_estimado, $costeo_reefer_estimado, $costeo_fee_estimado)
+    public function modificar($fecha,
+                              $id_cliente,
+                              $viaje_origen,
+                              $viaje_destino,
+                              $viaje_fecha_carga,
+                              $viaje_ETD,
+                              $viaje_ETA,
+                              $carga_tipo,
+                              $carga_peso,
+                              $carga_tipo_hazard,
+                              $carga_temperatura_reefer,
+                              $costeo_km_estimados,
+                              $costeo_combustible_estimado,
+                              $costeo_viaticos_estimado,
+                              $costeo_peajes_estimado,
+                              $costeo_pesajes_estimado,
+                              $costeo_extras_estimado,
+                              $costeo_hazard_estimado,
+                              $costeo_reefer_estimado,
+                              $costeo_fee_estimado,
+                              $usuario,
+                              $id_tractor,
+                              $id_arrastrado,
+                              $id_proforma,
+                              $costeo_total_estimado
+
+                              )
     {
 
         $sql = "UPDATE proforma SET ";
@@ -44,7 +130,8 @@ class ProformaModel
         $sql .= "viaje_origen = '$viaje_origen',";
         $sql .= "viaje_destino = '$viaje_destino',";
         $sql .= "viaje_fecha_carga = STR_TO_DATE('$viaje_fecha_carga', '%Y-%m-%d'),";
-        $sql .= "viaje_ETA = '$viaje_ETA',";
+        $sql .= "viaje_fecha_carga = STR_TO_DATE('$viaje_ETA', '%Y-%m-%d'),";
+        $sql .= "viaje_fecha_carga = STR_TO_DATE('$viaje_ETD', '%Y-%m-%d'),";
         $sql .= "carga_tipo = '$carga_tipo',";
         $sql .= "carga_peso = $carga_peso,";
         $sql .= "carga_tipo_hazard = '$carga_tipo_hazard',";
@@ -57,10 +144,15 @@ class ProformaModel
         $sql .= "costeo_extras_estimado = $costeo_extras_estimado,";
         $sql .= "costeo_hazard_estimado = $costeo_hazard_estimado,";
         $sql .= "costeo_reefer_estimado = $costeo_reefer_estimado,";
-        $sql .= "costeo_fee_estimado = $costeo_fee_estimado";
+        $sql .= "costeo_fee_estimado = $costeo_fee_estimado,";
+        $sql .= "costeo_total_estimado = $costeo_total_estimado";
         $sql .= " WHERE id_proforma = $id_proforma";
 
-        $this->db->executeQuery($sql);
+
+
+        return $this->db->executeQuery($sql);
+
+
     }
 
     public function eliminar($id_proforma)

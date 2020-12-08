@@ -56,7 +56,7 @@
                             <div class="form-field">
                                 <label for="id_tractor">Seleccione Tractor</label>
                                 <select name="id_tractor" required>
-                                    <option value="{{patente_tractor}}" selected >{{patente_tractor}}</option>
+                                    <option value="{{id_tractor}}" selected >{{patente_tractor}}</option>
                                     {{#cargarSelectTractor}}
                                     <option value="{{id_tractor}}">{{patente_tractor}}</option>
                                     {{/cargarSelectTractor}}
@@ -67,7 +67,7 @@
                             <div class="form-field">
                                 <label for="id_mecanico">Seleccione Mecanico</label>
                                 <select name="id_mecanico" required>
-                                    <option value="{{nombre}}" selected >{{nombre}}</option>
+                                    <option value="{{id_mecanico}}" selected >{{nombre}}</option>
                                     {{#cargarSelectMecanico}}
                                     <option value="{{id_mecanico}}">{{nombre}}</option>
                                     {{/cargarSelectMecanico}}
