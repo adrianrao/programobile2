@@ -144,11 +144,15 @@ VALUES(
         $sql .= "costeo_extras_estimado = $costeo_extras_estimado,";
         $sql .= "costeo_hazard_estimado = $costeo_hazard_estimado,";
         $sql .= "costeo_reefer_estimado = $costeo_reefer_estimado,";
-        $sql .= "costeo_fee_estimado = $costeo_fee_estimado";
+        $sql .= "costeo_fee_estimado = $costeo_fee_estimado,";
         $sql .= "costeo_total_estimado = $costeo_total_estimado";
         $sql .= " WHERE id_proforma = $id_proforma";
 
-        $this->db->executeQuery($sql);
+
+
+        return $this->db->executeQuery($sql);
+
+        
     }
 
     public function eliminar($id_proforma)

@@ -66,7 +66,8 @@
 
                     <label for="tipo_carga">Tipo carga:</label>
                     <select id="tipo_carga" name="tipo_carga">
-                        <option value="granel" >Granel</option>
+                        <option value="" disabled selected>Seleccione un tipo de carga</option>
+                        <option value="granel">Granel</option>
                         <option value="liquida">Liquida</option>
                     </select>
 
@@ -79,7 +80,8 @@
 
                     <label for="tipo_hazard">Tipo hazard:</label>
                     <select id="tipo_hazard" name="tipo_hazard">
-                        <option value="class" >Class</option>
+                        <option value="" disabled selected>Seleccione un tipo de hazard</option>
+                        <option value="class">Class</option>
                         <option value="Sclass">Sclass</option>
                     </select>
 
@@ -141,33 +143,28 @@
                     <br><br>
 
                     <h5>Personal</h5>
-
                     <br>
-
                     <label for="chofer_asignado">Chofer asignado:</label>
                     <select id="chofer_asignado" name="chofer_asignado">
+                        <option value="" disabled selected>Seleccione un Chofer</option>
                         {{#cargarSelectChofer}}
                         <option value="{{usuario}}">{{nombre_completo}}</option>
                         {{/cargarSelectChofer}}
-
                     </select>
-
                     <br>
-
-
                     <label for="id_tractor">Tractor tipo:</label>
                     <select id="id_tractor" name="id_tractor">
+                        <option value="" disabled selected>Seleccione un tractor</option>
                         {{#cargarSelectTractor}}
-                           <option value="{{id_tractor}}">{{patente}}</option>
+                        <option value="{{id_tractor}}">{{patente_tractor}}</option>
                         {{/cargarSelectTractor}}
                     </select>
-
                     <br>
-
                     <label for="id_arrastrado">Arrastrado tipo:</label>
                     <select id="id_arrastrado" name="id_arrastrado">
+                        <option value="" disabled selected>Seleccione un arrastrado</option>
                         {{#cargarSelectArrastrado}}
-                        <option value="{{id_arrastrado}}">{{patente}}</option>
+                        <option value="{{id_arrastrado}}">{{patente_arrastrado}}</option>
                         {{/cargarSelectArrastrado}}
                     </select>
 
