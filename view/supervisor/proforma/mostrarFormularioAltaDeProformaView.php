@@ -114,8 +114,8 @@
                         {{/cargarSelectTractor}}
                     </select>
                     <br>
-                    <label for="id_arrastrador">Arrastrado tipo:</label>
-                    <select id="id_arrastrador" name="id_arrastrador">
+                    <label for="id_arrastrado">Arrastrado tipo:</label>
+                    <select id="id_arrastrado" name="id_arrastrado">
                         <option value="" disabled selected>Seleccione un arrastrado</option>
                         {{#cargarSelectArrastrado}}
                         <option value="{{id_arrastrado}}">{{patente_arrastrado}}</option>

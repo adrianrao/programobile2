@@ -83,9 +83,9 @@
         <input value="{{patente_tractor}}" type="text" id="id_tractor"
                name="id_tractor" class="white-text" disabled="disabled"/>
         <br>
-        <label for="id_arrastrador">Tractor tipo:</label>
-        <input value="{{patente_arrastrado}}" type="text" id="id_arrastrador"
-               name="id_arrastrador" class="white-text" disabled="disabled"/>
+        <label for="id_arrastrado">Tractor tipo:</label>
+        <input value="{{patente_arrastrado}}" type="text" id="id_arrastrado"
+               name="id_arrastrado" class="white-text" disabled="disabled"/>
         <br>
 </form>
         </div>
