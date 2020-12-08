@@ -143,6 +143,31 @@ class ChoferController
 
     }
 
+    public function mostrarFormularioCargaCombustible(){
+        echo $this->renderer->render("view/chofer/cargaCombustibleView.php", $this->data);
+    }
+
+    public function procesarCargaCombustible(){
+
+        $cantidad_litros = $_POST["cantidad_litros"];
+
+        $importe = $_POST["importe"];
+
+        $lugar = $_POST["lugar"];
+
+        $id_proforma = 68;
+
+        $result = $this->choferModel->persistirCargarDeCombustible($cantidad_litros, $importe,$lugar, $id_proforma);
+
+        if ($result) {
+            $this->showNotifiacation->mostrar("Modificacion Exitosa","green");
+        } else {
+            $this->showNotifiacation->mostrar("Fallo la modificacion","red");
+        }
+
+       
+    }
+
     public function cerrarSesion()
     {
         session_destroy();

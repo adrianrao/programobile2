@@ -124,4 +124,10 @@ class ChoferModel
     }
 
 
+    public function persistirCargarDeCombustible($cantidad_litros, $importe,$lugar, $id_proforma){
+        return $this->database->executeQuery("insert into carga_combustible(cantidad_litros,importe,lugar,id_proforma)
+						                        VALUES($cantidad_litros, $importe, '$lugar', $id_proforma);");
+    }
+
+
 }
