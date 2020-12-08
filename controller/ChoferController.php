@@ -140,6 +140,35 @@ class ChoferController
 
         $this->procesarDatosDeViaje();
 
+    }
+
+    public function mostrarFormularioDeCargaDeCombustible(){
+
+        $idPorforma = $_GET["id_proforma"];
+
+        $this->data["idProforma"] = $idPorforma;
+
+        echo $this->renderer->render("view/chofer/mostrarFormularioDeCargaDeCombustibleView.php", $this->data);
+    }
+
+    public function realizarCargaDeCombustible(){
+
+        $idPorforma = $_POST["id_proforma"];
+        $cantidadLitros = $_POST["cantidad_litros"];
+        $importe = $_POST["importe"];
+        $lugar = $_POST["lugar"];
+
+        $result = $this->choferModel->realizarCargaDeCombustible(
+            $idPorforma,
+            $cantidadLitros,
+            $importe,
+            $lugar);
+
+        if ($result) {
+            $this->showNotifiacation->mostrar("Carga Exitosa","green");
+        } else {
+            $this->showNotifiacation->mostrar("Fallo al realizar la carga","red");
+        }
 
     }
 

@@ -5,7 +5,7 @@ include_once("helper/Config.php");
 require_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("helper/RoleValidation.php");
 include_once("helper/ShowNotification.php");
-
+include_once("helper/GenerarQr.php");
 
 class ModuleInitializer
 {

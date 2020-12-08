@@ -19,11 +19,19 @@
                                 name="action">Ver detalle<i
                                 class="material-icons right">send</i></button>
                     </form>
+                    <br>
+                    <form action="/proforma/mostrarQR" method="post">
+                        <input type="hidden" value="{{id_proforma}}" name="id_proforma">
+                        <button class="btn waves-effect waves-light orange darken-2" type="submit"
+                                name="action">Mostrar QR<i
+                                    class="material-icons right">send</i></button>
+                    </form>
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 {{/mostrarListadoDeProformas}}
 {{> footer}}

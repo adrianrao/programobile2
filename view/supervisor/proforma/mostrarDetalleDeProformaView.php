@@ -91,6 +91,8 @@
         </div>
         <br>
     </div>
+
 </div>
+
 {{/mostrarDetalleDeProforma}}
 {{> footer}}

@@ -42,7 +42,13 @@ class ProformaController
         $idProforma = $_POST["id_proforma"];
         $registro = $this->proformaModel->obtenerProforma($idProforma);
         $this->data["mostrarDetalleDeProforma"] = $registro;
+
         echo $this->renderer->render("./view/supervisor/proforma/mostrarDetalleDeProformaView.php", $this->data);
+    }
+
+    public function mostrarQR(){
+        $idProforma = $_POST["id_proforma"];
+        GenerarQr::generarCodigoQR($idProforma);
     }
 
 
@@ -92,11 +98,6 @@ class ProformaController
             $costeo_fee_estimado;
 
 
-
-
-
-
-
         $result = $this->proformaModel->registrarProforma(
             $id_tractor,
             $id_arrastrado,
@@ -126,19 +127,10 @@ class ProformaController
 
 
         if(isset($result)){
-            $this->data["colorNotificacion"] = "green";
-            $this->data["notificacion"] = "Registro completado con éxito";
+            $this->showNotifiacation->mostrar("Registro completado con éxito","green");
         }else{
-            $this->data["colorNotificacion"] = "red";
-            $this->data["notificacion"] = "Error al registrar";
+            $this->showNotifiacation->mostrar("Error al registrar","red");
         }
-
-        $this->data["cargarSelectChofer"] = $this->proformaModel->traerTodosLosChoferes();
-        $this->data["cargarSelectTractor"] = $this->proformaModel->traerTodosLosTractores();
-        $this->data["cargarSelectArrastrado"] = $this->proformaModel->traerTodosLosTractores();
-
-
-        echo $this->renderer->render("view/supervisor/supervisorView.php",$this->data);
     }
 
     public function mostrarProformasAEliminar(){

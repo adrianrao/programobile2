@@ -31,8 +31,7 @@
         <br>
         <label for="fecha_carga">Fecha carga:</label>
         <input type="date" id="fecha_carga" name="fecha_carga" class="white-text" value="{{viaje_fecha_carga}}">
-                            <br>
-
+        <br>
         <label for="ETD">ETD:</label>
         <input type="date" id="ETD" name="ETD" class="white-text" value="{{viaje_ETD}}" required>
         <br>
