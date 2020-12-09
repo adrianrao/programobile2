@@ -25,7 +25,7 @@ class ChoferModel
                                         JOIN empleado
                                         on proforma.usuario = empleado.usuario
                                         where empleado.usuario = '$usuario'
-                                        and proforma.estado = 'pendiente';");
+                                        and proforma.estado = 'PENDIENTE';");
     }
 
     public function listarTodasLasProformasModificar($usuario){
@@ -82,7 +82,7 @@ class ChoferModel
                                                 p.costeo_hazard_real = $costeo_hazard_real,
                                                 p.costeo_reefer_real = $costeo_reefer_real,
                                                 p.costeo_fee_real = $costeo_fee_real,
-                                                p.estado = 'Finalizado',
+                                                p.estado = 'FINALIZADO',
                                                 p.costeo_total_real = $costeo_total_real
                                                 where p.id_proforma = $id_proforma;");
     }
@@ -131,5 +131,12 @@ class ChoferModel
 						                        VALUES($cantidad_litros, $importe, '$lugar', $id_proforma);");
     }
 
+    public function actualizarTotalReal($idProforma){
+        return $this->database->executeQuery("update proforma set costeo_total_real =  ifnull(costeo_combustible_real,0)  + ifnull(costeo_viaticos_real,0) + ifnull(costeo_peajes_real,0) + ifnull(costeo_pesajes_real,0) + ifnull(costeo_extras_real,0) + ifnull(costeo_hazard_real,0) + ifnull(costeo_reefer_real,0) + ifnull(costeo_fee_real,0) where id_proforma = $idProforma");
+    }
+
+    public function actualizarTotalEstimado($idProforma){
+        return $this->database->executeQuery("update proforma set costeo_total_estimado =  ifnull(costeo_combustible_estimado,0)  + ifnull(costeo_viaticos_estimado,0) + ifnull(costeo_peajes_estimado,0) + ifnull(costeo_pesajes_estimado,0) + ifnull(costeo_extras_estimado,0) + ifnull(costeo_hazard_estimado,0) + ifnull(costeo_reefer_estimado,0) + ifnull(costeo_fee_estimado,0) where id_proforma = $idProforma");
+    }
 
 }

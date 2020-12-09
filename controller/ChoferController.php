@@ -100,7 +100,9 @@ class ChoferController
             $costeo_reefer_real,
             $costeo_fee_real);
 
+        $result = $this->choferModel->actualizarTotalReal($id_proforma);
 
+        $result = $this->choferModel->actualizarTotalEstimado($id_proforma);
 
             if ($result) {
                 $this->showNotifiacation->mostrar("Modificacion Exitosa","green");

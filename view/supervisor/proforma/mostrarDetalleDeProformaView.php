@@ -87,6 +87,13 @@
         <input value="{{patente_arrastrado}}" type="text" id="id_arrastrado"
                name="id_arrastrado" class="white-text" disabled="disabled"/>
         <br>
+        <label for="total_real">Total Real:</label>
+        <input value="{{costeo_total_real}}" type="text" id="costeo_total_real"
+               name="costeo_total_real" class="white-text" disabled="disabled"/>
+        <br>
+        <label for="total_estimado">Total Estimado:</label>
+        <input value="{{costeo_total_estimado}}" type="text" id="costeo_total_estimado"
+               name="costeo_total_estimado" class="white-text" disabled="disabled"/>
 </form>
         </div>
         <br>
