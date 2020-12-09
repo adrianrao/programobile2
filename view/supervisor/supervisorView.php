@@ -74,7 +74,7 @@
                 labels: ['Arrastrados','Tractores'],
                 datasets: [{
                     label: 'Equipos',
-                    backgroundColor: ['rgb(255,143,99)','rgb(33,99,231)'],
+                    backgroundColor: ['rgb(60,130,31)','rgb(231,33,33)'],
                     data: [responseEquipo.data[0] || 0 ,responseEquipo.data[1] || 0]
                 }]
             },
