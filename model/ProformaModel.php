@@ -10,7 +10,7 @@ class ProformaModel
         $this->db = $database;
     }
 
-    public function registrarProformaregistrarProforma(
+    public function registrarProforma(
         $id_tractor,
         $id_arrastrado,
         $id_cliente,

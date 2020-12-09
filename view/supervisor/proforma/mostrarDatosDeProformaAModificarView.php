@@ -129,7 +129,10 @@
     </div>
     <br>
     <input type="hidden" value="{{id_proforma}}" name="id_proforma">
+    <div class="center-align">
     <button type="submit" class="btn-large black accent-4">Enviar</button>
+    </div>
+    <br>
 </form>
         </div>
         <br>

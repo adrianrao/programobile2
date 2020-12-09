@@ -15,7 +15,7 @@
 
                     <form action="/proforma/mostrarDatosDeProformaAModificar" method="post">
                         <input type="hidden" value="{{id_proforma}}" name="id_proforma">
-                        <button class="btn waves-effect waves-light orange darken-2" type="submit"
+                        <button class="btn waves-effect waves-light green darken-2" type="submit"
                                 name="action">Modificar<i
                                 class="material-icons right">send</i></button>
                     </form>
