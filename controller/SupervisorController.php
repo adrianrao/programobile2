@@ -543,6 +543,24 @@ class SupervisorController
         }
     }
 
+    public function obtenerEstadoProformas(){
+        $rows = $this->supervisorModel->obtenerCantidadProformasPorEstado();
+        $aRows = [];
+        foreach($rows as $row){
+            array_push($aRows,intval($row["count(*)"]));
+        }
+        echo json_encode($aRows);
+    }
+
+    public function obtenerEquipos(){
+        $rows = $this->supervisorModel->obtenerArrastradosYTractores();
+        $aRows = [];
+        foreach($rows as $row){
+            array_push($aRows,intval($row["count(*)"]));
+        }
+        echo json_encode($aRows);
+    }
+
 
     public function cerrarSesion()
     {
