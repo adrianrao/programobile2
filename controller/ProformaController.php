@@ -1,5 +1,5 @@
 <?php
-
+use Dompdf\Dompdf;
 
 class ProformaController
 {
@@ -253,6 +253,29 @@ class ProformaController
         }
     }
 
+    public function generarPdf(){
+
+        $idProforma = $_POST["id_proforma"];
+        $registro = $this->proformaModel->obtenerProforma($idProforma);
+        $this->data["mostrarDetalleDeProforma"] = $registro;
+
+        $html =  $this->renderer->render("./view/supervisor/proforma/proformaAPdf.php", $this->data);
+
+
+    // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
+
+        $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+
+    // Render the HTML as PDF
+        $dompdf->render();
+
+    // Output the generated PDF to Browser
+        $dompdf->stream();
+    }
 
 
 

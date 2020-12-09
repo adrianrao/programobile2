@@ -6,6 +6,7 @@ require_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("helper/RoleValidation.php");
 include_once("helper/ShowNotification.php");
 include_once("helper/GenerarQr.php");
+require_once ("third-party/dompdf/autoload.inc.php");
 
 class ModuleInitializer
 {
