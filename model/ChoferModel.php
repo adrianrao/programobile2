@@ -102,18 +102,6 @@ class ChoferModel
         return $esChoferConDatosValidados;
     }
 
-    public function obtenerTotalCargaCombustible($idProforma){
-        return $this->database->executeQuery("SELECT sum(importe) as importe from carga_combustible where id_proforma = $idProforma ");
-    }
-
-    public function realizarCargaDeCombustible($idPorforma,$cantidadLitros,$importe,$lugar){
-
-       return $this->database->ejecutarQuery("insert into 
-                                    carga_combustible(`cantidad_litros`,`importe`,`lugar`,`id_proforma`)
-                                                VALUES($cantidadLitros,$importe,'$lugar',$idPorforma");
-
-    }
-
     private function validaSiElChoferTieneTodosLosDatosCargados($usuario){
 
         $losDatosEstanCargados = false;
@@ -130,6 +118,12 @@ class ChoferModel
         }
         return $losDatosEstanCargados;
     }
+
+
+    public function obtenerTotalCargaCombustible($idProforma){
+        return $this->database->executeQuery("SELECT sum(importe) as importe from carga_combustible where id_proforma = $idProforma ");
+    }
+
 
 
     public function persistirCargarDeCombustible($cantidad_litros, $importe,$lugar, $id_proforma){

@@ -6,7 +6,7 @@ class GenerarQr
 
     public static function generarCodigoQR($idProforma){
 
-         QRcode::png("localhost://chofer/mostrarFormularioDeCargaDeCombustible?id_proforma=".$idProforma);
+         QRcode::png("localhost/chofer/mostrarFormularioCargaCombustible?id_proforma=".$idProforma);
 
     }
 }

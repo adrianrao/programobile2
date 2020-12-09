@@ -10,6 +10,11 @@
                 <div class="card-content">
 
                     <div class="form-field">
+                        <label for="lugar">ID Proforma:</label>
+                        <input type="text" class="white-text" disabled required value="{{id_proforma}}">
+                    </div>
+
+                    <div class="form-field">
                         <label for="cantidad_litros">Cantidad de litros:</label>
                         <input type="number" id="cantidad_litros" name="cantidad_litros" class="white-text" required>
                     </div>
@@ -25,12 +30,9 @@
                         <label for="lugar">Lugar:</label>
                         <input type="text" id="lugar" name="lugar" class="white-text" required>
                     </div>
-
-
-
+                    <input type="text" id="id_proforma" name="id_proforma" class="white-text" hidden required value="{{id_proforma}}">
                     <div class="form-field center-align">
                         <button type="submit" class="btn-large black accent-4">Cargar</button>
             </form>
-
         </div>
-        {{> footer}}
+{{> footer}}

@@ -37,7 +37,7 @@
                disabled="disabled"/>
         <br/>
         <label for="ETA">ETA:</label>
-        <input type="text" id="ETA" name="ETA" class="white-text" disabled="disabled"/>
+        <input type="text" id="ETA" name="ETA" class="white-text" value="{{viaje_ETA}}"/>
         <br/><br/>
         <h5>Carga</h5>
         <br/>
