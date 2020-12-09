@@ -49,15 +49,23 @@
         <nav>
             <div style="padding: 0 10px !important" class="nav-wrapper black">
                 <a href="/chofer" class="brand-logo">Chofer</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a class="btn orange darken-2" href="/chofer/mostrarFormularioCargaCombustible">Escanear CodigoQR</a></li>
-                    <li><a class="btn orange darken-2" href="/chofer/mostrarFormularioCargaCombustible">Carga combustible</a></li>
                     <li><a class="btn orange darken-2" href="/chofer/mostrarLasPosiblesProformasACargar">Listar viajes finalizados</a></li>
                     <li><a class="btn orange darken-2" href="/chofer/listarTodasLasProformasModificar">Modificar viaje </a></li>
                     <li><a class="btn red darken-2" href="/chofer/cerrarSesion">Cerrar sesión</a></li>
                 </ul>
             </div>
         </nav>
+
+        <ul class="sidenav black" id="mobile-demo">
+            <li><a class="btn orange darken-2" href="/chofer/mostrarFormularioCargaCombustible">Escanear CodigoQR</a></li>
+            <li><a class="btn orange darken-2" href="/chofer/mostrarLasPosiblesProformasACargar">Listar viajes finalizados</a></li>
+            <li><a class="btn orange darken-2" href="/chofer/listarTodasLasProformasModificar">Modificar viaje </a></li>
+            <li><a class="btn red darken-2" href="/chofer/cerrarSesion">Cerrar sesión</a></li>
+        </ul>
+
     </header>
 
 {{/chofer}}
@@ -68,9 +76,6 @@
         body {
             background-color: #b0a9a9;
             color: #fff;
-        }
-        .sidenav{
-            background-color: black;
         }
 
         .collection.with-header .collection-header {
@@ -149,17 +154,17 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <!-- Disparador del dropdown ESCRITORIO -->
-                <li><a class="btn grey darken-2" href="/supervisor/traerChoferesQueNoTienenLicenciaValidada">Validar
+                <li><a class="btn-small  grey darken-2" href="/supervisor/traerChoferesQueNoTienenLicenciaValidada">Validar
                     licencia chofer</a></li>
-                <li><a class="dropdown-trigger2 btn yellow darken-2" href="#!" data-target="dropdowncelulares">AMLA
+                <li><a class="dropdown-trigger2 btn-small yellow darken-2" href="#!" data-target="dropdowncelulares">AMLA
                     Celular<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger2 btn blue darken-2" href="#!" data-target="dropdownequipos">AMBL Equipos<i
+                <li><a class="dropdown-trigger2 btn-small  blue darken-2" href="#!" data-target="dropdownequipos">AMBL Equipos<i
                         class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger2 btn orange darken-2" href="#!" data-target="dropdownclientes">AMBL
+                <li><a class="dropdown-trigger2 btn-small  orange darken-2" href="#!" data-target="dropdownclientes">AMBL
                     Clientes<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger2 btn green darken-2" href="#!" data-target="dropdownproforma">AMBL Proforma<i
+                <li><a class="dropdown-trigger2 btn-small  green darken-2" href="#!" data-target="dropdownproforma">AMBL Proforma<i
                         class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="btn red darken-2" href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
+                <li><a class="btn-small  red darken-2" href="/supervisor/cerrarSesion">Cerrar sesión</a></li>
             </ul>
         </div>
     </nav>
@@ -234,7 +239,7 @@
     <!-- Estructura para Menu Dropdown Mobile-->
 
 
-    <ul class="sidenav" id="mobile-demo">
+    <ul class="sidenav black" id="mobile-demo">
         <li><a class="btn grey darken-2" href="/supervisor/traerChoferesQueNoTienenLicenciaValidada">Validar licencia
             chofer</a></li>
         <li><a class="dropdown-trigger2 btn yellow darken-2" href="#!" data-target="dropdowncelularesmobile">AMLA Celular<i
@@ -320,9 +325,6 @@
         body {
             background-color: #b0a9a9;
         }
-        .sidenav{
-            background-color: black;
-        }
 
         .select-wrapper input.select-dropdown{
             color: white;
@@ -348,7 +350,7 @@
         </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-demo">
+    <ul class="sidenav black" id="mobile-demo">
         <li><p class="white-text center-align orange darken-2">Control de usuarios</p ></li>
         <li><a class="btn orange darken-2" href="/administrador/obtenerUsuariosSinRol">Asignar rol</a></li>
         <li><a class="btn orange darken-2" href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear</a></li>
@@ -390,9 +392,11 @@
         }
     </style>
 
+
     <nav >
         <div style="padding: 0 10px !important" class="nav-wrapper black">
-            <a href="/encargadoDeTaller"" class="brand-logo">Encargado de taller</a>
+            <a href="/encargadoDeTaller" class="brand-logo">Encargado de taller</a>
+
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a  class="btn orange darken-2" href="/encargadoDeTaller/mostrarFormularioAltaDeService">Cargar Service</a></li>
@@ -402,6 +406,13 @@
             </ul>
         </div>
     </nav>
+
+    <ul class="sidenav black" id="mobile-demo">
+        <li><a  class="btn orange darken-2" href="/encargadoDeTaller/mostrarFormularioAltaDeService">Cargar Service</a></li>
+        <li><a  class="btn orange darken-2" href="/encargadoDeTaller/traerPosiblesServiceAModificar">Listar Service a modificar</a></li>
+        <li><a  class="btn orange darken-2" href="/encargadoDeTaller/traerTodosLosService">Listar todos los Service</a></li>
+        <li><a  class="btn red darken-2" href="/encargadoDeTaller/cerrarSesion">Cerrar sesión</a></li>
+    </ul>
 
 
 

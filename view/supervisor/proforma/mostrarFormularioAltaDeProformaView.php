@@ -7,29 +7,24 @@
                 <h3>Cargar Proforma</h3>
             </div>
             <form method="POST" action="/proforma/procesarProforma">
-
+                <div class="card-content">
                 <div class="form-field">
                     <label for="fecha">Fecha:</label>
                     <input type="date" id="fecha" name="fecha" class="white-text" required>
 
                     <br><br>
-
                     <h5>Cliente</h5>
 
-
                     <br>
-
                     <label for="id_cliente">Denominacion:</label>
                     <select id="id_cliente" name="id_cliente">
+                        <option value="" selected disabled>Seleccione un cliente</option>
                         {{#cargarSelectCliente}}
                         <option value="{{id_cliente}}">{{denominacion}}</option>
                         {{/cargarSelectCliente}}
 
                     </select>
-
                     <br>
-
-
 
                     <h5>Viaje</h5>
 
@@ -167,18 +162,17 @@
                         <option value="{{id_arrastrado}}">{{patente_arrastrado}}</option>
                         {{/cargarSelectArrastrado}}
                     </select>
-
                     <br>
+                    </div><br>
 
-
-
-                </div><br>
-
-
-                <button type="submit" class="btn-large black accent-4">Enviar</button>
+                    <div class="form-field center-align">
+                    <button type="submit" class="btn-large black accent-4 ">Enviar</button>
+                    </div>
             </form>
+            </div>
 
-        </div><br>
+        </div>
+        <br>
 
 
     </div>
