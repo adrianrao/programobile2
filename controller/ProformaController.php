@@ -46,10 +46,7 @@ class ProformaController
         echo $this->renderer->render("./view/supervisor/proforma/mostrarDetalleDeProformaView.php", $this->data);
     }
 
-    public function mostrarQR(){
-        $idProforma = $_POST["id_proforma"];
-        GenerarQr::generarCodigoQR($idProforma);
-    }
+
 
 
     public function mostrarFormularioProforma(){
@@ -253,13 +250,25 @@ class ProformaController
         }
     }
 
+
     public function generarPdf(){
 
         $idProforma = $_POST["id_proforma"];
         $registro = $this->proformaModel->obtenerProforma($idProforma);
         $this->data["mostrarDetalleDeProforma"] = $registro;
+        GenerarQr::generarCodigoQR($idProforma);
 
-        $html =  $this->renderer->render("./view/supervisor/proforma/proformaAPdf.php", $this->data);
+
+        $path = 'C:\xampp\htdocs\view\supervisor\proforma\codigoQrPng\codigoQR.png';
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $dataQR = file_get_contents($path);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($dataQR);
+
+        $this->data["codigoQR"] = $base64;
+
+
+        $html = $this->renderer->render("./view/supervisor/proforma/proformaAPdf.php", $this->data);
+
 
 
     // instantiate and use the dompdf class
@@ -286,3 +295,6 @@ class ProformaController
 
     }
 }
+
+
+

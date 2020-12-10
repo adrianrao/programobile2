@@ -141,6 +141,7 @@
                         </table><br><br>
 
 
+
 <table>
     <thead>
     <tr>
@@ -151,8 +152,9 @@
 
     <tbody>
     <tr>
-        <td> <img src="../../../imagenes/qrcode.png">  </td>
-
+        {{#codigoQR}}
+        <td>  <img src='{{codigoQR}}'/>  </td>
+        {{/codigoQR}}
     </tr>
 
     </tbody>
