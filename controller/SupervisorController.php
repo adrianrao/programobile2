@@ -399,7 +399,7 @@ class SupervisorController
         $patente = $_POST["patente"];
         $nroChasis = $_POST["nroChasis"];
 
-        $fueModificado = $this->supervisorModel->modificarArrastrado($idArrastrado,$patente,$nroChasis);
+        $fueModificado = $this->supervisorModel->modificarArrastrado($idArrastrado,$nroChasis, $patente);
 
         if ($fueModificado) {
             $this->showNotifiacation->mostrar("Se ha modificado el arrastrado en la base de datos","green");

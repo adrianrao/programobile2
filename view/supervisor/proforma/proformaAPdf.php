@@ -10,7 +10,6 @@
                                 <th data-field="id">Proforma Numero</th>
                                 <th data-field="name">Fecha</th>
                                 <th data-field="price">Cliente</th>
-
                             </tr>
                             </thead>
 
