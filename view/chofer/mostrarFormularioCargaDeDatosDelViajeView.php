@@ -7,7 +7,7 @@
     <div class="col s12 m6 offset-m3">
         <div class="card">
             <div class="card-action gray accent-4 orange-text">
-                <h3>Cargar datos de viaje</h3>
+                <h3>Finalizar viaje</h3>
             </div>
             <form class="card-action" method="POST" action="/chofer/procesarDatosDeViaje">
 
@@ -33,14 +33,14 @@
                 <br><br><br>
 
                 <label for="costeo_km_reales">Km reales:</label>
-                <input type="number" id="costeo_km_reales" name="costeo_km_reales" class="white-text" required>
+                <input type="number" readonly="readonly" id="costeo_km_reales" name="costeo_km_reales" class="white-text" required>
 
 
                 <br>
 
                 <label for="costeo_combustible_real">Costo Combustible real:</label>
                 {{#costo_combustible_real}}
-                <input type="number" id="costeo_combustible_real" name="costeo_combustible_real" value="{{importe}}" class="white-text"
+                <input type="number" readonly="readonly" id="costeo_combustible_real" name="costeo_combustible_real" value="{{importe}}" class="white-text"
                        required>
                 {{/costo_combustible_real}}
                 {{^costo_combustible_real}}
@@ -99,7 +99,7 @@
                 <input type="number" id="costeo_fee_real" name="costeo_fee_real" class="white-text" required>
 
 
-                <button type="submit" class="btn-large black accent-4">Cargar</button>
+                <button type="submit" class="btn-large black accent-4">Finalizar</button>
             </form>
 
         </div>
