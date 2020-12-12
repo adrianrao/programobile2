@@ -66,17 +66,7 @@ class EncargadoDeTallerController
         }
     }
 
-    public function traerPosiblesServiceAModificar(){
 
-        $traerPosiblesServiceAModificar = $this->encargadoDeTallerModel->traerTodosLosService();
-
-        if ($traerPosiblesServiceAModificar != null) {
-            $this->data["traerPosiblesServiceAModificar"] = $traerPosiblesServiceAModificar;
-            echo $this->renderer->render("./view/encargadoDeTaller/traerPosiblesServiceAModificarView.php", $this->data);
-        } else {
-            $this->showNotifiacation->mostrar("No hay services registrados a modificar","red");
-        }
-    }
 
     public function mostrarFormularioModificarService(){
 
