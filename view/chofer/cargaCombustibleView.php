@@ -42,14 +42,15 @@
         </div>
         <script>
             (function(){
-
+                var lon ;
+                var lat ;
 
                 if (navigator.geolocation)
                 {
                     navigator.geolocation.getCurrentPosition(function(objPosition)
                     {
-                        var lon = objPosition.coords.longitude;
-                        var lat = objPosition.coords.latitude;
+                         lon = objPosition.coords.longitude;
+                         lat = objPosition.coords.latitude;
 
                      document.formCarga.latitud.value = lat
                      document.formCarga.longitud.value = lon
@@ -80,6 +81,18 @@
                 {
                     content.innerHTML = "Su navegador no soporta la API de geolocalización.";
                 }
+
+                var lugar = document.getElementById("lugar");
+
+                fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`,{
+                    method:"POST"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                    lugar.value = data.address.suburb;
+                    })
+                    .catch(e=>console.log(e))
+
             })();
         </script>
 {{> footer}}
