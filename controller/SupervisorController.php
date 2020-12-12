@@ -242,7 +242,7 @@ class SupervisorController
 
     public function listarTodosLosTractoresAEliminar(){
 
-        $traerTodosLostractoresRegistrados = $this->supervisorModel->listarTractoresAEliminar();
+        $traerTodosLostractoresRegistrados = $this->supervisorModel->listarTractores();
 
         if ($traerTodosLostractoresRegistrados != null) {
             $this->data["listadoDeTractoresAEliminar"] = $traerTodosLostractoresRegistrados;
