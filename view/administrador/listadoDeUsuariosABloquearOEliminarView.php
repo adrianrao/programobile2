@@ -12,12 +12,7 @@
                     <p><strong>Rol:</strong> {{descripcion}}</p>
                 </div>
                 <div class="card-action">
-                    <form action="/administrador/darDeBajaUnUsuario" method="post">
-                        <input type="hidden" value="{{usuario}}" name="usuario">
-                        <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Dar de baja
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </form>
+
                     <br>
                     <form action="/administrador/bloquearUnUsuario" method="post">
                         <input type="hidden" value="{{usuario}}" name="usuario">
