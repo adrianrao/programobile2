@@ -238,11 +238,11 @@ class SupervisorModel
     }
 
     public function obtenerCantidadProformasPorEstado(){
-        return $this->db->executeQuery("SELECT count(*) from proforma where estado = 'PENDIENTE' UNION SELECT count(*) from proforma where estado = 'FINALIZADO' ");
+        return $this->db->executeQuery("SELECT count(*) from proforma where estado = 'PENDIENTE' UNION ALL SELECT count(*) from proforma where estado = 'FINALIZADO' ");
     }
 
     public function obtenerArrastradosYTractores(){
-        return $this->db->executeQuery("select count(*) from arrastrado where eliminado = 0 UNION select count(*) from tractor where eliminado = 0");
+        return $this->db->executeQuery("select count(*) from arrastrado where eliminado = 0 UNION ALL select count(*) from tractor where eliminado = 0");
     }
 
 }
