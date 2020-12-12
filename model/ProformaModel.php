@@ -194,10 +194,10 @@ VALUES(
     }
 
     public function traerTodosLosArrastrados(){
-        return $this->db->query("select * from arrastrado");
+        return $this->db->query("select * from arrastrado where eliminado = 0");
     }
 
     public function traerTodosLosTractores(){
-        return $this->db->query("select * from tractor where kilometraje != -1");
+        return $this->db->query("select * from tractor where eliminado = 0");
     }
 }

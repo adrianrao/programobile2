@@ -9,10 +9,10 @@ class ProformaController
     private $showNotifiacation;
 
 
-    public function __construct($supervisorModel, $renderer)
+    public function __construct($proformaModel, $renderer)
     {
         if(RoleValidation::validarRol("supervisor")){
-            $this->proformaModel = $supervisorModel;
+            $this->proformaModel = $proformaModel;
             $this->renderer = $renderer;
             $this->data["supervisor"] = true;
             $this->showNotifiacation = new ShowNotification($renderer,"supervisor" );

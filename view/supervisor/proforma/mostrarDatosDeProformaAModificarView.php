@@ -111,7 +111,7 @@
         </select>
         <br>
         <label for="id_tractor">Tractor tipo:</label>
-        <select id="id_tractor" name="id_tractor">
+        <select id="id_tractor" name="id_tractor" required>
             <option value="{{id_tractor}}" selected>{{patente_tractor}}</option>
             {{#cargarSelectTractor}}
             <option value="{{id_tractor}}">{{patente_tractor}}</option>

@@ -94,12 +94,13 @@ class SupervisorModel
     }
 
     public function eliminarArrastrado($idArrastrado){
-        $result = $this->db->ejecutarQuery("delete from arrastrado where arrastrado.id_arrastrado  = $idArrastrado");
+        $result = $this->db->ejecutarQuery("update arrastrado SET eliminado = 1 where id_arrastrado   = $idArrastrado");
         return $result;
     }
 
+
     public function listarArrastrados(){
-        return $this->db->query("SELECT * FROM arrastrado");
+        return $this->db->query("SELECT * FROM arrastrado where eliminado = 0");
     }
 
     public function modificarArrastrado($idArrastrado,$numeroDeChasis, $patente){
@@ -145,16 +146,13 @@ class SupervisorModel
 
 
     public function eliminarTractor($idTractor){
-        $result = $this->db->ejecutarQuery("update tractor SET kilometraje = -1 where tractor.id_tractor   = $idTractor");
+        $result = $this->db->ejecutarQuery("update tractor SET eliminado = 1 where tractor.id_tractor   = $idTractor");
         return $result;
     }
 
-    public function listarTractoresAEliminar(){
-        return $this->db->query("SELECT * FROM tractor where kilometraje != -1");
-    }
 
     public function listarTractores(){
-        return $this->db->query("SELECT * FROM tractor");
+        return $this->db->query("SELECT * FROM tractor where eliminado = 0");
     }
 
     public function modificarTractor($idTractor,$anioFabricacion, $nroMotor, $nroChasis, $marca, $modelo,$patente,$kilometraje){
@@ -244,7 +242,7 @@ class SupervisorModel
     }
 
     public function obtenerArrastradosYTractores(){
-        return $this->db->executeQuery("select count(*) from grupo10.arrastrado UNION select count(*) from grupo10.tractor");
+        return $this->db->executeQuery("select count(*) from arrastrado where eliminado = 0 UNION select count(*) from tractor where eliminado = 0");
     }
 
 }
