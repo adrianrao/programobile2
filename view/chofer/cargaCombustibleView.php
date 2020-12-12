@@ -53,6 +53,17 @@
                      document.formCarga.latitud.value = lat
                      document.formCarga.longitud.value = lon
 
+                        debugger
+                        var lugar = document.getElementById("lugar");
+
+                        fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`,{
+                            method:"POST"
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                lugar.value = data.address.suburb;
+                            })
+                            .catch(e=>console.log(e))
 
                     }, function(objPositionError)
                     {
@@ -79,17 +90,7 @@
                 {
                     content.innerHTML = "Su navegador no soporta la API de geolocalización.";
                 }
-                debugger
-                var lugar = document.getElementById("lugar");
 
-                fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`,{
-                    method:"POST"
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                    lugar.value = data.address.suburb;
-                    })
-                    .catch(e=>console.log(e))
 
             })();
         </script>
