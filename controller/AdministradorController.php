@@ -58,32 +58,18 @@ class AdministradorController
         }
     }
 
-    public function traerTodosLosUsuariosABorrarOBloquear()
+    public function traerTodosLosUsuarios()
     {
-        $traerTodosLosUsuariosABorrar = $this->administradorModel->traerTodosLosUsuariosABorrar();
+        $traerTodosLosUsuarios = $this->administradorModel->traerTodosLosUsuarios();
 
-        if ($traerTodosLosUsuariosABorrar != null) {
-            $this->data["listadoDeUsuariosSinRol"] = $traerTodosLosUsuariosABorrar;
-            echo $this->renderer->render("./view/administrador/listadoDeUsuariosABloquearOEliminarView.php",$this->data);
+        if ($traerTodosLosUsuarios != null) {
+            $this->data["listadoDeUsuariosABloquear"] = $traerTodosLosUsuarios;
+            echo $this->renderer->render("./view/administrador/listadoDeUsuariosView.php",$this->data);
         } else {
             $this->showNotifiacation->mostrar("No hay usuarios para borrar o bloquear","red");
         }
     }
 
-    public function darDeBajaUnUsuario()
-    {
-
-        $usuario = $_POST["usuario"];
-
-        $fueBorrado = $this->administradorModel->deleteUsuario($usuario);
-
-        if ($fueBorrado) {
-            $this->showNotifiacation->mostrar("Se ha borrado el usuario de la base de datos","green");
-        } else {
-            $this->showNotifiacation->mostrar("Fallo al borrar usuario","red");
-        }
-
-    }
 
     public function bloquearUnUsuario()
     {
@@ -107,14 +93,6 @@ class AdministradorController
         } else {
             $this->showNotifiacation->mostrar("Fallo al bloquear el usuario","red");
         }
-    }
-
-    public function traerTodosLosUsuariosAModificar()
-    {
-        $traerTodosLosUsuariosAModificar = $this->administradorModel->traerTodosLosUsuariosAModificar();
-        $this->data["listadoDeUsuariosAModificar"] = $traerTodosLosUsuariosAModificar;
-
-        echo $this->renderer->render("./view/administrador/listadoDeUsuariosAModificarView.php", $this->data);
     }
 
 

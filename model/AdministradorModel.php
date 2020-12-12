@@ -26,13 +26,10 @@ class AdministradorModel
         return $this->db->query("select * FROM empleado e where e.id_rol IS null");
     }
 
-    public function traerTodosLosUsuariosABorrar(){
+    public function traerTodosLosUsuarios(){
         return $this->db->query("SELECT * FROM empleado emp left join rol rol ON rol.id_rol =  emp.id_rol where emp.id_rol <> 1 OR emp.id_rol IS null ");
     }
 
-    public function traerTodosLosUsuariosAModificar(){
-        return $this->db->query("SELECT * FROM empleado emp left join rol rol ON rol.id_rol =  emp.id_rol ");
-    }
 
     public function modificarUnUsuario($usuarioAModificar, $nombreCompleto, $dni,$f_nac,$id_rol){
         return $this->db->ejecutarQuery("UPDATE empleado SET 

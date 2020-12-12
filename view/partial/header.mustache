@@ -57,6 +57,10 @@
             .login p {
                 margin-top: 1em;
             }
+            /* This container class will allow a table to scroll horizontally on smaller screens. */
+            .hscroll {
+                overflow-x: auto; /* Horizontal */
+            }
         </style>
 
         <nav>
@@ -65,7 +69,7 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a class="btn-small orange darken-2" href="/chofer/mostrarFormularioCargaCombustible">Escanear Codigo QR</a></li>
-                    <li><a class="btn-small orange darken-2" href="/chofer/mostrarLasPosiblesProformasACargar">Listar viajes finalizados</a></li>
+                    <li><a class="btn-small orange darken-2" href="/chofer/mostrarLasPosiblesProformasACargar">Listar viajes pendientes</a></li>
                     <li><a class="btn-small orange darken-2" href="/chofer/listarTodasLasProformasModificar">Modificar viaje </a></li>
                     <li><a class="btn-small red darken-2" href="/chofer/cerrarSesion">Cerrar sesión</a></li>
                 </ul>
@@ -74,7 +78,7 @@
 
         <ul class="sidenav black" id="mobile-demo">
             <li><a class="btn-small orange darken-2" href="/chofer/mostrarFormularioCargaCombustible">Escanear CodigoQR</a></li>
-            <li><a class="btn-small orange darken-2" href="/chofer/mostrarLasPosiblesProformasACargar">Listar viajes finalizados</a></li>
+            <li><a class="btn-small orange darken-2" href="/chofer/mostrarLasPosiblesProformasACargar">Listar viajes pendientes</a></li>
             <li><a class="btn-small orange darken-2" href="/chofer/listarTodasLasProformasModificar">Modificar viaje </a></li>
             <li><a class="btn-small red darken-2" href="/chofer/cerrarSesion">Cerrar sesión</a></li>
         </ul>
@@ -169,6 +173,10 @@
             /*drop hacia la derecha*/
             /* left: auto;*/
             /*drop hacia el centro*/
+        }
+        /* This container class will allow a table to scroll horizontally on smaller screens. */
+        .hscroll {
+            overflow-x: auto; /* Horizontal */
         }
     </style>
 
@@ -372,6 +380,10 @@
         .select-wrapper input.select-dropdown:focus{
             border-bottom: 1px solid #ff6d00;
         }
+        /* This container class will allow a table to scroll horizontally on smaller screens. */
+        .hscroll {
+            overflow-x: auto; /* Horizontal */
+        }
     </style>
 
     <nav>
@@ -380,8 +392,7 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a  class="btn-small orange darken-2" href="/administrador/obtenerUsuariosSinRol">Asignar rol a usuarios sin rol</a></li>
-                <li><a  class="btn-small orange darken-2" href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Dar de baja o bloquear a usuarios</a></li>
-                <li><a  class="btn-small orange darken-2" href="/administrador/traerTodosLosUsuariosAModificar">Modificar Usuarios</a></li>
+                <li><a  class="btn-small orange darken-2" href="/administrador/traerTodosLosUsuarios">Listar Usuarios</a></li>
                 <li><a  class="btn-small red darken-2" href="/administrador/cerrarSesion">Cerrar sesión</a></li>
             </ul>
         </div>
@@ -390,8 +401,7 @@
     <ul class="sidenav black" id="mobile-demo">
         <li><p class="white-text center-align orange darken-2">Control de usuarios</p ></li>
         <li><a class="btn orange darken-2" href="/administrador/obtenerUsuariosSinRol">Asignar rol</a></li>
-        <li><a class="btn orange darken-2" href="/administrador/traerTodosLosUsuariosABorrarOBloquear">Bloquear</a></li>
-        <li><a class="btn orange darken-2" href="/administrador/traerTodosLosUsuariosAModificar">Modificar</a></li>
+        <li><a class="btn orange darken-2" href="/administrador/traerTodosLosUsuarios">Listar</a></li>
         <li><a class="btn red darken-2" href="/administrador/cerrarSesion">Cerrar sesión</a></li>
     </ul>
 
@@ -439,6 +449,10 @@
 
         .collection {
             border: 1px solid #F4A550;
+        }
+        /* This container class will allow a table to scroll horizontally on smaller screens. */
+        .hscroll {
+            overflow-x: auto; /* Horizontal */
         }
     </style>
 
