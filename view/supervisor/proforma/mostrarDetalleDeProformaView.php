@@ -74,29 +74,30 @@
                             {{costeo_total_estimado}}
                         </li>
                         <br>
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>Litros</th>
-                                <th>Importe</th>
-                                <th>Latitud</th>
-                                <th>Longitud</th>
-                                <th>Mapa</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {{#historialCargaCombustible}}
-                            <tr>
-                                <td>{{cantidad_litros}}</td>
-                                <td>{{importe}}</td>
-                                <td>{{latitud}}</td>
-                                <td>{{longitud}}</td>
-                                <td><a onclick="mostrarMapa({{latitud}},{{longitud}})">p</a></td>
-                            </tr>
-                            {{/historialCargaCombustible}}
-                            </tbody>
-                        </table>
-
+                        <li class="collection-item"><strong class="orange-text text-lighten-2">Carga Combustible</strong>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Litros</th>
+                                    <th>Importe</th>
+                                    <th>Latitud</th>
+                                    <th>Longitud</th>
+                                    <th>Mapa</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#historialCargaCombustible}}
+                                <tr>
+                                    <td>{{cantidad_litros}}</td>
+                                    <td>{{importe}}</td>
+                                    <td>{{latitud}}</td>
+                                    <td>{{longitud}}</td>
+                                    <td ><a style="cursor:pointer;" onclick="mostrarMapa({{latitud}},{{longitud}})"><span class="material-icons">location_on</span></a></td>
+                                </tr>
+                                {{/historialCargaCombustible}}
+                                </tbody>
+                            </table>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -156,7 +157,7 @@
     <!-- Modal content -->
     <div class="modal-content-custom">
         <span class="close-custom">&times;</span>
-        <div id="weathermap" class="map map-home" style="margin:12px 0 12px 0;height:400px;"></div>
+        <div id="weathermap" class="map map-home" style="margin:12px 0 12px 0;height:600px;"></div>
     </div>
 
 </div>
