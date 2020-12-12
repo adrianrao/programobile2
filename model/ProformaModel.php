@@ -200,4 +200,9 @@ VALUES(
     public function traerTodosLosTractores(){
         return $this->db->query("select * from tractor where eliminado = 0");
     }
+
+    public  function obtenerCargasCombustible($idProforma){
+        return $this->db->executeQuery("select cantidad_litros, importe , cor1 as latitud, cor2 as longitud from carga_combustible c join posicion p on c.id_posicion = p.id_posicion where id_proforma = $idProforma");
+    }
+
 }

@@ -74,11 +74,139 @@
                             {{costeo_total_estimado}}
                         </li>
                         <br>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Litros</th>
+                                <th>Importe</th>
+                                <th>Latitud</th>
+                                <th>Longitud</th>
+                                <th>Mapa</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#historialCargaCombustible}}
+                            <tr>
+                                <td>{{cantidad_litros}}</td>
+                                <td>{{importe}}</td>
+                                <td>{{latitud}}</td>
+                                <td>{{longitud}}</td>
+                                <td><a onclick="mostrarMapa({{latitud}},{{longitud}})">p</a></td>
+                            </tr>
+                            {{/historialCargaCombustible}}
+                            </tbody>
+                        </table>
+
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<style>
+
+    /* The Modal (background) */
+    .modal-custom {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content-custom {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close-custom {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-custom:hover,
+    .close-custom:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+<!-- The Modal -->
+<div id="myModal" class="modal-custom">
+
+    <!-- Modal content -->
+    <div class="modal-content-custom">
+        <span class="close-custom">&times;</span>
+        <div id="weathermap" class="map map-home" style="margin:12px 0 12px 0;height:400px;"></div>
+    </div>
+
+</div>
+
+<script defer>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close-custom")[0];
+
+    // When the user clicks the button, open the modal
+    const mostrarMapa = (latitud,longitud) =>{
+        modal.style.display = "block";
+        document.getElementById('weathermap').innerHTML = "<div id='map' style='width: 100%; height: 100%;'></div>";
+        var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            osmAttribution = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,' +
+                ' <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            osmLayer = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
+        var map = new L.Map('map');
+        map.setView(new L.LatLng(latitud,longitud), 10 );
+        map.addLayer(osmLayer);
+
+        fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitud}&lon=${longitud}&format=json`,{
+            method:"POST"
+        })
+        .then(res => res.json())
+        .then(data => {
+            L.marker([latitud,longitud])
+                .addTo(map)
+                .bindPopup(`${data.address.suburb}, ${data.address.road}`)
+                .openPopup();
+        })
+        .catch(e=>console.log(e))
+
+
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
 {{/mostrarDetalleDeProforma}}
 {{> footer}}

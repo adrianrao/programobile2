@@ -40,8 +40,11 @@ class ProformaController
     }
     public function mostrarDetalle(){
         $idProforma = $_POST["id_proforma"];
-        $registro = $this->proformaModel->obtenerProforma($idProforma);
-        $this->data["mostrarDetalleDeProforma"] = $registro;
+        $registroDetalleProforma = $this->proformaModel->obtenerProforma($idProforma);
+        $this->data["mostrarDetalleDeProforma"] = $registroDetalleProforma;
+
+        $registroHistorialCargaCombustible = $this->proformaModel->obtenerCargasCombustible($idProforma);
+        $this->data["historialCargaCombustible"] = $registroHistorialCargaCombustible;
 
         echo $this->renderer->render("./view/supervisor/proforma/mostrarDetalleDeProformaView.php", $this->data);
     }
