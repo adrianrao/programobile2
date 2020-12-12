@@ -149,6 +149,10 @@ class SupervisorModel
         return $result;
     }
 
+    public function listarTractoresAEliminar(){
+        return $this->db->query("SELECT * FROM tractor where kilometraje != -1");
+    }
+
     public function listarTractores(){
         return $this->db->query("SELECT * FROM tractor");
     }
