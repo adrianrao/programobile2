@@ -28,7 +28,10 @@
 
                     <div class="form-field">
                         <label for="lugar">Lugar:</label>
-                        <input type="text" id="lugar" name="lugar" class="white-text" required>
+                        {{#lugar}}
+                            <input readonly="readonly" value="{{lugar}}" type="text" id="lugar" name="lugar" class="white-text" required>
+                        {{/lugar}}
+
                     </div>
                     <input type="text" id="id_proforma" name="id_proforma" class="white-text" hidden required value="{{id_proforma}}">
                     <div class="form-field center-align">
