@@ -112,20 +112,6 @@ class ChoferController
 
     }
 
-    public function listarTodasLasProformasModificar(){
-
-        $usuario = $_SESSION["usuario"];
-        $traerTodasLasProformasModificar = $this->choferModel->listarProformas($usuario);
-
-        if ($traerTodasLasProformasModificar != null) {
-            $this->data["listarTodasLasProformasModificar"] = $traerTodasLasProformasModificar;
-            echo $this->renderer->render("view/chofer/listarTodasLasProformasModificarView.php", $this->data);
-        } else {
-            $this->showNotifiacation->mostrar("No hay Proformas a modificar","red");
-        }
-
-    }
-
 
     public function verDetalleDeProformaConcretaAModificar(){
 
