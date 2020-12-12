@@ -6,7 +6,7 @@
             <div class="card-action gray accent-4 orange-text">
                 <h3>Carga de combustible</h3>
             </div>
-            <form method="POST" action="/chofer/procesarCargaCombustible">
+            <form method="POST" name="formCarga" id="formCarga" action="/chofer/procesarCargaCombustible">
                 <div class="card-content">
 
                     <div class="form-field">
@@ -33,6 +33,50 @@
                     <input type="text" id="id_proforma" name="id_proforma" class="white-text" hidden required value="{{id_proforma}}">
                     <div class="form-field center-align">
                         <button type="submit" class="btn-large black accent-4">Cargar</button>
+                        <input type="text" id="latitud" name="latitud" class="white-text" hidden  required value="">
+                        <input type="text" id="longitud" name="longitud"  class="white-text" hidden  required value="">
             </form>
         </div>
+        <script>
+            (function(){
+
+
+                if (navigator.geolocation)
+                {
+                    navigator.geolocation.getCurrentPosition(function(objPosition)
+                    {
+                        var lon = objPosition.coords.longitude;
+                        var lat = objPosition.coords.latitude;
+
+                     document.formCarga.latitud.value = lat
+                     document.formCarga.longitud.value = lon
+
+
+                    }, function(objPositionError)
+                    {
+                        switch (objPositionError.code)
+                        {
+                            case objPositionError.PERMISSION_DENIED:
+                                content.innerHTML = "No se ha permitido el acceso a la posición del usuario.";
+                                break;
+                            case objPositionError.POSITION_UNAVAILABLE:
+                                content.innerHTML = "No se ha podido acceder a la información de su posición.";
+                                break;
+                            case objPositionError.TIMEOUT:
+                                content.innerHTML = "El servicio ha tardado demasiado tiempo en responder.";
+                                break;
+                            default:
+                                content.innerHTML = "Error desconocido.";
+                        }
+                    }, {
+                        maximumAge: 75000,
+                        timeout: 15000
+                    });
+                }
+                else
+                {
+                    content.innerHTML = "Su navegador no soporta la API de geolocalización.";
+                }
+            })();
+        </script>
 {{> footer}}

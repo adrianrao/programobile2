@@ -28,15 +28,7 @@ class ChoferModel
                                         and proforma.estado = 'PENDIENTE';");
     }
 
-    public function listarTodasLasProformasModificar($usuario){
-        return $this->database->query(" select proforma.id_proforma, cliente.denominacion from proforma 
-                                        JOIN cliente
-                                        on proforma.id_cliente = cliente.id_cliente
-                                        JOIN empleado
-                                        on proforma.usuario = empleado.usuario
-                                        where empleado.usuario = '$usuario'");
 
-    }
 
     public function encontrarProformaPorId($idProforma){
         return $this->database->query("SELECT * FROM `proforma` 

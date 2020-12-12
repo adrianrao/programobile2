@@ -115,7 +115,7 @@ class ChoferController
     public function listarTodasLasProformasModificar(){
 
         $usuario = $_SESSION["usuario"];
-        $traerTodasLasProformasModificar = $this->choferModel->listarTodasLasProformasModificar($usuario);
+        $traerTodasLasProformasModificar = $this->choferModel->listarProformas($usuario);
 
         if ($traerTodasLasProformasModificar != null) {
             $this->data["listarTodasLasProformasModificar"] = $traerTodasLasProformasModificar;
