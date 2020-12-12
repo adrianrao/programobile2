@@ -135,7 +135,10 @@ class AdministradorController
         $nuevoNombreUsuario = $_POST["usuarioInput"];
 
         $usuarioOriginal = $this->administradorModel->buscarUsuarioPorId($_POST["usuario"]);
+
         $usuarioAModificar = $usuarioOriginal[0]["usuario"];
+
+
 
         $nombre_completo = $_POST["nombreCompleto"];
         $dni = $_POST["dni"];

@@ -36,12 +36,11 @@ class AdministradorModel
 
     public function modificarUnUsuario($nuevoNombreUsuario, $usuarioAModificar, $nombreCompleto, $dni,$f_nac,$id_rol){
         return $this->db->ejecutarQuery("UPDATE empleado SET usuario = '$nuevoNombreUsuario',
- nombre_completo = '$nombreCompleto' ,
-  dni = $dni,
-   f_nac = STR_TO_DATE('$f_nac', 
-  '%Y-%m-%d'), 
-  id_rol = '$id_rol'
-   WHERE usuario = '$usuarioAModificar'");
+                                         nombre_completo = '$nombreCompleto' ,
+                                         dni = $dni,
+                                         f_nac = STR_TO_DATE('$f_nac','%Y-%m-%d'), 
+                                         id_rol = '$id_rol'
+                                         WHERE usuario = '$usuarioAModificar'");
     }
 
     
