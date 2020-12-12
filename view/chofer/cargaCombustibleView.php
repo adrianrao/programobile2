@@ -28,9 +28,7 @@
 
                     <div class="form-field">
                         <label for="lugar">Lugar:</label>
-                        {{#lugar}}
-                            <input readonly="readonly" value="{{lugar}}" type="text" id="lugar" name="lugar" class="white-text" required>
-                        {{/lugar}}
+                            <input readonly="readonly"  type="text" id="lugar" name="lugar" class="white-text" required>
 
                     </div>
                     <input type="text" id="id_proforma" name="id_proforma" class="white-text" hidden required value="{{id_proforma}}">
@@ -42,14 +40,15 @@
         </div>
         <script>
             (function(){
-
+                var lon ;
+                var lat ;
 
                 if (navigator.geolocation)
                 {
                     navigator.geolocation.getCurrentPosition(function(objPosition)
                     {
-                        var lon = objPosition.coords.longitude;
-                        var lat = objPosition.coords.latitude;
+                         lon = objPosition.coords.longitude;
+                         lat = objPosition.coords.latitude;
 
                      document.formCarga.latitud.value = lat
                      document.formCarga.longitud.value = lon
@@ -80,6 +79,18 @@
                 {
                     content.innerHTML = "Su navegador no soporta la API de geolocalización.";
                 }
+                debugger
+                var lugar = document.getElementById("lugar");
+
+                fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`,{
+                    method:"POST"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                    lugar.value = data.address.suburb;
+                    })
+                    .catch(e=>console.log(e))
+
             })();
         </script>
 {{> footer}}
