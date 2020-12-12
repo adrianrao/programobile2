@@ -9,6 +9,7 @@
                 <h3>Corregir proforma</h3>
             </div>
             <form method="POST" action="/chofer/corregirProformaEnBD">
+                <div class="card-action form-field">
 
                 <br>
 
@@ -39,7 +40,7 @@
                 <br>
 
                 <label for="costeo_combustible_real">Combustible real:</label>
-                <input type="number" value="{{costeo_combustible_real}}" id="costeo_combustible_real"
+                <input type="number" readonly="readonly" value="{{costeo_combustible_real}}" id="costeo_combustible_real"
                        name="costeo_combustible_real" class="white-text" required>
 
                 <br>
@@ -103,7 +104,7 @@
         </div>
         <br>
 
-
+    </div>
     </div>
 </div>
 

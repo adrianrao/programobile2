@@ -3,7 +3,7 @@
 <div class="row login">
     <div class="col s12 m6 offset-m3">
         <div class="card">
-<div class="card-action gray accent-4 orange-text">
+            <div class="card-action gray accent-4 orange-text">
     <h3>Modificacion Proforma</h3>
 </div>
 <form method="POST" action="/proforma/modificarProforma">
