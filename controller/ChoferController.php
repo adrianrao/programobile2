@@ -150,20 +150,43 @@ class ChoferController
 
         $this->data["id_proforma"] = $_GET["id_proforma"];
 
+
+        //esto lo alimenta un metodo de adri
+        $this->data["lugar"] = "Cordoba";
+
+
+
         echo $this->renderer->render("view/chofer/cargaCombustibleView.php", $this->data);
     }
 
     public function procesarCargaCombustible(){
 
+         //esto lo alimenta un metodo de adri
+        $cor1 = '1010';
+
+        //esto lo alimenta un metodo de adri
+        $cor2 = '9090';
+
+        //esto lo alimenta un metodo de adri
+        $lugar = "Cordoba";
+
+        $this->choferModel->persistirPosicion($cor1, $cor2);
+
+        $id_posicion = $this->choferModel->traerUltimoIdDePosicionInsertado();
+
+        $id_posicion_limpio = $id_posicion[0]["id"];
+
+
+
         $cantidad_litros = $_POST["cantidad_litros"];
 
         $importe = $_POST["importe"];
 
-        $lugar = $_POST["lugar"];
+
 
         $id_proforma = $_POST["id_proforma"];
 
-        $result = $this->choferModel->persistirCargarDeCombustible($cantidad_litros, $importe,$lugar, $id_proforma);
+        $result = $this->choferModel->persistirCargarDeCombustible($cantidad_litros, $importe,$lugar, $id_proforma, $id_posicion_limpio);
 
         if ($result) {
             $this->showNotifiacation->mostrar("Modificacion Exitosa","green");
