@@ -143,8 +143,9 @@ class SupervisorModel
         return mysqli_num_rows($result);
     }
 
+
     public function eliminarTractor($idTractor){
-        $result = $this->db->ejecutarQuery("delete from tractor where tractor.id_tractor   = $idTractor");
+        $result = $this->db->ejecutarQuery("update tractor SET kilometraje = -1 where tractor.id_tractor   = $idTractor");
         return $result;
     }
 

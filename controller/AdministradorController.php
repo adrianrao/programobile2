@@ -132,17 +132,17 @@ class AdministradorController
 
     public function modificarUsuarioSeleccionado()
     {
-        $nuevoNombreUsuario = $_POST["usuarioInput"];
 
-        $usuarioOriginal = $this->administradorModel->buscarUsuarioPorId($_POST["usuario"]);
-        $usuarioAModificar = $usuarioOriginal[0]["usuario"];
+        $traerUsuario = $this->administradorModel->buscarUsuarioPorId($_POST["usuario"]);
+
+        $usuarioAModificar = $traerUsuario[0]["usuario"];
 
         $nombre_completo = $_POST["nombreCompleto"];
         $dni = $_POST["dni"];
         $f_nac = $_POST["f_nac"];
         $id_rol = $_POST["rol"];
 
-        $fueModificado = $this->administradorModel->modificarUnUsuario($nuevoNombreUsuario, $usuarioAModificar, $nombre_completo, $dni, $f_nac, $id_rol);
+        $fueModificado = $this->administradorModel->modificarUnUsuario($usuarioAModificar, $nombre_completo, $dni, $f_nac, $id_rol);
 
         if ($fueModificado) {
             $this->showNotifiacation->mostrar("Modificacion Exitosa","green");

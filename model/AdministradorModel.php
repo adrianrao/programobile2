@@ -34,8 +34,8 @@ class AdministradorModel
         return $this->db->query("SELECT * FROM empleado emp left join rol rol ON rol.id_rol =  emp.id_rol ");
     }
 
-    public function modificarUnUsuario($nuevoNombreUsuario, $usuarioAModificar, $nombreCompleto, $dni,$f_nac,$id_rol){
-        return $this->db->ejecutarQuery("UPDATE empleado SET usuario = '$nuevoNombreUsuario',
+    public function modificarUnUsuario($usuarioAModificar, $nombreCompleto, $dni,$f_nac,$id_rol){
+        return $this->db->ejecutarQuery("UPDATE empleado SET 
  nombre_completo = '$nombreCompleto' ,
   dni = $dni,
    f_nac = STR_TO_DATE('$f_nac', 

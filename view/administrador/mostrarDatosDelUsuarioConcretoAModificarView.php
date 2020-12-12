@@ -8,8 +8,8 @@
                     <form method="POST" action="/administrador/modificarUsuarioSeleccionado">
                         <div class="card-content">
                             <div class="form-field">
-                                <label for="username">Ingrese Usuario:</label>
-                                <input type="text" id="usuarioInput" name="usuarioInput" class="white-text" value="{{usuario}}" required>
+                                <h4 for="username" class="orange-text">Usuario a modificar:</h4>
+                                <h5 for="username">{{usuario}}</h5>
                             </div><br>
 
                             <div class="form-field">

@@ -13,7 +13,7 @@ class EncargadoDeTallerModel
 
     public function traerTodosLosTractores(){
 
-        return $this->db->query("select * from tractor");
+        return $this->db->query("select * from tractor where kilometraje != -1");
 
     }
 
