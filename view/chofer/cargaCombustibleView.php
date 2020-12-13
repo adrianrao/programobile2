@@ -28,7 +28,7 @@
 
                     <div class="form-field">
                         <label for="lugar">Lugar:</label>
-                            <input readonly="readonly"  type="text" id="lugar" name="lugar" class="white-text" required>
+                            <input  type="text" id="lugar" name="lugar" class="white-text" required>
 
                     </div>
                     <input type="text" id="id_proforma" name="id_proforma" class="white-text" hidden required value="{{id_proforma}}">
@@ -61,7 +61,12 @@
                         })
                             .then(res => res.json())
                             .then(data => {
-                                lugar.value = data.address.suburb;
+                                if(data.address == "undefined"){
+                                    lugar.placeholder = "Inserte un lugar"
+                                }else{
+                                    lugar.value = data.address.suburb;
+                                }
+
                             })
                             .catch(e=>console.log(e))
 
