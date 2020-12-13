@@ -137,7 +137,32 @@
                             </tr>
 
                             </tbody>
-                        </table><br><br>
+                        </table>
+
+                        <h2 class="collection-item">Cargas de combustible</h2>
+
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Litros</th>
+                                <th>Importe</th>
+                                <th>Latitud</th>
+                                <th>Longitud</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#historialCargaCombustible}}
+                            <tr>
+                                <td>{{cantidad_litros}}</td>
+                                <td>{{importe}}</td>
+                                <td>{{latitud}}</td>
+                                <td>{{longitud}}</td>
+                            </tr>
+                            {{/historialCargaCombustible}}
+                            </tbody>
+                        </table>
+
+<br><br>
 
 
 

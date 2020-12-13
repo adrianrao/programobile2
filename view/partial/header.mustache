@@ -70,7 +70,7 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a class="btn-small orange darken-2" href="/chofer/mostrarFormularioCargaCombustible">Escanear Codigo QR</a></li>
-                    <li><a class="btn-small orange darken-2" href="/chofer/mostrarLasPosiblesProformasACargar">Listar viajes pendientes</a></li>
+                    <li><a class="btn-small orange darken-2" href="/chofer/mostrarLasProformasPendientesDeFinalizar">Listar viajes pendientes</a></li>
                     <li><a class="btn-small red darken-2" href="/chofer/cerrarSesion">Cerrar sesión</a></li>
                 </ul>
             </div>
@@ -78,7 +78,7 @@
 
         <ul class="sidenav black" id="mobile-demo">
             <li><a class="btn-small orange darken-2" href="/chofer/mostrarFormularioCargaCombustible">Escanear CodigoQR</a></li>
-            <li><a class="btn-small orange darken-2" href="/chofer/mostrarLasPosiblesProformasACargar">Listar viajes pendientes</a></li>
+            <li><a class="btn-small orange darken-2" href="/chofer/mostrarLasProformasPendientesDeFinalizar">Listar viajes pendientes</a></li>
             <li><a class="btn-small red darken-2" href="/chofer/cerrarSesion">Cerrar sesión</a></li>
         </ul>
 
@@ -207,8 +207,6 @@
     <ul id="dropdowncelulares" class="dropdown-content">
         <li><a class="yellow darken-2 white-text" href="/supervisor/listarTodosLosCelulares">Listar</a></li>
         <li><a class="yellow darken-2 white-text" href="/supervisor/cargarFormularioDeAltaACelular">Dar de alta</a></li>
-        <li><a class="yellow darken-2 white-text" href="/supervisor/listarTodosLosPosiblesCelularesAModificar">Modificar</a>
-        </li>
         <li><a class="yellow darken-2 white-text" href="/supervisor/mostrarCelularesSinAsignacionDeChofer">Asignar</a></li>
     </ul>
 
@@ -216,10 +214,6 @@
         <li><a class="sub blue darken-2 white-text" data-target="dropdownlistartractoresyarrastrados">Listar<i
                 class="material-icons right">arrow_right</i></a></li>
         <li><a class="sub blue darken-2 white-text" data-target="dropdownaltatractoresyarrastrados">Alta<i
-                class="material-icons right">arrow_right</i></a></li>
-        <li><a class="sub blue darken-2 white-text" data-target="dropdownbajatractoresyarrastrados">Baja<i
-                class="material-icons right">arrow_right</i></a></li>
-        <li><a class="sub blue darken-2 white-text" data-target="dropdownmodificartractoresyarrastrados">Modificar<i
                 class="material-icons right">arrow_right</i></a></li>
     </ul>
 
@@ -234,26 +228,12 @@
         <li><a class="blue darken-2 white-text" href="/supervisor/darAltaAArrastrado">Dar de alta arrastrados</a></li>
     </ul>
 
-    <ul id="dropdownbajatractoresyarrastrados" class="dropdown-content">
-        <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosTractoresAEliminar">Dar de baja
-            tractores</a></li>
-        <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosArrastradosAEliminar">Dar de baja
-            arrastrados</a></li>
-    </ul>
 
-    <ul id="dropdownmodificartractoresyarrastrados" class="dropdown-content">
-        <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosPosiblesTractoresAModificar">Modificar
-            tractores</a></li>
-        <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosPosiblesArrastradosAModificar">Modificar
-            arrastrados</a></li>
-    </ul>
 
 
     <ul id="dropdownclientes" class="dropdown-content">
         <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosClientes">Listar</a></li>
         <li><a class="orange darken-2 white-text" href="/supervisor/darAltaACliente">Dar de alta</a></li>
-        <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosClientesAEliminar">Dar de baja</a></li>
-        <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosPosiblesClientesAModificar">Modificar</a>
         </li>
 
     </ul>
@@ -261,8 +241,6 @@
     <ul id="dropdownproforma" class="dropdown-content">
         <li><a class="green darken-2 white-text" href="/proforma/mostrarProformas">Listar</a></li>
         <li><a class="green darken-2 white-text" href="/proforma/mostrarFormularioProforma">Cargar proforma</a></li>
-        <li><a class="green darken-2 white-text" href="/proforma/mostrarProformasAEliminar">Eliminar</a></li>
-        <li><a class="green darken-2 white-text" href="/proforma/mostrarProformasAModificar">Modificar</a></li>
 
     </ul>
 
@@ -287,8 +265,6 @@
     <ul id="dropdowncelularesmobile" class="dropdown-content">
         <li><a class="yellow darken-2 white-text" href="/supervisor/listarTodosLosCelulares">Listar</a></li>
         <li><a class="yellow darken-2 white-text" href="/supervisor/cargarFormularioDeAltaACelular">Dar de alta</a></li>
-        <li><a class="yellow darken-2 white-text" href="/supervisor/listarTodosLosPosiblesCelularesAModificar">Modificar</a>
-        </li>
         <li><a class="yellow darken-2 white-text" href="/supervisor/mostrarCelularesSinAsignacionDeChofer">Asignar</a></li>
     </ul>
 
@@ -298,11 +274,6 @@
                 class="material-icons white-text right">arrow_drop_down</i></a></li>
         <li><a class="submobile blue darken-2 white-text" data-target="dropdownaltatractoresyarrastradosmobile">Dar de
             alta<i class="material-icons white-text right">arrow_drop_down</i></a></li>
-        <li><a class="submobile blue darken-2 white-text" data-target="dropdownbajatractoresyarrastradosmobile">Dar de
-            baja<i class="material-icons white-text right">arrow_drop_down</i></a></li>
-        <li><a class="submobile blue darken-2 white-text"
-               data-target="dropdownmodificartractoresyarrastradosmobile">Modificar<i
-                class="material-icons white-text right">arrow_drop_down</i></a></li>
     </ul>
 
 
@@ -316,32 +287,16 @@
         <li><a class="blue darken-2 white-text" href="/supervisor/darAltaAArrastrado">Dar de alta arrastrados</a></li>
     </ul>
 
-    <ul id="dropdownbajatractoresyarrastradosmobile" class="dropdown-content mobile">
-        <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosTractoresAEliminar">Dar de baja
-            tractores</a></li>
-        <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosArrastradosAEliminar">Dar de baja
-            arrastrados</a></li>
-    </ul>
 
-    <ul id="dropdownmodificartractoresyarrastradosmobile" class="dropdown-content mobile">
-        <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosPosiblesTractoresAModificar">Modificar
-            tractores</a></li>
-        <li><a class="blue darken-2 white-text" href="/supervisor/listarTodosLosPosiblesArrastradosAModificar">Modificar
-            arrastrados</a></li>
-    </ul>
 
     <ul id="dropdownclientesmobile" class="dropdown-content">
         <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosClientes">Listar</a></li>
         <li><a class="orange darken-2 white-text" href="/supervisor/darAltaACliente">Dar de alta</a></li>
-        <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosClientesAEliminar">Dar de baja</a></li>
-        <li><a class="orange darken-2 white-text" href="/supervisor/listarTodosLosPosiblesClientesAModificar">Modificar</a>
         </li>
     </ul>
     <ul id="dropdownproformamobile" class="dropdown-content">
         <li><a class="green darken-2 white-text" href="/proforma/mostrarProformas">Listar</a></li>
         <li><a class="green darken-2 white-text" href="/proforma/mostrarFormularioProforma">Cargar proforma</a></li>
-        <li><a class="green darken-2 white-text" href="/proforma/mostrarProformasAEliminar">Eliminar</a></li>
-        <li><a class="green darken-2 white-text" href="/proforma/mostrarProformasAModificar">Modificar</a></li>
     </ul>
 
 

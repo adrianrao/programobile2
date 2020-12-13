@@ -43,14 +43,14 @@ class ChoferController
     }
 
 
-    public function mostrarLasPosiblesProformasACargar(){
+    public function mostrarLasProformasPendientesDeFinalizar(){
 
         $usuario = $_SESSION["usuario"];
-        $traerTodasLasProformasPosiblesACargar = $this->choferModel->listarProformas($usuario);
+        $traerTodasLasProformasPendientesDeFinalizar = $this->choferModel->listarProformas($usuario);
 
 
-        if ($traerTodasLasProformasPosiblesACargar != null) {
-            $this->data["listadoDeProformas"] = $traerTodasLasProformasPosiblesACargar;
+        if ($traerTodasLasProformasPendientesDeFinalizar != null) {
+            $this->data["listadoDeProformas"] = $traerTodasLasProformasPendientesDeFinalizar;
             echo $this->renderer->render("view/chofer/listadoDeProformasView.php", $this->data);
         } else {
             $this->showNotifiacation->mostrar("No hay Proformas a cargar","red");
@@ -147,14 +147,14 @@ class ChoferController
 
     public function procesarCargaCombustible(){
 
-         //esto lo alimenta un metodo de adri
-        $cor1 = '1010';
 
-        //esto lo alimenta un metodo de adri
-        $cor2 = '9090';
+        $cor1 = $_POST["latitud"];
 
-        //esto lo alimenta un metodo de adri
-        $lugar = "Cordoba";
+
+        $cor2 = $_POST["longitud"];
+
+
+        $lugar = $_POST["lugar"];
 
         $this->choferModel->persistirPosicion($cor1, $cor2);
 
@@ -175,9 +175,9 @@ class ChoferController
         $result = $this->choferModel->persistirCargarDeCombustible($cantidad_litros, $importe,$lugar, $id_proforma, $id_posicion_limpio);
 
         if ($result) {
-            $this->showNotifiacation->mostrar("Modificacion Exitosa","green");
+            $this->showNotifiacation->mostrar("Carga Exitosa","green");
         } else {
-            $this->showNotifiacation->mostrar("Fallo la modificacion","red");
+            $this->showNotifiacation->mostrar("Fallo al cargar","red");
         }
 
        

@@ -133,17 +133,6 @@ class ProformaController
         }
     }
 
-    public function mostrarProformasAEliminar(){
-
-        $traerTodasLasProformasRegistradas = $this->proformaModel->obtenerProformas();
-
-        if ($traerTodasLasProformasRegistradas != null) {
-            $this->data["mostrarListadoDeProformasAEliminar"] = $traerTodasLasProformasRegistradas;
-            echo $this->renderer->render("./view/supervisor/proforma/mostrarListadoDeProformasAEliminarView.php", $this->data);
-        } else {
-            $this->showNotifiacation->mostrar("No hay proformas a eleminar","red");
-        }
-    }
 
     public function eliminar(){
         $idProforma = $_POST["id_proforma"];
@@ -155,17 +144,6 @@ class ProformaController
         }
     }
 
-    public function mostrarProformasAModificar(){
-
-        $traerTodasLasProformasRegistradas = $this->proformaModel->obtenerProformas();
-
-        if ($traerTodasLasProformasRegistradas != null) {
-            $this->data["mostrarListadoDeProformasAModificar"] = $traerTodasLasProformasRegistradas;
-            echo $this->renderer->render("./view/supervisor/proforma/mostrarListadoDeProformasAModificarView.php", $this->data);
-        } else {
-            $this->showNotifiacation->mostrar("No hay proformas a modificar","red");
-        }
-    }
 
     public function mostrarDatosDeProformaAModificar(){
         $this->data["cargarSelectCliente"] = $this->proformaModel->traerTodosLosClientes();
@@ -258,6 +236,8 @@ class ProformaController
 
         $idProforma = $_POST["id_proforma"];
         $registro = $this->proformaModel->obtenerProforma($idProforma);
+        $registroHistorialCargaCombustible = $this->proformaModel->obtenerCargasCombustible($idProforma);
+        $this->data["historialCargaCombustible"] = $registroHistorialCargaCombustible;
         $this->data["mostrarDetalleDeProforma"] = $registro;
         GenerarQr::generarCodigoQR($idProforma);
 

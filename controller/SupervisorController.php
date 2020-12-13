@@ -101,16 +101,7 @@ class SupervisorController
         }
     }
 
-    public function listarTodosLosPosiblesCelularesAModificar(){
-        $traerTodosLosCelularesRegistrados = $this->supervisorModel->traerTodosLosCelulares();
 
-        if ($traerTodosLosCelularesRegistrados != null) {
-            $this->data["listadoDeCelularesPosiblesAModificar"] = $traerTodosLosCelularesRegistrados;
-            echo $this->renderer->render("./view/supervisor/celular/listadoDeCelularesPosiblesAModificarView.php", $this->data);
-        } else {
-            $this->showNotifiacation->mostrar("No hay Celulares registrados para modificar","red");
-        }
-    }
 
 
     public function quitarChoferAsignado(){
@@ -475,17 +466,6 @@ class SupervisorController
     }
 
 
-    public function listarTodosLosClientesAEliminar(){
-
-        $traerTodosLosClientesRegistrados = $this->supervisorModel->listarClientes();
-
-        if ($traerTodosLosClientesRegistrados != null) {
-            $this->data["listadoDeClientesAEliminar"] = $traerTodosLosClientesRegistrados;
-            echo $this->renderer->render("./view/supervisor/cliente/listadoDeClientesAEliminarView.php", $this->data);
-        } else {
-            $this->showNotifiacation->mostrar("No hay clientes registrados para eliminar","red");
-        }
-    }
 
     public function eliminarCliente(){
 
@@ -501,19 +481,6 @@ class SupervisorController
 
     }
 
-    public function listarTodosLosPosiblesClientesAModificar(){
-
-        $traerTodosLosClientesRegistrados = $this->supervisorModel->listarClientes();
-
-        if ($traerTodosLosClientesRegistrados != null) {
-            $this->data["listarTodosLosPosiblesClientesAModificar"] = $traerTodosLosClientesRegistrados;
-            echo $this->renderer->render("./view/supervisor/cliente/listarTodosLosPosiblesClientesAModificarView.php", $this->data);
-        } else {
-            $this->showNotifiacation->mostrar("No hay clientes registrados para modificar","red");
-        }
-
-
-    }
 
     public function mostrarDatosDelClienteConcretoAModificar(){
         $id_cliente = $_POST["id_cliente"];
