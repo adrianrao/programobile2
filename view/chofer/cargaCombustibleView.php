@@ -61,7 +61,7 @@
                         })
                             .then(res => res.json())
                             .then(data => {
-                                if(data.address == "undefined"){
+                                if(data.address == null){
                                     lugar.placeholder = "Inserte un lugar"
                                 }else{
                                     lugar.value = data.address.suburb;
