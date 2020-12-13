@@ -205,4 +205,8 @@ VALUES(
         return $this->db->executeQuery("select cantidad_litros, importe , cor1 as latitud, cor2 as longitud from carga_combustible c join posicion p on c.id_posicion = p.id_posicion where id_proforma = $idProforma");
     }
 
+    public function checkearSiLaproformaEstaEnCurso($idProforma){
+        return $this->db->query("select id_carga from carga_combustible where id_proforma = $idProforma");
+    }
+
 }

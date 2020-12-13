@@ -253,7 +253,7 @@ class SupervisorController
         if ($fueBorrado) {
             $this->showNotifiacation->mostrar("Se ha borrado el tractor de la base de datos","green");
         } else {
-            $this->showNotifiacation->mostrar("El tractor no puede ser eliminado, esta asignado a un viaje","red");
+            $this->showNotifiacation->mostrar("Fallo al eliminar","red");
         }
     }
 

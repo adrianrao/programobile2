@@ -136,7 +136,16 @@ class ProformaController
 
     public function eliminar(){
         $idProforma = $_POST["id_proforma"];
-        $elimino = $this->proformaModel->eliminar($idProforma);
+        $proformaEnCurso = $this->proformaModel->checkearSiLaproformaEstaEnCurso($idProforma);
+
+        if($proformaEnCurso != null){
+            $this->showNotifiacation->mostrar("La proforma ya tiene viaje en curso","red");
+            die();
+        }else{
+            $elimino = $this->proformaModel->eliminar($idProforma);
+        }
+
+
         if ($elimino) {
             $this->showNotifiacation->mostrar("Se ha borrado la proforma de la base de datos","green");
         } else {
