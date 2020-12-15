@@ -74,10 +74,11 @@
                             {{costeo_total_estimado}}
                         </li>
                         <br>
-                        <li class="collection-item"><strong class="orange-text text-lighten-2">Carga Combustible</strong>
-                            <table>
+                        <h5 class="collection-item">Carga Combustible</h5>
+                        <li class="collection-item">
+                            <table class="striped">
                                 <thead>
-                                <tr>
+                                <tr class="orange-text">
                                     <th>Litros</th>
                                     <th>Importe</th>
                                     <th>Latitud</th>
@@ -92,7 +93,7 @@
                                     <td>{{importe}}</td>
                                     <td>{{latitud}}</td>
                                     <td>{{longitud}}</td>
-                                    <td ><a style="cursor:pointer;" onclick="mostrarMapa({{latitud}},{{longitud}})"><span class="material-icons">location_on</span></a></td>
+                                    <td ><a style="cursor:pointer;color: #03e554" onclick="mostrarMapa({{latitud}},{{longitud}})"><span  class="material-icons">location_on</span></a></td>
                                 </tr>
                                 {{/historialCargaCombustible}}
                                 </tbody>
@@ -189,10 +190,16 @@
         })
         .then(res => res.json())
         .then(data => {
-            L.marker([latitud,longitud])
-                .addTo(map)
-                .bindPopup(`${data.address.suburb}, ${data.address.road}`)
-                .openPopup();
+            if(data.address.suburb != null && data.address.road != null){
+                L.marker([latitud,longitud])
+                    .addTo(map)
+                    .bindPopup(`${data.address.suburb}, ${data.address.road}`)
+                    .openPopup();
+            }else{
+                L.marker([latitud,longitud])
+                    .addTo(map)
+            }
+
         })
         .catch(e=>console.log(e))
 
